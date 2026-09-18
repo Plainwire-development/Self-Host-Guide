@@ -2,7 +2,8 @@ name: docs
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
 
 permissions:
@@ -10,12 +11,28 @@ permissions:
 
 jobs:
   verify:
+    name: Verify documentation
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout repository
+        uses: actions/checkout@v7
         with:
-          python-version: '3.12'
-      - run: python -m pip install -r requirements-docs.txt
-      - run: make check
-      - run: git diff --exit-code -- site
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install documentation dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-docs.txt
+
+      - name: Run documentation checks
+        run: make check
+
+      - name: Verify generated site is committed
+        run: git diff --exit-code -- site
