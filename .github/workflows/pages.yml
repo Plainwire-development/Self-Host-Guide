@@ -40,21 +40,8 @@ jobs:
       - name: Build and verify documentation
         run: make check
 
-      - name: Require Pages administration token
-        shell: bash
-        env:
-          PAGES_ADMIN_TOKEN: ${{ secrets.PAGES_ADMIN_TOKEN }}
-        run: |
-          if [ -z "$PAGES_ADMIN_TOKEN" ]; then
-            echo "::error::Missing repository secret PAGES_ADMIN_TOKEN. Add a PAT with repository administration/Pages write access, or enable Pages manually in Settings -> Pages and remove enablement/token from configure-pages."
-            exit 1
-          fi
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
-        with:
-          enablement: true
-          token: ${{ secrets.PAGES_ADMIN_TOKEN }}
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5
