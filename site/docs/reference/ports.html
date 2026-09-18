@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.0 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Ports and firewall matrix | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.0</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link active" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Ports and firewall matrix</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Port</th>
+<th>Protocol</th>
+<th>Service</th>
+<th>Public?</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">22</td>
+<td>TCP</td>
+<td>SSH</td>
+<td>restricted</td>
+<td>Prefer VPN, allowlist, or key-only auth</td>
+</tr>
+<tr>
+<td style="text-align:right">80</td>
+<td>TCP</td>
+<td>HTTP</td>
+<td>yes</td>
+<td>ACME and redirect to HTTPS</td>
+</tr>
+<tr>
+<td style="text-align:right">443</td>
+<td>TCP</td>
+<td>HTTPS/WebSocket</td>
+<td>yes</td>
+<td>Main Plainwire origin</td>
+</tr>
+<tr>
+<td style="text-align:right">8080</td>
+<td>TCP</td>
+<td>Plainwire backend</td>
+<td>no</td>
+<td>Reverse proxy target</td>
+</tr>
+<tr>
+<td style="text-align:right">8090</td>
+<td>TCP</td>
+<td>Admin plane</td>
+<td>no</td>
+<td>Keep loopback/private, proxy separately if needed</td>
+</tr>
+<tr>
+<td style="text-align:right">5432</td>
+<td>TCP</td>
+<td>PostgreSQL</td>
+<td>no</td>
+<td>Private database network</td>
+</tr>
+<tr>
+<td style="text-align:right">6379</td>
+<td>TCP</td>
+<td>Redis</td>
+<td>no</td>
+<td>Never public</td>
+</tr>
+<tr>
+<td style="text-align:right">9042</td>
+<td>TCP</td>
+<td>Scylla CQL</td>
+<td>no</td>
+<td>Private database network</td>
+</tr>
+<tr>
+<td style="text-align:right">3478</td>
+<td>UDP/TCP</td>
+<td>TURN/STUN</td>
+<td>yes if self-hosted</td>
+<td>Standard coturn listener</td>
+</tr>
+<tr>
+<td style="text-align:right">5349</td>
+<td>TCP</td>
+<td>TURN TLS</td>
+<td>yes if self-hosted</td>
+<td><code>turns:</code> endpoint</td>
+</tr>
+<tr>
+<td style="text-align:right">49152-65535</td>
+<td>UDP</td>
+<td>TURN relay</td>
+<td>yes if using default coturn range</td>
+<td>Can be narrowed deliberately</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-ufw-edge-rules">Example UFW edge rules<a class="anchor" href="#example-ufw-edge-rules">#</a></h2>
+<p>For an app host without local TURN:</p>
+<pre><code class="language-sh">ufw default deny incoming
+ufw default allow outgoing
+ufw allow 22/tcp
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw enable
+</code></pre>
+<p>Restrict SSH further when possible.</p>
+<p>For a separate TURN host, add its configured TURN listener and relay range. Do not open database ports simply to make container networking easier.</p>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.0.0 · 2026-09-17</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#example-ufw-edge-rules">Example UFW edge rules</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

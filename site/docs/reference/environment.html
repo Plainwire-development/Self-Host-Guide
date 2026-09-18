@@ -1,0 +1,1070 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.0 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Environment variable reference | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.0</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link active" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Environment variable reference</h1>
+<p>This table is generated from the Plainwire 2.0.0 source snapshot, not from memory. Variables marked <code>test/internal</code> are present in the source tree but are not normal production knobs.</p>
+<p>Do not set every variable. Start from upstream <code>.env.example</code>, then add advanced controls only for a reason.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default or note</th>
+<th>Type</th>
+<th>Audience</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PLAINWIRE_ADAPTIVE_SCREEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_ACCEPTORS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_ALLOW_REMOTE</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_BIND</code></td>
+<td>127.0.0.1</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_COOKIE_SECURE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_ENABLED</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_ENROLLMENT_MINUTES</code></td>
+<td>60 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_IDLE_TIMEOUT_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_LOCAL_RECOVERY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_MAX_CONNECTIONS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_MAX_KEEPALIVE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_PORT</code></td>
+<td>8090</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_PUBLIC_URL</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_SECRET_FILE</code></td>
+<td>/var/lib/plainwire/admin-instance.key in production</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ADMIN_SESSION_HOURS</code></td>
+<td>12 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ALLOWED_ORIGINS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ALLOW_ARBITRARY_MEDIA</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ALLOW_INSECURE_DB</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ALLOW_STATIC_TURN_CREDENTIALS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ALLOW_UNSIGNED_MEDIA_TOKENS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_APP_NAME</code></td>
+<td>Plainwire</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ASSET_VERSION</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>test/internal</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_BOT_TOKEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CALL_RING_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CF_ACCOUNT_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CF_ANALYTICS_API_TOKEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CF_TURN_API_TOKEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CF_TURN_KEY_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_CF_USAGE_CHECK_INTERVAL_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_COMPRESS_OVERSIZE_UPLOADS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_HOST</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_IDLE_TX_TIMEOUT_MS</code></td>
+<td>15000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_LOCK_TIMEOUT_MS</code></td>
+<td>5000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_MAX_QUEUE</code></td>
+<td>250</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_NAME</code></td>
+<td>plainwire</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_PASS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_POOL_SIZE</code></td>
+<td>10 in code, 20 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_PORT</code></td>
+<td>5432</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_SLOW_MS</code></td>
+<td>250</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_SSL</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_STATEMENT_TIMEOUT_MS</code></td>
+<td>15000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DB_USER</code></td>
+<td>plainwire</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_DEFAULT_THEME</code></td>
+<td>system</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ENC_KEY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ENV</code></td>
+<td>production in the production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_FILE_REQUESTS_PER_MINUTE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_GITHUB_CACHE_TTL_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_GITHUB_TOKEN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HOST</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_ACCEPTORS</code></td>
+<td>100</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_CONNECT_TIMEOUT_MS</code></td>
+<td>2500</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_FETCH_TIMEOUT_MS</code></td>
+<td>8000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_IDLE_TIMEOUT_MS</code></td>
+<td>60000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_MAX_CONNECTIONS</code></td>
+<td>100000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_MAX_KEEPALIVE</code></td>
+<td>1000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_HTTP_REQUEST_TIMEOUT_MS</code></td>
+<td>30000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_ICE_TRANSPORT_POLICY</code></td>
+<td>all</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_IDLE_TIMEOUT_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_INSTANCE_DESCRIPTION</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_INSTANCE_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_KLIPY_API_KEY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_KLIPY_CONTENT_FILTER</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_KLIPY_COUNTRY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_KLIPY_LOCALE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_KRISP_ENABLED</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MAX_SESSIONS_PER_USER</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_ALLOWED_HOSTS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_FETCH_CONCURRENCY</code></td>
+<td>24</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_QUALITY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_QUALITY_BIN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_REQUESTS_PER_MINUTE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MEDIA_SIGNING_KEY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MESSAGE_BACKEND</code></td>
+<td>postgres</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MESSAGE_ID_CLOCK_ROLLBACK_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_MESSAGE_NODE_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_NODE_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_PBKDF2_ITERS</code></td>
+<td>160000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_PROFILE_IMAGE_MAX_BYTES</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_PUBLIC_URL</code></td>
+<td>required public origin</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_DB</code></td>
+<td>0</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_ENABLED</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_HOST</code></td>
+<td>127.0.0.1</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_PASSWORD</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_PORT</code></td>
+<td>6379</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_PREFIX</code></td>
+<td>plainwire</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_TIMEOUT_MS</code></td>
+<td>80</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_TLS</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_TLS_INSECURE</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REDIS_USERNAME</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REGISTRATION_ENABLED</code></td>
+<td>true</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_RELEASE_BIN</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>test/internal</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_REQUIRE_TURN</code></td>
+<td>true by default in production validation</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_RTC_RECONNECT_GRACE_MS</code></td>
+<td>15000 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_BACKFILL_BATCH</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_BACKFILL_CONCURRENCY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_BACKFILL_MAX_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_BUCKET_POLICY</code></td>
+<td>month</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CACHE_TTL_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CA_FILE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CERT_FILE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CONNECT_TIMEOUT_MS</code></td>
+<td>5000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CONSISTENCY</code></td>
+<td>local_quorum</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_CONTACT_POINTS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_DELIVERY_RETENTION_DAYS</code></td>
+<td>90</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_DRIVER_QUEUE</code></td>
+<td>32768</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_ENABLED</code></td>
+<td>false</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_EVENT_RETENTION_DAYS</code></td>
+<td>365</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_HISTORY_BUCKETS</code></td>
+<td>36 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_IO_THREADS</code></td>
+<td>2</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_KEYSPACE</code></td>
+<td>plainwire</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_KEY_FILE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_LOCAL_DC</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MAX_INFLIGHT</code></td>
+<td>256</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MAX_PAGE_SCAN_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MAX_PARTITION_INFLIGHT</code></td>
+<td>8</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MAX_PARTITION_QUEUE</code></td>
+<td>128</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MAX_QUEUE</code></td>
+<td>4096</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_MIGRATION_MODE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_OPERATION_TIMEOUT_MS</code></td>
+<td>8000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_PARITY_SAMPLE_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_PASSWORD</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_POOL_SIZE</code></td>
+<td>2</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_PORT</code></td>
+<td>9042</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_RECONCILE_INTERVAL_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_RECONCILE_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_REPLICATION_FACTOR</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_REQUEST_TIMEOUT_MS</code></td>
+<td>5000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_SHADOW_SAMPLE_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_TLS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_USERNAME</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_VERIFY_AFTER_ID</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_VERIFY_LIMIT</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_BUCKETS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_GRACE_MS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_RECONCILE_ROWS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SESSION_DAYS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_SOURCE_REPOSITORY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STORAGE_OUTBOX_BATCH</code></td>
+<td>25</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STORAGE_OUTBOX_CONCURRENCY</code></td>
+<td>8</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STORAGE_OUTBOX_FAILED_RETENTION_DAYS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STORAGE_OUTBOX_INTERVAL_MS</code></td>
+<td>250</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STORAGE_OUTBOX_RETENTION_DAYS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_STUN_URLS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TEST_BOOL</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>test/internal</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TEST_NATIVE</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>test/internal</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TRUSTED_PROXIES</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TRUST_PROXY</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_CREDENTIAL</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_MONTHLY_LIMIT_BYTES</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_SECRET</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>secret</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_TTL_SECONDS</code></td>
+<td>3600</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_URLS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_TURN_USERNAME</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_CONCURRENCY</code></td>
+<td>64</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_DIR</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_IMAGE_MAX_DIMENSION</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_INFLIGHT_BYTES</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_MAX_BYTES</code></td>
+<td>262144000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_MAX_FILES</code></td>
+<td>10</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_QUOTA_BYTES</code></td>
+<td>1073741824</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_RETENTION_DAYS</code></td>
+<td>90</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_USER_CONCURRENCY</code></td>
+<td>4</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_UPLOAD_USER_INFLIGHT_BYTES</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_VOICE_MAX_PARTICIPANTS</code></td>
+<td>8</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_VOICE_MAX_SHARES</code></td>
+<td>2</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_ALLOW_HTTP</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_CONCURRENCY</code></td>
+<td>8</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_DELIVERED_RETENTION_DAYS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_FAILED_RETENTION_DAYS</code></td>
+<td>see source/defaults for this advanced knob</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_TIMEOUT_MS</code></td>
+<td>8000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WEBHOOK_WORKER_TIMEOUT_MS</code></td>
+<td>13000 in production example</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WS_HARD_QUEUE</code></td>
+<td>2000</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+<tr>
+<td><code>PLAINWIRE_WS_SOFT_QUEUE</code></td>
+<td>500</td>
+<td>setting</td>
+<td>operator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="non-plainwire-variables">Non-<code>PLAINWIRE_</code> variables<a class="anchor" href="#non-plainwire-variables">#</a></h2>
+<p>The production path also uses common variables such as <code>PORT</code>, <code>COOKIE_SECURE</code>, <code>NODE_ENV</code>, and <code>ERL_FLAGS</code>.</p>
+<h2 id="source-of-truth">Source of truth<a class="anchor" href="#source-of-truth">#</a></h2>
+<p>When this reference and a newer Plainwire release disagree, the newer release source wins. Run the included upstream comparison script after every upgrade.</p>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.0.0 · 2026-09-17</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#non-plainwire-variables">Non-PLAINWIRE variables</a><a class="d2" href="#source-of-truth">Source of truth</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

@@ -1,0 +1,9 @@
+services:
+  coturn:
+    image: coturn/coturn:4.18
+    restart: unless-stopped
+    network_mode: host
+    command: ["-c", "/etc/coturn/turnserver.conf"]
+    volumes:
+      - ./turnserver.conf:/etc/coturn/turnserver.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro

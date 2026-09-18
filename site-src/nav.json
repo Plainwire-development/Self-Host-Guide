@@ -1,0 +1,252 @@
+[
+  [
+    "Start here",
+    [
+      [
+        "Overview",
+        "docs/getting-started/overview.md"
+      ],
+      [
+        "Quick start",
+        "docs/getting-started/quickstart.md"
+      ],
+      [
+        "Topologies",
+        "docs/getting-started/topologies.md"
+      ],
+      [
+        "Requirements",
+        "docs/getting-started/requirements.md"
+      ],
+      [
+        "Hardware sizing",
+        "docs/getting-started/hardware-sizing.md"
+      ],
+      [
+        "DNS and networking",
+        "docs/getting-started/networking.md"
+      ],
+      [
+        "Home server",
+        "docs/getting-started/home-server.md"
+      ]
+    ]
+  ],
+  [
+    "Install",
+    [
+      [
+        "Docker",
+        "docs/installation/docker.md"
+      ],
+      [
+        "OS packages",
+        "docs/installation/os-packages.md"
+      ],
+      [
+        "Docker networking",
+        "docs/installation/docker-networking.md"
+      ],
+      [
+        "Build from source",
+        "docs/installation/build-from-source.md"
+      ],
+      [
+        "systemd",
+        "docs/installation/systemd.md"
+      ],
+      [
+        "Caddy",
+        "docs/installation/caddy.md"
+      ],
+      [
+        "nginx",
+        "docs/installation/nginx.md"
+      ]
+    ]
+  ],
+  [
+    "Configure",
+    [
+      [
+        "Production config",
+        "docs/configuration/configuration.md"
+      ],
+      [
+        "Secrets",
+        "docs/configuration/secrets.md"
+      ],
+      [
+        "PostgreSQL",
+        "docs/configuration/postgresql.md"
+      ],
+      [
+        "Redis",
+        "docs/configuration/redis.md"
+      ],
+      [
+        "ScyllaDB",
+        "docs/configuration/scylla.md"
+      ],
+      [
+        "Production Scylla",
+        "docs/configuration/scylla-production.md"
+      ],
+      [
+        "Scylla migration",
+        "docs/configuration/scylla-migration.md"
+      ],
+      [
+        "Uploads",
+        "docs/configuration/uploads.md"
+      ],
+      [
+        "Admin plane",
+        "docs/configuration/admin-control-plane.md"
+      ],
+      [
+        "Integrations",
+        "docs/configuration/integrations.md"
+      ],
+      [
+        "Media integrations",
+        "docs/configuration/media-integrations.md"
+      ]
+    ]
+  ],
+  [
+    "Calls",
+    [
+      [
+        "WebRTC",
+        "docs/realtime/webrtc.md"
+      ],
+      [
+        "coturn",
+        "docs/realtime/coturn.md"
+      ],
+      [
+        "Cloudflare TURN",
+        "docs/realtime/cloudflare-turn.md"
+      ],
+      [
+        "Managed TURN",
+        "docs/realtime/managed-turn.md"
+      ],
+      [
+        "Diagnostics",
+        "docs/realtime/diagnostics.md"
+      ]
+    ]
+  ],
+  [
+    "Operate",
+    [
+      [
+        "Backups",
+        "docs/operations/backups.md"
+      ],
+      [
+        "Restore",
+        "docs/operations/restore.md"
+      ],
+      [
+        "Upgrades",
+        "docs/operations/upgrades.md"
+      ],
+      [
+        "1.9 to 2.0",
+        "docs/operations/upgrade-1.9-to-2.0.md"
+      ],
+      [
+        "Monitoring",
+        "docs/operations/monitoring.md"
+      ],
+      [
+        "Logs and health",
+        "docs/operations/logs-health.md"
+      ],
+      [
+        "Performance",
+        "docs/operations/performance.md"
+      ],
+      [
+        "Security",
+        "docs/operations/security.md"
+      ],
+      [
+        "Incident response",
+        "docs/operations/incident-response.md"
+      ],
+      [
+        "Clustering",
+        "docs/operations/clustering.md"
+      ],
+      [
+        "Troubleshooting",
+        "docs/operations/troubleshooting.md"
+      ],
+      [
+        "Failure runbooks",
+        "docs/operations/runbooks.md"
+      ],
+      [
+        "Disaster recovery",
+        "docs/operations/disaster-recovery.md"
+      ]
+    ]
+  ],
+  [
+    "Reference",
+    [
+      [
+        "Ports",
+        "docs/reference/ports.md"
+      ],
+      [
+        "Environment",
+        "docs/reference/environment.md"
+      ],
+      [
+        "Complete env catalog",
+        "docs/reference/environment-source-catalog.md"
+      ],
+      [
+        "Release validation",
+        "docs/reference/release-validation.md"
+      ],
+      [
+        "Commands",
+        "docs/reference/commands.md"
+      ],
+      [
+        "Storage matrix",
+        "docs/reference/storage-matrix.md"
+      ],
+      [
+        "Launch checklist",
+        "docs/reference/production-checklist.md"
+      ],
+      [
+        "FAQ",
+        "docs/reference/faq.md"
+      ],
+      [
+        "Glossary",
+        "docs/reference/glossary.md"
+      ],
+      [
+        "Sources",
+        "docs/reference/sources.md"
+      ],
+      [
+        "Compatibility",
+        "docs/reference/upstream-compatibility.md"
+      ],
+      [
+        "Maintain handbook",
+        "docs/reference/maintaining-handbook.md"
+      ]
+    ]
+  ]
+]

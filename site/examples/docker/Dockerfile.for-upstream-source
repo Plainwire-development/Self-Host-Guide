@@ -1,0 +1,40 @@
+# Copy this Dockerfile into the root of a Plainwire 2.0 source checkout.
+# Pin base-image digests in deployments that require fully reproducible images.
+
+FROM debian:13-slim AS builder
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates curl git build-essential cmake pkg-config \
+    libssl-dev libuv1-dev zlib1g-dev \
+    erlang rebar3 nodejs npm python3 make \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+COPY . .
+
+RUN npm ci
+RUN npm run build
+RUN rebar3 compile
+RUN rebar3 eunit
+RUN rebar3 release
+
+FROM debian:13-slim AS runtime
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates libssl3t64 libuv1 zlib1g libstdc++6 curl \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN useradd --system --home /var/lib/plainwire --create-home --shell /usr/sbin/nologin plainwire
+WORKDIR /opt/plainwire
+COPY --from=builder /build/_build/default/rel/plainwire_relay/ /opt/plainwire/
+RUN mkdir -p /var/lib/plainwire/uploads && chown -R plainwire:plainwire /var/lib/plainwire
+
+USER plainwire
+ENV PORT=8080
+EXPOSE 8080
+VOLUME ["/var/lib/plainwire"]
+HEALTHCHECK --interval=15s --timeout=5s --start-period=20s --retries=5 \
+  CMD curl -fsS http://127.0.0.1:8080/api/health >/dev/null || exit 1
+
+CMD ["/opt/plainwire/bin/plainwire_relay", "foreground"]

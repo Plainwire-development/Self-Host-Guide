@@ -1,0 +1,23 @@
+# Single-node Scylla for migration testing and development only.
+# This is not a production Scylla cluster.
+services:
+  scylla:
+    image: scylladb/scylla:6.2
+    command:
+      - --smp=2
+      - --memory=4G
+      - --overprovisioned=1
+      - --developer-mode=1
+    volumes:
+      - scylla-lab-data:/var/lib/scylla
+    ports:
+      - "127.0.0.1:9042:9042"
+    healthcheck:
+      test: ["CMD-SHELL", "nodetool status | grep -q '^UN'"]
+      interval: 30s
+      timeout: 10s
+      retries: 20
+      start_period: 120s
+
+volumes:
+  scylla-lab-data:
