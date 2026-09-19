@@ -20,15 +20,16 @@ This repository is tied to a specific Plainwire release. Treat documentation cha
 
 5. Review every added, removed, or behavior-changing variable by reading the source that consumes it. Do not document a guessed default.
 6. Review `rebar.config`, `package.json`, `package-lock.json`, release profiles, database migrations, deployment scripts, and upstream release notes for changed dependencies or operational requirements.
-7. Recheck storage behavior, TURN credential handling, proxy trust, upload limits, admin-plane behavior, and health endpoints. These affect production architecture directly.
-8. Update examples only after confirming they still match the application behavior.
-9. Rebuild and verify the documentation:
+7. Recheck storage behavior, TURN credential handling, proxy trust, upload limits, admin-plane behavior, health endpoints, key/search rotation behavior, bot/app egress rules, realtime admission limits, and load harnesses. These affect production architecture directly.
+8. Run the upstream release gate and a representative staged load test before documenting capacity claims.
+9. Update examples only after confirming they still match the application behavior.
+10. Rebuild and verify the documentation:
 
    ```sh
    make check
    ```
 
-10. Review the generated `site/` diff before publishing.
+11. Review the generated `site/` diff before publishing.
 
 ## Review external operational guidance
 

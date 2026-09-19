@@ -1,0 +1,80 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.1 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Plainwire 2.0 to 2.1 | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.1</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link active" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Plainwire 2.0 to 2.1</h1>
+<p>Plainwire 2.1 keeps PostgreSQL as relational authority and does not require a flag-day move to Redis or Scylla. The safest upgrade is therefore an application upgrade first, followed by optional tuning or storage changes only after the new release is healthy.</p>
+<h2 id="what-changes-operationally">What changes operationally<a class="anchor" href="#what-changes-operationally">#</a></h2>
+<p>2.1 adds or strengthens several production boundaries:</p>
+<ul>
+<li>bounded PostgreSQL lane admission and <code>PLAINWIRE_DB_CALL_TIMEOUT_MS</code>;</li>
+<li>separate HTTP and WebSocket connection/admission controls;</li>
+<li>bounded per-socket realtime delivery with ephemeral shedding and slow-client eviction;</li>
+<li>capped presence-watch and rate-limit state;</li>
+<li>bounded async background workers;</li>
+<li>Redis I/O worker pooling with bounded sync/async queues;</li>
+<li>bounded optional cluster event outbox and dedup state;</li>
+<li>encryption-key rotation through <code>PLAINWIRE_ENC_PREVIOUS_KEYS</code>;</li>
+<li>keyed blind-index message search with optional <code>PLAINWIRE_SEARCH_KEY</code>;</li>
+<li>Bot API rate and command-lease controls;</li>
+<li>Developer Applications with queue, signed HTTPS interaction, and optional AI handlers;</li>
+<li>additional host-admin listener connection/time-out controls.</li>
+</ul>
+<h2 id="before-upgrading">Before upgrading<a class="anchor" href="#before-upgrading">#</a></h2>
+<ol>
+<li>
+<p>Get PostgreSQL, upload storage, configuration, and admin-instance-secret backups off the host.</p>
+</li>
+<li>
+<p>Record the current Plainwire image/release and rollback command.</p>
+</li>
+<li>
+<p>Preserve the current <code>PLAINWIRE_ENC_KEY</code> exactly. Losing it can make encrypted application data unreadable.</p>
+</li>
+<li>
+<p>If you already use Scylla authority, verify parity/outbox health before changing application code.</p>
+</li>
+<li>
+<p>Run the 2.1 build/test gate on the exact source you plan to deploy. <code>make check</code> must exit zero.</p>
+</li>
+<li>
+<p>Compare configuration:</p>
+<pre><code class="language-sh">python3 scripts/compare-upstream-env.py /path/to/Plainwire-2.1.0
+</code></pre>
+</li>
+</ol>
+<p>Do not copy every new 2.1 variable into production. Start with source defaults and override only measured or architecture-specific limits.</p>
+<h2 id="encryption-and-search-keys">Encryption and search keys<a class="anchor" href="#encryption-and-search-keys">#</a></h2>
+<p>Do not rotate keys merely because you are upgrading. A normal 2.0 to 2.1 upgrade keeps the same <code>PLAINWIRE_ENC_KEY</code>.</p>
+<p>If you intentionally rotate encryption later:</p>
+<pre><code class="language-ini">PLAINWIRE_ENC_KEY=&lt;new base64 32-byte key&gt;
+PLAINWIRE_ENC_PREVIOUS_KEYS=&lt;old base64 key&gt;
+</code></pre>
+<p>New protected values use the primary key while reads can fall back to previous keys. Keep previous keys backed up until data encrypted with them has been deliberately re-encrypted or aged out.</p>
+<p><code>PLAINWIRE_SEARCH_KEY</code> is independent. If unset, Plainwire derives the search key from the encryption key. Changing the search key invalidates the existing blind index and requires it to be rebuilt. Treat a search-key change as a migration, not routine configuration cleanup.</p>
+<h2 id="first-boot">First boot<a class="anchor" href="#first-boot">#</a></h2>
+<p>Keep the storage topology conservative for the first 2.1 boot:</p>
+<pre><code class="language-ini">PLAINWIRE_MESSAGE_BACKEND=postgres
+PLAINWIRE_SCYLLA_ENABLED=false
+</code></pre>
+<p>If Redis was already stable, it may remain enabled. Otherwise prove the PostgreSQL-only application first, then enable Redis separately.</p>
+<p>Verify:</p>
+<ul>
+<li><code>/api/health</code> and <code>/api/version</code>;</li>
+<li>sign-in and session persistence;</li>
+<li>DM, channel, thread/forum, edit, reply, reactions, attachments, and search;</li>
+<li>bot and webhook behavior you actually use;</li>
+<li>Developer Portal and application installation if enabled;</li>
+<li>host-admin control plane if enabled;</li>
+<li>WebSocket reconnect and presence;</li>
+<li>voice call, mute/deafen, screen share, relay-only TURN, and call reconnect.</li>
+</ul>
+<h2 id="capacity-validation">Capacity validation<a class="anchor" href="#capacity-validation">#</a></h2>
+<p>2.1 adds stronger overload controls, but configured limits are ceilings, not throughput promises. Before a public release, run the staged load plan in <a href="../reference/release-validation.html">Release and deployment validation</a>. Large tests should use a staging environment or a separate load-generator host.</p>
+<h2 id="rollback">Rollback<a class="anchor" href="#rollback">#</a></h2>
+<p>A code rollback is only safe while database/storage changes remain backward compatible. Do not assume reverting an image reverses:</p>
+<ul>
+<li>completed schema migrations;</li>
+<li>Scylla authority changes;</li>
+<li>key rotation;</li>
+<li>a blind-index key change or rebuild;</li>
+<li>application secrets created after the backup point.</li>
+</ul>
+<p>Keep the old release artifact available until the new version has passed the smoke, load, and soak gates that matter for your installation.</p>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.1.0 · 2026-09-19</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#what-changes-operationally">What changes operationally</a><a class="d2" href="#before-upgrading">Before upgrading</a><a class="d2" href="#encryption-and-search-keys">Encryption and search keys</a><a class="d2" href="#first-boot">First boot</a><a class="d2" href="#capacity-validation">Capacity validation</a><a class="d2" href="#rollback">Rollback</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

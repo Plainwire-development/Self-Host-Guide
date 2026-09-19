@@ -1,12 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.0 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Release and deployment validation | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.0</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link active" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Release and deployment validation</h1>
-<p>Use this list when moving a new Plainwire release into production.</p>
-<h2 id="source-and-build">Source and build<a class="anchor" href="#source-and-build">#</a></h2>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.1 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Release and deployment validation | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.1</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link active" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Release and deployment validation</h1>
+<p>Use this as the promotion gate for a Plainwire 2.1 release. A source tree that merely compiles is not release validated.</p>
+<h2 id="source-and-correctness-gate">Source and correctness gate<a class="anchor" href="#source-and-correctness-gate">#</a></h2>
+<p>From a clean release candidate:</p>
 <pre><code class="language-sh">make doctor
 make check
-rebar3 eunit
-rebar3 release
+make release
 </code></pre>
-<p>If Docker is the deployment artifact, build from a clean cache periodically so hidden builder state cannot carry the release.</p>
+<p><code>make check</code> must exit zero. It should cover source/contract verification, frontend compilation, browser regressions, real RTC/RTP tests, backend compilation, and the complete EUnit suite. Treat any skipped or failed test as an explicit release decision, not a green build.</p>
+<p>If native call-health analysis is part of your production artifact, also run the matching <code>NATIVE=1</code> build/check path.</p>
 <h2 id="container-checks">Container checks<a class="anchor" href="#container-checks">#</a></h2>
 <ul>
 <li>image builds from a clean checkout;</li>
@@ -30,9 +31,11 @@ PLAINWIRE_REDIS_ENABLED=false
 <ul>
 <li>authentication succeeds;</li>
 <li>no reconnect loop in logs;</li>
+<li>pooled workers remain healthy under load;</li>
 <li>presence works across reconnects/nodes as applicable;</li>
 <li>rate gates still fail safely;</li>
-<li>Redis restart does not take authentication or message storage down.</li>
+<li>Redis restart does not take authentication or message storage down;</li>
+<li>bounded Redis queues recover after a burst instead of growing indefinitely.</li>
 </ul>
 <h2 id="scylla-gate">Scylla gate<a class="anchor" href="#scylla-gate">#</a></h2>
 <p>Do not jump directly to Scylla authority. Follow the migration guide and prove:</p>
@@ -49,11 +52,63 @@ PLAINWIRE_REDIS_ENABLED=false
 <p>From two unrelated networks:</p>
 <ul>
 <li>join a voice call;</li>
-<li>mute/unmute;</li>
+<li>mute/unmute and deafen/undeafen;</li>
 <li>reconnect;</li>
-<li>screen share;</li>
+<li>screen share with audio when supported;</li>
 <li>test relay-only ICE;</li>
 <li>leave a call open through TURN credential refresh.</li>
+</ul>
+<p>Remember that TURN is a relay, not an SFU. Plainwire 2.1 calls remain full mesh.</p>
+<h2 id="staged-load-gate">Staged load gate<a class="anchor" href="#staged-load-gate">#</a></h2>
+<p><code>make check</code> is mandatory but does not replace capacity testing. Increase load in stages and stop if latency, memory, database pressure, or queue recovery becomes unhealthy.</p>
+<p>Synthetic realtime/control-plane stress:</p>
+<pre><code class="language-sh">make load USERS=100 DURATION=30 RATE=200
+make load USERS=1000 DURATION=120 RATE=2500
+make load USERS=2500 DURATION=180 RATE=5000
+make load USERS=5000 DURATION=300 RATE=10000
+</code></pre>
+<p>A 10000-user synthetic run is useful as a future-capacity/stress probe when the host can support it:</p>
+<pre><code class="language-sh">make load-doctor USERS=10000
+make load USERS=10000 DURATION=300 RATE=20000
+</code></pre>
+<p>Do not require a small self-hosting machine to sustain 10000 users merely because the harness can request it. Release capacity is whatever your measured host can sustain with acceptable latency and recovery.</p>
+<p>Live authenticated HTTP/WebSocket load should exercise the real network path in staging:</p>
+<pre><code class="language-sh">make load-live USERS=100 DURATION=60 RATE=0
+make load-live USERS=1000 DURATION=120 RATE=0
+</code></pre>
+<p>Use the session fixture and <code>LOAD_BASE_URL</code> required by the upstream load harness. For large network runs, place the generator on another machine so generator CPU, file descriptors, and ephemeral ports do not become the bottleneck you are measuring.</p>
+<h2 id="soak-and-recovery-gate">Soak and recovery gate<a class="anchor" href="#soak-and-recovery-gate">#</a></h2>
+<p>Run a sustained test after burst tests. For example:</p>
+<pre><code class="language-sh">make load USERS=1000 DURATION=3600 RATE=0
+</code></pre>
+<p>Watch for:</p>
+<ul>
+<li>memory that never settles after load falls;</li>
+<li>growing BEAM mailboxes or outstanding-delivery reservations;</li>
+<li>DB lane saturation that does not recover;</li>
+<li>Redis queue growth that does not drain;</li>
+<li>stale presence/subscription/RTC ownership entries;</li>
+<li>file-descriptor/socket leakage;</li>
+<li>repeated process restarts.</li>
+</ul>
+<p>Also exercise a reconnect storm by disconnecting and reconnecting a large cohort over a short interval. The desired overload behavior is bounded rejection/shedding and recovery, not unbounded queuing.</p>
+<h2 id="developer-application-and-outbound-egress-gate">Developer application and outbound egress gate<a class="anchor" href="#developer-application-and-outbound-egress-gate">#</a></h2>
+<p>If bots, webhooks, Developer Applications, or AI handlers are enabled:</p>
+<ul>
+<li>verify bot/API scopes and server/channel authorization;</li>
+<li>confirm command claim/retry behavior;</li>
+<li>verify signed interaction endpoints reject invalid signatures/timestamps;</li>
+<li>confirm remote application/AI endpoints require HTTPS;</li>
+<li>leave <code>PLAINWIRE_APP_ALLOW_LOOPBACK_HTTP=false</code> in production;</li>
+<li>verify request/response size and concurrency limits;</li>
+<li>confirm AI/API secrets never reach browser responses or logs.</li>
+</ul>
+<h2 id="key-and-search-gate">Key and search gate<a class="anchor" href="#key-and-search-gate">#</a></h2>
+<ul>
+<li>the active <code>PLAINWIRE_ENC_KEY</code> is backed up securely;</li>
+<li>previous encryption keys remain available during any intentional rotation;</li>
+<li>a <code>PLAINWIRE_SEARCH_KEY</code> change is treated as an index migration;</li>
+<li>restore procedures include every key required to read restored encrypted data.</li>
 </ul>
 <h2 id="operational-gate">Operational gate<a class="anchor" href="#operational-gate">#</a></h2>
 <ul>
@@ -63,6 +118,7 @@ PLAINWIRE_REDIS_ENABLED=false
 <li>alerts point to a real contact/runbook;</li>
 <li>rollback command/image is known;</li>
 <li>disk and database headroom are adequate;</li>
-<li>logs contain no secrets.</li>
+<li>logs contain no secrets;</li>
+<li>expected queue/drop/eviction counters return to baseline after load.</li>
 </ul>
-<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.0.0 · 2026-09-17</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#source-and-build">Source and build</a><a class="d2" href="#container-checks">Container checks</a><a class="d2" href="#postgresql-only-compatibility-gate">PostgreSQL-only compatibility gate</a><a class="d2" href="#redis-gate">Redis gate</a><a class="d2" href="#scylla-gate">Scylla gate</a><a class="d2" href="#realtime-gate">Realtime gate</a><a class="d2" href="#operational-gate">Operational gate</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.1.0 · 2026-09-19</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#source-and-correctness-gate">Source and correctness gate</a><a class="d2" href="#container-checks">Container checks</a><a class="d2" href="#postgresql-only-compatibility-gate">PostgreSQL-only compatibility gate</a><a class="d2" href="#redis-gate">Redis gate</a><a class="d2" href="#scylla-gate">Scylla gate</a><a class="d2" href="#realtime-gate">Realtime gate</a><a class="d2" href="#staged-load-gate">Staged load gate</a><a class="d2" href="#soak-and-recovery-gate">Soak and recovery gate</a><a class="d2" href="#developer-application-and-outbound-egress-gate">Developer application and outbound egress gate</a><a class="d2" href="#key-and-search-gate">Key and search gate</a><a class="d2" href="#operational-gate">Operational gate</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

@@ -12,6 +12,23 @@ PLAINWIRE_ADMIN_PORT=8090
 
 Enable it only when you have an operator access plan.
 
+## Capacity and listener controls
+
+2.1 exposes explicit listener controls so the admin plane cannot accidentally inherit public-app scale assumptions:
+
+```ini
+PLAINWIRE_ADMIN_ACCEPTORS=10
+PLAINWIRE_ADMIN_CONNECTION_SUPERVISORS=4
+PLAINWIRE_ADMIN_MAX_CONNECTIONS=2000
+PLAINWIRE_ADMIN_HANDSHAKE_TIMEOUT_MS=5000
+PLAINWIRE_ADMIN_SEND_TIMEOUT_MS=10000
+PLAINWIRE_ADMIN_IDLE_TIMEOUT_MS=30000
+PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS=15000
+PLAINWIRE_ADMIN_MAX_KEEPALIVE=200
+```
+
+The admin plane should remain low-volume. Do not increase these limits just because the public listener is sized for more connections.
+
 ## Remote access
 
 The safest remote pattern is to keep the admin listener private and put a dedicated HTTPS origin in front of it:
@@ -34,7 +51,7 @@ Production defaults to:
 /var/lib/plainwire/admin-instance.key
 ```
 
-Persist and protect this file. It binds operator verification material to the instance.
+Persist, back up, and protect this file. It binds operator verification material to the instance.
 
 ## Recovery mode
 
@@ -42,4 +59,4 @@ Persist and protect this file. It binds operator verification material to the in
 
 ## Separation
 
-Do not give ordinary server moderators host-operator access. These are different trust domains.
+Do not give ordinary server moderators host-operator access. Instance moderation and host operation are different trust domains.

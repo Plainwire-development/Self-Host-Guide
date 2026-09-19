@@ -15,7 +15,7 @@ docker compose version
 
 ## Build the Plainwire image
 
-Plainwire 2.0 includes `erlcass`, which compiles a native Cassandra/Scylla driver. The builder image must include CMake and native dependencies even if Scylla is disabled at runtime.
+Plainwire 2.1 includes `erlcass`, which compiles a native Cassandra/Scylla driver. The builder image must include CMake and native dependencies even if Scylla is disabled at runtime.
 
 Use [Dockerfile.for-upstream-source](../../examples/docker/Dockerfile.for-upstream-source) from the root of an upstream Plainwire source checkout.
 

@@ -1,6 +1,6 @@
 # Command reference
 
-## Build
+## Build and release
 
 ```sh
 make doctor
@@ -16,6 +16,31 @@ Native call health:
 make build NATIVE=1
 make check NATIVE=1
 ```
+
+## Load validation
+
+Synthetic realtime/control-plane load:
+
+```sh
+make load USERS=1000 DURATION=120 RATE=2500
+make load-10000 DURATION=300 RATE=20000
+make load-soak USERS=1000
+```
+
+Preflight a large host test:
+
+```sh
+make load-doctor USERS=10000
+```
+
+Live HTTP/WebSocket staging harness:
+
+```sh
+make load-live-selftest
+make load-live USERS=1000 DURATION=120 RATE=0
+```
+
+The live harness also needs the upstream session fixture/base-URL configuration. Do not aim large live tests at an unrelated public instance.
 
 ## Docker
 

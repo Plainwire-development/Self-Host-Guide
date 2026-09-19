@@ -3,22 +3,26 @@
 ## Current target
 
 ```text
-Plainwire: 2.0.0
-Handbook verified: 2026-09-17
-Source archive SHA-256: 24149401932fd16a4d000dedc7be2806cf3e9807fa04b8800a45e4802847a17d
+Plainwire: 2.1.0
+Handbook verified: 2026-09-19
 ```
 
-The source snapshot used for this handbook includes:
+The 2.1 source snapshot used to refresh this handbook includes:
 
-- PostgreSQL as mandatory relational authority;
-- optional Redis realtime acceleration;
+- PostgreSQL as mandatory relational authority and bounded DB lane admission;
+- optional Redis realtime acceleration with pooled I/O workers and bounded queues;
 - optional Scylla message/event backend with `postgres`, `dual`, and `scylla` modes;
-- Gun-based outbound HTTP/webhooks;
-- coturn/static TURN support;
-- direct Cloudflare Realtime TURN integration;
-- optional host admin control plane;
-- optional Partisan cluster profile;
-- optional native call-health worker.
+- concurrent realtime indexes with bounded WebSocket backpressure/admission;
+- keyed blind-index message search and encryption-key rotation support;
+- Bot API v1, Developer Applications, signed interaction endpoints, and optional AI handlers;
+- Gun-based outbound HTTP/webhooks with separate application egress policy;
+- coturn/static TURN support and direct Cloudflare Realtime TURN integration;
+- optional host admin control plane with dedicated listener controls;
+- optional Partisan cluster profile with one realtime owner and a bounded event outbox;
+- optional native call-health worker;
+- synthetic and live HTTP/WebSocket load harnesses.
+
+The handbook intentionally does not claim unsupported multi-owner WebSocket clustering or SFU media. Plainwire 2.1 calls remain full mesh.
 
 ## After upgrading Plainwire
 
@@ -27,15 +31,18 @@ Recheck:
 1. `.env.example` for new or removed variables;
 2. `rebar.config` for build dependencies;
 3. `compose.yaml` and `deploy/`;
-4. storage and migration docs;
-5. release notes;
-6. security-sensitive defaults;
-7. minimum toolchain versions.
+4. database migrations and storage semantics;
+5. bot/app/webhook/API contract changes;
+6. release notes and security audit notes;
+7. security-sensitive defaults and key formats;
+8. minimum toolchain versions;
+9. load-harness behavior and capacity assumptions.
 
 Run:
 
 ```sh
 python3 scripts/compare-upstream-env.py /path/to/new/Plainwire
+python3 scripts/rebuild-env-reference.py /path/to/new/Plainwire
 ```
 
-This reports configuration names known to the app source that are not in this handbook's snapshot list.
+Review the generated diff rather than assuming every new token is an operator setting.

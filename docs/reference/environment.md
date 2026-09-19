@@ -1,8 +1,8 @@
 # Environment variable reference
 
-This table is generated from the Plainwire 2.0.0 source snapshot, not from memory. Variables marked `test/internal` are present in the source tree but are not normal production knobs.
+This is the operator-facing environment reference refreshed against the Plainwire 2.1.0 source snapshot. It intentionally prioritizes variables present in the upstream production example plus a small number of compatibility/build names. The [complete source token catalog](environment-source-catalog.md) records every `PLAINWIRE_*` token found in the source tree.
 
-Do not set every variable. Start from upstream `.env.example`, then add advanced controls only for a reason.
+Do not set every variable. Start from upstream `.env.example`, then add advanced controls only for a measured or architecture-specific reason.
 
 | Variable | Default or note | Type | Audience |
 | --- | --- | --- | --- |
@@ -11,9 +11,11 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_ADMIN_ALLOW_REMOTE` | false | setting | operator |
 | `PLAINWIRE_ADMIN_BIND` | 127.0.0.1 | setting | operator |
 | `PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN` | see source/defaults for this advanced knob | secret | operator |
+| `PLAINWIRE_ADMIN_CONNECTION_SUPERVISORS` | 4 | setting | operator |
 | `PLAINWIRE_ADMIN_COOKIE_SECURE` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ADMIN_ENABLED` | false | setting | operator |
 | `PLAINWIRE_ADMIN_ENROLLMENT_MINUTES` | 60 in production example | setting | operator |
+| `PLAINWIRE_ADMIN_HANDSHAKE_TIMEOUT_MS` | 5000 | setting | operator |
 | `PLAINWIRE_ADMIN_IDLE_TIMEOUT_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ADMIN_LOCAL_RECOVERY` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ADMIN_MAX_CONNECTIONS` | see source/defaults for this advanced knob | setting | operator |
@@ -22,14 +24,34 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_ADMIN_PUBLIC_URL` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ADMIN_SECRET_FILE` | /var/lib/plainwire/admin-instance.key in production | setting | operator |
+| `PLAINWIRE_ADMIN_SEND_TIMEOUT_MS` | 10000 | setting | operator |
 | `PLAINWIRE_ADMIN_SESSION_HOURS` | 12 in production example | setting | operator |
+| `PLAINWIRE_AI_COMMANDS_PER_APP_PER_MINUTE` | 60 | setting | operator |
+| `PLAINWIRE_AI_COMMAND_CONCURRENCY` | 4 | setting | operator |
+| `PLAINWIRE_AI_COMMAND_TIMEOUT_MS` | 30000 | setting | operator |
 | `PLAINWIRE_ALLOWED_ORIGINS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ALLOW_ARBITRARY_MEDIA` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ALLOW_INSECURE_DB` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ALLOW_STATIC_TURN_CREDENTIALS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_ALLOW_UNSIGNED_MEDIA_TOKENS` | see source/defaults for this advanced knob | setting | operator |
+| `PLAINWIRE_APP_ALLOW_LOOPBACK_HTTP` | false | setting | operator |
+| `PLAINWIRE_APP_COMMAND_LEASE_MS` | 45000 | setting | operator |
+| `PLAINWIRE_APP_COMMAND_MAX_ATTEMPTS` | 6 | setting | operator |
+| `PLAINWIRE_APP_INTERACTION_CONCURRENCY` | 8 | setting | operator |
+| `PLAINWIRE_APP_INTERACTION_TIMEOUT_MS` | 10000 | setting | operator |
 | `PLAINWIRE_APP_NAME` | Plainwire | setting | operator |
+| `PLAINWIRE_APP_REQUEST_MAX_BYTES` | 65536 | setting | operator |
+| `PLAINWIRE_APP_RESPONSE_MAX_BYTES` | 131072 | setting | operator |
 | `PLAINWIRE_ASSET_VERSION` | see source/defaults for this advanced knob | setting | test/internal |
+| `PLAINWIRE_ASYNC_MAX_QUEUE` | 4096 | setting | operator |
+| `PLAINWIRE_ASYNC_WORKERS` | 16 | setting | operator |
+| `PLAINWIRE_BASE_URL` | SDK example variable, not a server runtime setting | setting | test/internal |
+| `PLAINWIRE_BOT_COMMAND_CLAIM_PER_MINUTE` | 2400 | setting | operator |
+| `PLAINWIRE_BOT_COMMAND_LEASE_MS` | 30000 | setting | operator |
+| `PLAINWIRE_BOT_COMMAND_MAX_ATTEMPTS` | 8 | setting | operator |
+| `PLAINWIRE_BOT_MESSAGE_PER_MINUTE` | 300 | setting | operator |
+| `PLAINWIRE_BOT_MUTATION_PER_MINUTE` | 600 | setting | operator |
+| `PLAINWIRE_BOT_READ_PER_MINUTE` | 1200 | setting | operator |
 | `PLAINWIRE_BOT_TOKEN` | see source/defaults for this advanced knob | secret | operator |
 | `PLAINWIRE_CALL_RING_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_CF_ACCOUNT_ID` | see source/defaults for this advanced knob | setting | operator |
@@ -37,7 +59,14 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_CF_TURN_API_TOKEN` | see source/defaults for this advanced knob | secret | operator |
 | `PLAINWIRE_CF_TURN_KEY_ID` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_CF_USAGE_CHECK_INTERVAL_MS` | see source/defaults for this advanced knob | setting | operator |
+| `PLAINWIRE_CLUSTER_DEDUP_LIMIT` | 262144 | setting | operator |
+| `PLAINWIRE_CLUSTER_DRAIN_BATCH` | 128 | setting | operator |
+| `PLAINWIRE_CLUSTER_EVENT_MAX_AGE_MS` | 12000 | setting | operator |
+| `PLAINWIRE_CLUSTER_OUTBOX_LIMIT` | 8192 | setting | operator |
+| `PLAINWIRE_CLUSTER_RETRY_MS` | 500 | setting | operator |
+| `PLAINWIRE_CLUSTER_REVALIDATE_JITTER_MS` | 10000 | setting | operator |
 | `PLAINWIRE_COMPRESS_OVERSIZE_UPLOADS` | see source/defaults for this advanced knob | setting | operator |
+| `PLAINWIRE_DB_CALL_TIMEOUT_MS` | 60000 | setting | operator |
 | `PLAINWIRE_DB_HOST` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_DB_IDLE_TX_TIMEOUT_MS` | 15000 | setting | operator |
 | `PLAINWIRE_DB_LOCK_TIMEOUT_MS` | 5000 | setting | operator |
@@ -51,19 +80,24 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_DB_STATEMENT_TIMEOUT_MS` | 15000 | setting | operator |
 | `PLAINWIRE_DB_USER` | plainwire | setting | operator |
 | `PLAINWIRE_DEFAULT_THEME` | system | setting | operator |
+| `PLAINWIRE_DEVELOPER_APP_LIMIT` | 25 | setting | operator |
 | `PLAINWIRE_ENC_KEY` | see source/defaults for this advanced knob | secret | operator |
+| `PLAINWIRE_ENC_PREVIOUS_KEYS` | empty by default | secret | operator |
 | `PLAINWIRE_ENV` | production in the production example | setting | operator |
 | `PLAINWIRE_FILE_REQUESTS_PER_MINUTE` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_GITHUB_CACHE_TTL_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_GITHUB_TOKEN` | see source/defaults for this advanced knob | secret | operator |
 | `PLAINWIRE_HOST` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_HTTP_ACCEPTORS` | 100 | setting | operator |
+| `PLAINWIRE_HTTP_CONNECTION_SUPERVISORS` | 8 | setting | operator |
 | `PLAINWIRE_HTTP_CONNECT_TIMEOUT_MS` | 2500 | setting | operator |
 | `PLAINWIRE_HTTP_FETCH_TIMEOUT_MS` | 8000 | setting | operator |
+| `PLAINWIRE_HTTP_HANDSHAKE_TIMEOUT_MS` | 5000 | setting | operator |
 | `PLAINWIRE_HTTP_IDLE_TIMEOUT_MS` | 60000 | setting | operator |
 | `PLAINWIRE_HTTP_MAX_CONNECTIONS` | 100000 | setting | operator |
 | `PLAINWIRE_HTTP_MAX_KEEPALIVE` | 1000 | setting | operator |
 | `PLAINWIRE_HTTP_REQUEST_TIMEOUT_MS` | 30000 | setting | operator |
+| `PLAINWIRE_HTTP_SEND_TIMEOUT_MS` | 15000 | setting | operator |
 | `PLAINWIRE_ICE_TRANSPORT_POLICY` | all | setting | operator |
 | `PLAINWIRE_IDLE_TIMEOUT_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_INSTANCE_DESCRIPTION` | see source/defaults for this advanced knob | setting | operator |
@@ -85,14 +119,19 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_MESSAGE_NODE_ID` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_NODE_ID` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_PBKDF2_ITERS` | 160000 | setting | operator |
+| `PLAINWIRE_PRESENCE_WATCH_MAX` | 2000 | setting | operator |
 | `PLAINWIRE_PROFILE_IMAGE_MAX_BYTES` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_PUBLIC_URL` | required public origin | setting | operator |
+| `PLAINWIRE_RATE_MAX_ENTRIES` | 500000 | setting | operator |
+| `PLAINWIRE_REDIS_ASYNC_QUEUE` | 4096 | setting | operator |
 | `PLAINWIRE_REDIS_DB` | 0 | setting | operator |
 | `PLAINWIRE_REDIS_ENABLED` | false | setting | operator |
 | `PLAINWIRE_REDIS_HOST` | 127.0.0.1 | setting | operator |
 | `PLAINWIRE_REDIS_PASSWORD` | see source/defaults for this advanced knob | secret | operator |
+| `PLAINWIRE_REDIS_POOL_SIZE` | 8 | setting | operator |
 | `PLAINWIRE_REDIS_PORT` | 6379 | setting | operator |
 | `PLAINWIRE_REDIS_PREFIX` | plainwire | setting | operator |
+| `PLAINWIRE_REDIS_SYNC_QUEUE` | 2048 | setting | operator |
 | `PLAINWIRE_REDIS_TIMEOUT_MS` | 80 | setting | operator |
 | `PLAINWIRE_REDIS_TLS` | false | setting | operator |
 | `PLAINWIRE_REDIS_TLS_INSECURE` | false | setting | operator |
@@ -143,6 +182,9 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_SCYLLA_WRITE_INTENT_BUCKETS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_SCYLLA_WRITE_INTENT_GRACE_MS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_SCYLLA_WRITE_INTENT_RECONCILE_ROWS` | see source/defaults for this advanced knob | setting | operator |
+| `PLAINWIRE_SEARCH_BACKFILL_BATCH` | 100 | setting | operator |
+| `PLAINWIRE_SEARCH_BACKFILL_INTERVAL_MS` | 1500 | setting | operator |
+| `PLAINWIRE_SEARCH_KEY` | empty by default | secret | operator |
 | `PLAINWIRE_SESSION_DAYS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_SOURCE_REPOSITORY` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_STORAGE_OUTBOX_BATCH` | 25 | setting | operator |
@@ -179,8 +221,13 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_WEBHOOK_FAILED_RETENTION_DAYS` | see source/defaults for this advanced knob | setting | operator |
 | `PLAINWIRE_WEBHOOK_TIMEOUT_MS` | 8000 | setting | operator |
 | `PLAINWIRE_WEBHOOK_WORKER_TIMEOUT_MS` | 13000 in production example | setting | operator |
+| `PLAINWIRE_WS_COMPRESS` | true | setting | operator |
 | `PLAINWIRE_WS_HARD_QUEUE` | 2000 | setting | operator |
+| `PLAINWIRE_WS_MAX_CONNECTIONS` | 100000 | setting | operator |
 | `PLAINWIRE_WS_SOFT_QUEUE` | 500 | setting | operator |
+| `PLAINWIRE_WS_TRACE` | false | setting | operator |
+| `PLAINWIRE_WS_UPGRADES_GLOBAL_MIN` | 60000 | setting | operator |
+| `PLAINWIRE_WS_UPGRADES_PER_IP_MIN` | 1200 | setting | operator |
 
 ## Non-`PLAINWIRE_` variables
 

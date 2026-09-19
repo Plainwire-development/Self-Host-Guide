@@ -4,7 +4,9 @@ Changing operational facts should be verified against upstream documentation.
 
 ## Plainwire source snapshot
 
-This handbook was written against the Plainwire 2.0.0 source snapshot supplied on 2026-09-17, including `.env.example`, `deploy/`, `docs/BUILDING.md`, `docs/REDIS.md`, `docs/SCYLLA.md`, `docs/CLOUDFLARE_TURN.md`, storage modules, RTC configuration, and release configuration.
+This handbook was refreshed against a Plainwire 2.1.0 source snapshot on 2026-09-19, including `.env.example`, `deploy/`, build/release configuration, `docs/BUILDING.md`, `docs/REDIS.md`, `docs/SCYLLA.md`, `docs/CLOUDFLARE_TURN.md`, `docs/SCALING.md`, `docs/BOTS.md`, security/audit notes, storage modules, realtime registry/delivery code, RTC configuration, and load-test targets.
+
+Use the exact tagged/release source you deploy as the final authority. A handbook can lag a patch even when its architecture guidance remains useful.
 
 ## External references
 

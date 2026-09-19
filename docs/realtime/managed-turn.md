@@ -11,7 +11,7 @@ Managed TURN removes the need to operate public relay servers. Provider choice i
 | Twilio Network Traversal Service | Server-side temporary-token model, but no dedicated Plainwire adapter yet | Managed | You already use Twilio or are willing to add a credential adapter |
 | Metered TURN | Managed TURN with API-driven credentials | Managed | Its regions/pricing/API fit your deployment and you validate credential compatibility |
 
-There is no universal best relay. For the current Plainwire 2.0 code, Cloudflare has the cleanest managed integration and coturn has the cleanest self-hosted integration.
+There is no universal best relay. For the current Plainwire 2.1 code, Cloudflare has the cleanest managed integration and coturn has the cleanest self-hosted integration.
 
 ### Cloudflare Realtime TURN
 

@@ -5,7 +5,7 @@ import argparse, re
 CATEGORY_ORDER = [
     'Core and public runtime', 'Database', 'Uploads and media', 'HTTP and WebSocket',
     'Realtime and TURN', 'Admin control plane', 'Redis', 'Scylla and message storage',
-    'Webhooks and integrations', 'Build, development, and internal'
+    'Developer apps, bots, webhooks, and AI', 'Build, development, and internal'
 ]
 
 def category(v):
@@ -16,7 +16,7 @@ def category(v):
     if v.startswith('PLAINWIRE_ADMIN_'): return 'Admin control plane'
     if v.startswith('PLAINWIRE_REDIS_') or v == 'PLAINWIRE_NODE_ID': return 'Redis'
     if v.startswith('PLAINWIRE_SCYLLA_') or v.startswith('PLAINWIRE_STORAGE_') or v in {'PLAINWIRE_MESSAGE_BACKEND','PLAINWIRE_MESSAGE_NODE_ID','PLAINWIRE_MESSAGE_ID_CLOCK_ROLLBACK_MS','PLAINWIRE_INSTANCE_ID'}: return 'Scylla and message storage'
-    if v.startswith('PLAINWIRE_WEBHOOK_') or v.startswith('PLAINWIRE_GITHUB_') or v.startswith('PLAINWIRE_KLIPY_') or v == 'PLAINWIRE_BOT_TOKEN': return 'Webhooks and integrations'
+    if v.startswith('PLAINWIRE_WEBHOOK_') or v.startswith('PLAINWIRE_GITHUB_') or v.startswith('PLAINWIRE_KLIPY_') or v.startswith('PLAINWIRE_BOT_') or v.startswith('PLAINWIRE_APP_') or v.startswith('PLAINWIRE_AI_') or v == 'PLAINWIRE_DEVELOPER_APP_LIMIT': return 'Developer apps, bots, webhooks, and AI'
     if v.startswith('PLAINWIRE_TEST_') or v.startswith('PLAINWIRE_DEV_') or v.startswith('PLAINWIRE_BUILD_') or v in {'PLAINWIRE_APP_USER','PLAINWIRE_ASSET_VERSION','PLAINWIRE_CLIENT_CONFIG','PLAINWIRE_DEBUG','PLAINWIRE_HOST','PLAINWIRE_RELEASE_BIN','PLAINWIRE_RTC_CONFIG','PLAINWIRE_VERSION__'}: return 'Build, development, and internal'
     return 'Core and public runtime'
 
@@ -127,7 +127,7 @@ def clean_comment(v, comment):
         return c
     # useful fallback by component
     comp=category(v)
-    return f'Advanced {comp.lower()} setting present in the Plainwire 2.0 source. Keep the source default unless the subsystem guide or a measured production need calls for an override.'
+    return f'Advanced {comp.lower()} setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.'
 
 def main():
     ap=argparse.ArgumentParser()
@@ -135,9 +135,10 @@ def main():
     ap.add_argument('--output',type=Path,default=Path('docs/reference/environment-source-catalog.md'))
     args=ap.parse_args()
     root=args.upstream.resolve(); env=parse_env(root); found=source_vars(root)
+    version=(root/'VERSION').read_text().strip() if (root/'VERSION').exists() else 'unknown'
     vars_=sorted(found)
     lines=['# Complete environment and source token catalog','',
-      'This appendix is generated from the Plainwire 2.0 source tree. It lists every `PLAINWIRE_*` token found in the snapshot, including normal operator settings, build helpers, browser globals, and test-only names.', '',
+      f'This appendix is generated from the Plainwire {version} source tree. It lists every `PLAINWIRE_*` token found in the snapshot, including normal operator settings, SDK/example names, build helpers, browser globals, and test-only names.', '',
       '> Do not copy this table into `.env`. Most installations should use the upstream `.env.example` plus the subsystem guides. This catalog exists so obscure knobs are not invisible.', '',
       f'Catalog size: **{len(vars_)} tokens**. Upstream `.env.example` contains **{len(env)} configured names**.', '']
     for cat in CATEGORY_ORDER:

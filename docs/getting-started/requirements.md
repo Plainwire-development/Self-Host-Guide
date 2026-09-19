@@ -2,7 +2,7 @@
 
 ## Runtime requirements
 
-Plainwire 2.0 expects a 64-bit Linux deployment for the normal production path.
+Plainwire 2.1 expects a 64-bit Linux deployment for the normal production path.
 
 Core services:
 
