@@ -1,6 +1,6 @@
 # Webhooks, bots, Developer Applications, and outbound traffic
 
-Plainwire 2.1 includes outbound webhooks, Bot API v1, reusable Developer Applications, signed interaction endpoints, and optional AI command handlers. These features create network egress and secret-handling boundaries, so configuration matters.
+Plainwire 2.2 includes outbound webhooks, Bot API v1, reusable Developer Applications, signed interaction endpoints, and optional AI command handlers. These features create network egress and secret-handling boundaries, so configuration matters.
 
 ## Webhooks
 
@@ -20,7 +20,7 @@ Plainwire applies outbound URL checks intended to reduce SSRF risk. Network-leve
 
 ## Bots
 
-Bots use scoped credentials and normal server/channel authorization. Treat bot tokens like passwords. 2.1 separates rate budgets for reads, message sends, mutations, and durable command claims. Command workers use bounded leases/retries so worker loss does not produce an unbounded delivery loop.
+Bots use scoped credentials and normal server/channel authorization. Treat bot tokens like passwords. Plainwire 2.2 separates rate budgets for reads, message sends, mutations, and durable command claims. Command workers use bounded leases and retries so worker loss does not produce an unbounded delivery loop.
 
 Relevant controls include:
 
@@ -34,6 +34,18 @@ PLAINWIRE_BOT_COMMAND_MAX_ATTEMPTS=8
 ```
 
 Redis can coordinate rate state across nodes, but bot authorization remains database-backed.
+
+### Bot deployment and scaling
+
+Use `PUT /api/bot/v1/commands` to atomically synchronize up to 100 desired command definitions. Commands omitted from the request are removed, while a conflict rolls back the complete update. Existing one-command registration remains available for interactive changes.
+
+Fetch large server rosters through `GET /api/bot/v1/members?after=...&limit=...`. Pages are cursor-based and capped at 200 members. Ordinary bot startup and channel discovery no longer load the complete server roster.
+
+Long-running queue handlers should renew a live claim before it expires through `POST /api/bot/v1/commands/claims/:invocation_id/defer`. Extensions are bounded from 5 to 120 seconds and cannot revive an expired, failed, or completed claim. Claim tokens remain one-time secrets whose hashes are stored by Plainwire.
+
+The first-party C, C++, Go, Rust, Erlang, Python, and JavaScript SDKs expose command sync, paginated members, and claim renewal. Go, Python, and JavaScript also provide bounded concurrent command workers with handler maps and automatic response/failure handling. Run more small workers rather than giving one process unbounded concurrency.
+
+Use `GET /api/bot/v1` for capability discovery and effective limits instead of assuming every self-hosted instance has identical tuning. The language-neutral OpenAPI description lives in the upstream `docs/bot-api.openapi.yaml` file.
 
 ## Developer Applications
 

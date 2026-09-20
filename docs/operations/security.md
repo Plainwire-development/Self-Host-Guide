@@ -32,13 +32,13 @@ Use HTTPS for the public app. Use database/Redis/Scylla TLS when traffic crosses
 
 ## Encryption-key rotation
 
-`PLAINWIRE_ENC_KEY` protects encrypted application data. Back it up separately from the application host. For an intentional rotation, install the new primary key and retain old keys in `PLAINWIRE_ENC_PREVIOUS_KEYS` until content encrypted with them is no longer needed or has been deliberately re-encrypted. Up to four previous keys are supported by the 2.1 source.
+`PLAINWIRE_ENC_KEY` protects encrypted application data. Back it up separately from the application host. For an intentional rotation, install the new primary key and retain old keys in `PLAINWIRE_ENC_PREVIOUS_KEYS` until content encrypted with them is no longer needed or has been deliberately re-encrypted. Up to four previous keys are supported by the 2.2 source.
 
 Do not remove an old key merely because the new process starts successfully. Test reads of older protected records first.
 
 ## Blind-index message search
 
-Plainwire 2.1 uses a keyed blind index for message search rather than storing a second normalized plaintext search-word database. `PLAINWIRE_SEARCH_KEY` may be configured independently or derived from the encryption key.
+Plainwire 2.2 uses a keyed blind index for message search rather than storing a second normalized plaintext search-word database. `PLAINWIRE_SEARCH_KEY` may be configured independently or derived from the encryption key.
 
 Changing the search key invalidates the existing index and requires a rebuild. Back up an independent search key just like other application secrets. Blind indexing reduces plaintext exposure but still leaks equality/frequency relationships and is not a cryptographic guarantee against an operator who controls the server and keys.
 

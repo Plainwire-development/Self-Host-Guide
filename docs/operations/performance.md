@@ -1,6 +1,6 @@
 # Performance tuning
 
-Tune from evidence. Plainwire 2.1 bounds the main queues/admission paths so overload can fail predictably instead of filling memory forever. Raising every ceiling is not a scaling strategy.
+Tune from evidence. Plainwire 2.2 bounds the main queues/admission paths so overload can fail predictably instead of filling memory forever. Raising every ceiling is not a scaling strategy.
 
 ## Erlang runtime
 
@@ -84,7 +84,7 @@ Watch partition hotspots, gate queue depth, operation latency, write-intent/outb
 
 ## Voice
 
-Plainwire 2.1 calls are full mesh. Browser CPU, uplink, downlink, and peer count rise rapidly with participants. Keep the default room cap unless real multi-client media testing proves a higher number is acceptable. TURN improves reachability; it does not turn mesh into an SFU.
+Plainwire 2.2 calls are full mesh. Browser CPU, uplink, downlink, and peer count rise rapidly with participants. Keep the default room cap unless real multi-client media testing proves a higher number is acceptable. TURN improves reachability; it does not turn mesh into an SFU.
 
 ## Validate changes
 

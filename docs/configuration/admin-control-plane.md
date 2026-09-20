@@ -14,7 +14,7 @@ Enable it only when you have an operator access plan.
 
 ## Capacity and listener controls
 
-2.1 exposes explicit listener controls so the admin plane cannot accidentally inherit public-app scale assumptions:
+Plainwire 2.2 exposes explicit listener controls so the admin plane cannot accidentally inherit public-app scale assumptions:
 
 ```ini
 PLAINWIRE_ADMIN_ACCEPTORS=10

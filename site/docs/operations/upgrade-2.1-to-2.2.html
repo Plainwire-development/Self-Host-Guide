@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.2 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Plainwire 2.1 to 2.2 | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.2</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link active" href="../../docs/operations/upgrade-2.1-to-2.2.html">2.1 to 2.2</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Plainwire 2.1 to 2.2</h1>
+<p>Plainwire 2.2.0 is an additive minor release centered on the bot platform, with call-control, screen-share audio, clipboard, and layout quality-of-life fixes. It does not require a database migration, new runtime dependency, or new server environment variable.</p>
+<h2 id="what-changes">What changes<a class="anchor" href="#what-changes">#</a></h2>
+<p>The Bot API v1 adds:</p>
+<ul>
+<li>atomic replacement of up to 100 command definitions with <code>PUT /api/bot/v1/commands</code>;</li>
+<li>stable cursor pagination for server members with a maximum page size of 200;</li>
+<li>renewable command claims with bounded 5 to 120 second extensions;</li>
+<li>capability discovery for command sync, paginated members, renewable claims, and their effective limits;</li>
+<li>first-party 2.2 SDK methods in C, C++, Go, Rust, Erlang, Python, and JavaScript;</li>
+<li>bounded command-worker helpers in Go, Python, and JavaScript.</li>
+</ul>
+<p>Existing command registration, claim, response, failure, and compatibility message routes remain available. The normal server and channel discovery path no longer constructs the complete member roster, which reduces startup work for bots in large servers.</p>
+<h2 id="before-upgrading">Before upgrading<a class="anchor" href="#before-upgrading">#</a></h2>
+<ol>
+<li>
+<p>Back up PostgreSQL, uploads, configuration, the encryption/search/media keys, and the host-admin instance secret.</p>
+</li>
+<li>
+<p>Keep the 2.1 artifact or image available for rollback.</p>
+</li>
+<li>
+<p>Run the upstream <code>make check</code> gate on the exact 2.2.0 source or artifact.</p>
+</li>
+<li>
+<p>Compare the deployment environment with the 2.2.0 snapshot:</p>
+<pre><code class="language-sh">python3 scripts/compare-upstream-env.py /path/to/Plainwire-2.2.0
+</code></pre>
+<p>The 2.2.0 source token set matches 2.1.0, so no new variable is required. Preserve existing secrets and measured tuning.</p>
+</li>
+<li>
+<p>If bots are deployed, record their command definitions and ensure custom workers preserve claim tokens as secrets.</p>
+</li>
+</ol>
+<h2 id="bot-worker-rollout">Bot worker rollout<a class="anchor" href="#bot-worker-rollout">#</a></h2>
+<p>Upgrade the Plainwire server before switching workers to 2.2-only routes. Older Bot API v1 workers continue to operate during a staged rollout.</p>
+<p>For new workers:</p>
+<ul>
+<li>feature-detect through <code>GET /api/bot/v1</code>;</li>
+<li>deploy command definitions atomically rather than issuing a long sequence of one-command updates;</li>
+<li>page through members rather than expecting one unbounded roster response;</li>
+<li>renew a claim before its current lease expires when a handler may run longer than the lease;</li>
+<li>keep claim and handler concurrency bounded;</li>
+<li>treat bot tokens and claim tokens as secrets and never include them in logs.</li>
+</ul>
+<p>Do not repeatedly renew abandoned work. Fail permanently invalid input and allow genuinely interrupted work to return through the existing bounded retry policy.</p>
+<h2 id="calls-and-desktop-behavior">Calls and desktop behavior<a class="anchor" href="#calls-and-desktop-behavior">#</a></h2>
+<p>After the upgrade, test screen sharing from every desktop/browser combination you support. Plainwire requests shareable window or system audio, but the browser, operating system, selected capture surface, and user choice ultimately determine whether an audio track is available. A successful screen-share video track does not prove that audio was granted.</p>
+<p>Also verify call-overlay controls at narrow and wide viewport sizes and confirm that editable-field right-click paste uses the browser's native menu.</p>
+<h2 id="validation">Validation<a class="anchor" href="#validation">#</a></h2>
+<p>Run the normal smoke test plus:</p>
+<ul>
+<li>bulk command sync with create, update, and stale-command removal;</li>
+<li>member pagination across at least two pages;</li>
+<li>claim renewal followed by response;</li>
+<li>concurrent workers claiming distinct invocations;</li>
+<li>claim-time permission revocation;</li>
+<li>screen share with audio where the platform supports it;</li>
+<li>native context-menu paste in message and settings inputs.</li>
+</ul>
+<h2 id="rollback">Rollback<a class="anchor" href="#rollback">#</a></h2>
+<p>Because 2.2.0 adds no schema migration or required configuration, a code rollback to 2.1 is normally possible after stopping 2.2 workers that depend on the new routes. Keep the same database, encryption keys, search key, media signing key, uploads, and admin-instance secret.</p>
+<p>Commands synchronized through 2.2 remain normal command records. A 2.1 server can continue serving them, but workers must stop using member pagination and claim renewal until the server is upgraded again.</p>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.2.0 · 2026-09-20</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#what-changes">What changes</a><a class="d2" href="#before-upgrading">Before upgrading</a><a class="d2" href="#bot-worker-rollout">Bot worker rollout</a><a class="d2" href="#calls-and-desktop-behavior">Calls and desktop behavior</a><a class="d2" href="#validation">Validation</a><a class="d2" href="#rollback">Rollback</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

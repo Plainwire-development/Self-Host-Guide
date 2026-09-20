@@ -36,7 +36,7 @@ Relay-only mode increases TURN bandwidth and cost.
 
 ## Plainwire call topology
 
-Plainwire 2.1 uses a peer mesh for calls. The default voice-room cap is 8 participants and the configured maximum is clamped at 32. Full mesh gets expensive as participant count grows. Do not raise the limit because a config knob exists.
+Plainwire 2.2 uses a peer mesh for calls. The default voice-room cap is 8 participants and the configured maximum is clamped at 32. Full mesh gets expensive as participant count grows. Do not raise the limit because a config knob exists.
 
 Useful settings:
 

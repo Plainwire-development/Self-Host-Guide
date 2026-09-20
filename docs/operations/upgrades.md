@@ -2,6 +2,8 @@
 
 Treat upgrades as reversible until database, storage, and key compatibility says otherwise.
 
+For a 2.1 installation moving to 2.2, read [Plainwire 2.1 to 2.2](upgrade-2.1-to-2.2.md) first.
+
 For a 2.0 installation moving to 2.1, read [Plainwire 2.0 to 2.1](upgrade-2.0-to-2.1.md) first.
 
 ## Before upgrade
@@ -34,7 +36,7 @@ Do not start optional services simply because they exist in Compose.
 - direct/server/thread/forum messages and search;
 - upload/download;
 - roles/permissions/moderation;
-- bot/webhook/Developer Application paths you use;
+- bot/webhook/Developer Application paths you use, including command sync, roster pagination, claim renewal, response, and failure handling;
 - WebSocket reconnect and presence;
 - call and screen share from another network;
 - admin plane if enabled.

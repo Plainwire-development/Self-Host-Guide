@@ -1,6 +1,6 @@
 # What you are running
 
-Plainwire 2.1 is a realtime chat server built around Erlang/OTP, Cowboy, PostgreSQL, WebSocket, and WebRTC. Redis can accelerate short-lived realtime state. ScyllaDB can become the high-volume message timeline after an explicit migration. TURN provides a relay path for calls when direct peer-to-peer connectivity fails.
+Plainwire 2.2 is a realtime chat server built around Erlang/OTP, Cowboy, PostgreSQL, WebSocket, and WebRTC. Redis can accelerate short-lived realtime state. ScyllaDB can become the high-volume message timeline after an explicit migration. TURN provides a relay path for calls when direct peer-to-peer connectivity fails.
 
 A normal small installation does not need every optional component. Start with the smallest topology that meets your needs, then add services because measurements justify them.
 

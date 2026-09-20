@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.0-1 - 2026-09-20
+
+Updated the handbook for Plainwire 2.2.0.
+
+- retargeted build, deployment, compatibility, and generated-site metadata to 2.2.0;
+- documented atomic bot command synchronization, cursor-paginated members, renewable command claims, and the expanded first-party SDK surface;
+- added a 2.1 to 2.2 upgrade guide and bot-specific release validation checks;
+- regenerated the complete source token catalog and confirmed that 2.2.0 adds no server environment variables;
+- added exact 2.2.0 upstream configuration, Caddy, and systemd examples while retaining the 2.1.0 and 2.0.0 snapshots;
+- refreshed screen-share audio guidance for browser and operating-system capability limits;
+- rebuilt and verified the complete static documentation site.
+
 ## 2.1.0-1 - 2026-09-19
 
 Updated the handbook for Plainwire 2.1.0.

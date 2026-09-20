@@ -74,7 +74,7 @@
 - [ ] TURN configured
 - [ ] two-network call tested
 - [ ] relay-only diagnostic tested
-- [ ] screen share tested
+- [ ] screen share video and audio tested on supported browser/OS combinations
 - [ ] long call survives credential refresh
 - [ ] room-size limits match mesh client/network capacity
 

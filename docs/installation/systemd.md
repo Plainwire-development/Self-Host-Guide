@@ -7,8 +7,8 @@ A native relx release works well when you do not want the application itself in 
 Recommended paths:
 
 ```text
-/opt/plainwire/releases/2.1.0/
-/opt/plainwire/current -> /opt/plainwire/releases/2.1.0
+/opt/plainwire/releases/2.2.0/
+/opt/plainwire/current -> /opt/plainwire/releases/2.2.0
 /etc/plainwire/plainwire.env
 /var/lib/plainwire/uploads/
 /var/lib/plainwire/admin-instance.key

@@ -1,12 +1,12 @@
 # Plainwire Self-Hosting Handbook
 
-A deployment and operations handbook for running Plainwire 2.1 on infrastructure you control.
+A deployment and operations handbook for running Plainwire 2.2 on infrastructure you control.
 
 This repository is documentation first. The application source lives in the Plainwire repository. Use this handbook for architecture, deployment, storage, TURN, security, upgrades, backups, recovery, tuning, and day-to-day operations.
 
-> Version target: Plainwire 2.1.0
+> Version target: Plainwire 2.2.0
 >
-> Handbook verification date: 2026-09-19
+> Handbook verification date: 2026-09-20
 
 ## Table of contents
 
@@ -57,6 +57,7 @@ This repository is documentation first. The application source lives in the Plai
 - [Backups](docs/operations/backups.md)
 - [Restore drills](docs/operations/restore.md)
 - [Upgrades and rollback](docs/operations/upgrades.md)
+- [Plainwire 2.1 to 2.2](docs/operations/upgrade-2.1-to-2.2.md)
 - [Plainwire 2.0 to 2.1](docs/operations/upgrade-2.0-to-2.1.md)
 - [Plainwire 1.9 to 2.0](docs/operations/upgrade-1.9-to-2.0.md)
 - [Monitoring and alerting](docs/operations/monitoring.md)
@@ -98,7 +99,8 @@ This repository is documentation first. The application source lives in the Plai
 - [Backup script](examples/backup/backup.sh)
 - [Restore notes](examples/backup/RESTORE.md)
 - [Single-node Scylla lab](examples/scylla/lab-compose.yaml)
-- [Exact upstream 2.1.0 environment example](examples/upstream-2.1.0/plainwire.env.example)
+- [Exact upstream 2.2.0 environment example](examples/upstream-2.2.0/plainwire.env.example)
+- [Historical upstream 2.1.0 environment example](examples/upstream-2.1.0/plainwire.env.example)
 - [Historical upstream 2.0.0 environment example](examples/upstream-2.0.0/plainwire.env.example)
 
 ### Repository tools

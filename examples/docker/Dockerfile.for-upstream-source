@@ -1,4 +1,4 @@
-# Copy this Dockerfile into the root of a Plainwire 2.1 source checkout.
+# Copy this Dockerfile into the root of a Plainwire 2.2 source checkout.
 # Pin base-image digests in deployments that require fully reproducible images.
 
 FROM debian:13-slim AS builder

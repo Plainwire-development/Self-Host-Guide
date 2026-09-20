@@ -9,7 +9,7 @@ except ImportError:
 ROOT=Path(__file__).resolve().parents[1]
 UPSTREAM_VERSION=(ROOT/'UPSTREAM_VERSION').read_text().strip()
 UPSTREAM_SERIES='.'.join(UPSTREAM_VERSION.split('.')[:2])
-VERIFIED_DATE='2026-09-19'
+VERIFIED_DATE='2026-09-20'
 OUT=ROOT/'site'; AS=ROOT/'site-src'/'assets'
 if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir()

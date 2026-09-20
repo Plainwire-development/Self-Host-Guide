@@ -1,4 +1,4 @@
-# Based on the Plainwire 2.1 upstream service unit.
+# Based on the Plainwire 2.2 upstream service unit.
 [Unit]
 Description=Plainwire chat server
 Wants=network-online.target

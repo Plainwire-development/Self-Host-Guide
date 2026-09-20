@@ -4,7 +4,7 @@ Build from a clean source checkout when you need a custom image or native releas
 
 ## Toolchain
 
-Plainwire 2.1 requires GNU Make 4.3+, Node.js 20.19+ with 22+ recommended, npm, Python 3.9+, Erlang/OTP 27+, and rebar3.
+Plainwire 2.2 requires GNU Make 4.3+, Node.js 20.19+ with 22+ recommended, npm, Python 3.9+, Erlang/OTP 27+, and rebar3.
 
 Native driver requirements for `erlcass`:
 

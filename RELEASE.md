@@ -1,6 +1,6 @@
-# Handbook release 2.1.0-1
+# Handbook release 2.2.0-1
 
-This release targets Plainwire 2.1.0 and was refreshed on 2026-09-19.
+This release targets Plainwire 2.2.0 and was refreshed on 2026-09-20.
 
 ## Included
 
@@ -11,11 +11,12 @@ This release targets Plainwire 2.1.0 and was refreshed on 2026-09-19.
 - Caddy and nginx examples;
 - coturn and managed TURN guidance;
 - PostgreSQL, Redis, and ScyllaDB architecture and migration documentation;
-- Bot API, Developer Application, signed interaction, webhook, and AI connector operator guidance;
+- Bot API, Developer Application, signed interaction, webhook, and AI connector operator guidance, including the 2.2 command sync, member pagination, and renewable claim APIs;
 - encryption-key rotation and blind-index search-key guidance;
 - backup, restore, upgrade, rollback, incident, failure, and disaster-recovery runbooks;
 - production environment validator and secret generator;
-- source-derived 2.1.0 environment and source-token catalog;
+- source-derived 2.2.0 environment and source-token catalog;
+- exact upstream 2.2.0 environment, Caddy, and systemd snapshots;
 - staged release-load validation guidance;
 - GitHub Actions verification and Pages publishing workflows.
 
@@ -27,7 +28,7 @@ The documentation repository is checked with:
 make check
 python3 -m compileall -q scripts tests
 bash -n on shell scripts
-source environment comparison against Plainwire 2.1.0
+source environment comparison against Plainwire 2.2.0
 source-derived environment catalog regeneration
 local static-site link validation
 repository-wide em dash and en dash scan

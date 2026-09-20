@@ -1,6 +1,6 @@
 # Environment variable reference
 
-This is the operator-facing environment reference refreshed against the Plainwire 2.1.0 source snapshot. It intentionally prioritizes variables present in the upstream production example plus a small number of compatibility/build names. The [complete source token catalog](environment-source-catalog.md) records every `PLAINWIRE_*` token found in the source tree.
+This is the operator-facing environment reference refreshed against the Plainwire 2.2.0 source snapshot. It intentionally prioritizes variables present in the upstream production example plus a small number of compatibility/build names. The [complete source token catalog](environment-source-catalog.md) records every `PLAINWIRE_*` token found in the source tree.
 
 Do not set every variable. Start from upstream `.env.example`, then add advanced controls only for a measured or architecture-specific reason.
 

@@ -2,7 +2,7 @@
 
 Plainwire is easiest to operate on a maintained 64-bit Linux distribution. The runtime is portable, but package names and service management differ by distribution.
 
-The build host needs more than Erlang and Node. Plainwire 2.1 includes `erlcass`, which builds the Cassandra/Scylla C++ driver as native code even when Scylla is disabled at runtime.
+The build host needs more than Erlang and Node. Plainwire 2.2 includes `erlcass`, which builds the Cassandra/Scylla C++ driver as native code even when Scylla is disabled at runtime.
 
 ## Debian and Ubuntu builder
 
@@ -16,7 +16,7 @@ sudo apt-get install -y \
   erlang rebar3 nodejs npm python3
 ```
 
-Verify versions after installation. Distribution repositories do not always carry a new enough Node.js or Erlang release for Plainwire 2.1. The upstream requirements are Node.js 20.19 or newer, with Node 22 or newer recommended, and Erlang/OTP 27 or newer.
+Verify versions after installation. Distribution repositories do not always carry a new enough Node.js or Erlang release for Plainwire 2.2. The upstream requirements are Node.js 20.19 or newer, with Node 22 or newer recommended, and Erlang/OTP 27 or newer.
 
 For the optional native call-health helper, also install:
 
@@ -60,7 +60,7 @@ sudo xbps-install -S \
   erlang rebar3 nodejs python3
 ```
 
-Run `node --version`, `erl`, and `rebar3 version` afterward. Plainwire 2.1 still requires Node.js 20.19+ and Erlang/OTP 27+ regardless of what a distribution package is named.
+Run `node --version`, `erl`, and `rebar3 version` afterward. Plainwire 2.2 still requires Node.js 20.19+ and Erlang/OTP 27+ regardless of what a distribution package is named.
 
 Void also ships musl variants. Treat musl like Alpine for native-NIF validation: build and test the exact release before using it as a production baseline. Docker remains the lowest-friction route on a Void host when you want the application build isolated from the host package set.
 

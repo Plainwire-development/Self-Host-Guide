@@ -1,5 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.1 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Complete environment and source token catalog | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.1</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link active" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Complete environment and source token catalog</h1>
-<p>This appendix is generated from the Plainwire 2.1.0 source tree. It lists every <code>PLAINWIRE_*</code> token found in the snapshot, including normal operator settings, SDK/example names, build helpers, browser globals, and test-only names.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.2 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Complete environment and source token catalog | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.2</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-2.1-to-2.2.html">2.1 to 2.2</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link active" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Complete environment and source token catalog</h1>
+<p>This appendix is generated from the Plainwire 2.2.0 source tree. It lists every <code>PLAINWIRE_*</code> token found in the snapshot, including normal operator settings, SDK/example names, build helpers, browser globals, and test-only names.</p>
 <blockquote>
 <p>Do not copy this table into <code>.env</code>. Most installations should use the upstream <code>.env.example</code> plus the subsystem guides. This catalog exists so obscure knobs are not invisible.</p>
 </blockquote>
@@ -19,7 +19,7 @@
 <td><code>PLAINWIRE_ADAPTIVE_SCREEN</code></td>
 <td>false</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:156</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:24</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:58</code></td>
+<td><code>.env.example:156</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:58</code>&lt;br&gt;<code>src/pw_client_config.erl:10</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ALLOW_STATIC_TURN_CREDENTIALS</code></td>
@@ -31,61 +31,61 @@
 <td><code>PLAINWIRE_ASYNC_MAX_QUEUE</code></td>
 <td>4096</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:112</code>&lt;br&gt;<code>docs/SCALING.md:38</code>&lt;br&gt;<code>scripts/verify-source.sh:167</code></td>
+<td><code>.env.example:112</code>&lt;br&gt;<code>src/pw_async_pool.erl:23</code>&lt;br&gt;<code>scripts/verify-source.sh:167</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ASYNC_WORKERS</code></td>
 <td>16</td>
 <td>Bounded background work for presence reads, identity fanout, missed-call persistence, and other work that must not spawn without a ceiling.</td>
-<td><code>.env.example:111</code>&lt;br&gt;<code>docs/SCALING.md:38</code>&lt;br&gt;<code>scripts/verify-source.sh:167</code></td>
+<td><code>.env.example:111</code>&lt;br&gt;<code>src/pw_async_pool.erl:22</code>&lt;br&gt;<code>scripts/verify-source.sh:167</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BASE_URL</code></td>
 <td>source-managed / unset</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>sdk/c/README.md:15</code>&lt;br&gt;<code>sdk/c/examples/echo_bot.c:8</code>&lt;br&gt;<code>sdk/c/examples/echo_bot.c:14</code></td>
+<td><code>docs/BOTS.md:188</code>&lt;br&gt;<code>docs/BOTS.md:205</code>&lt;br&gt;<code>sdk/c/README.md:15</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_DEDUP_LIMIT</code></td>
 <td>262144</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:234</code>&lt;br&gt;<code>docs/SCALING.md:60</code>&lt;br&gt;<code>docs/CLUSTERING.md:36</code></td>
+<td><code>.env.example:234</code>&lt;br&gt;<code>src/pw_cluster.erl:75</code>&lt;br&gt;<code>scripts/verify-source.sh:169</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_DRAIN_BATCH</code></td>
 <td>128</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:233</code>&lt;br&gt;<code>docs/SCALING.md:60</code>&lt;br&gt;<code>docs/CLUSTERING.md:34</code></td>
+<td><code>.env.example:233</code>&lt;br&gt;<code>src/pw_cluster.erl:71</code>&lt;br&gt;<code>scripts/verify-source.sh:169</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_EVENT_MAX_AGE_MS</code></td>
 <td>12000</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:230</code>&lt;br&gt;<code>docs/SCALING.md:60</code>&lt;br&gt;<code>docs/CLUSTERING.md:35</code></td>
+<td><code>.env.example:230</code>&lt;br&gt;<code>src/pw_cluster.erl:69</code>&lt;br&gt;<code>scripts/verify-source.sh:168</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_OUTBOX_LIMIT</code></td>
 <td>8192</td>
-<td>Optional cross-node event transport queue. 2.1.0 still supports exactly one realtime/WebSocket owner; API nodes may forward committed events to it. The bounded outbox absorbs brief transport outages and expires stale realtime events rather than allowing unbounded memory growth or retry storms.</td>
-<td><code>.env.example:229</code>&lt;br&gt;<code>docs/SCALING.md:60</code>&lt;br&gt;<code>docs/CLUSTERING.md:33</code></td>
+<td>Optional cross-node event transport queue. 2.2.0 still supports exactly one realtime/WebSocket owner; API nodes may forward committed events to it. The bounded outbox absorbs brief transport outages and expires stale realtime events rather than allowing unbounded memory growth or retry storms.</td>
+<td><code>.env.example:229</code>&lt;br&gt;<code>test/pw_cluster_tests.erl:112</code>&lt;br&gt;<code>test/pw_cluster_tests.erl:153</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_RETRY_MS</code></td>
 <td>500</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:231</code>&lt;br&gt;<code>docs/SCALING.md:60</code>&lt;br&gt;<code>docs/CLUSTERING.md:38</code></td>
+<td><code>.env.example:231</code>&lt;br&gt;<code>src/pw_cluster.erl:70</code>&lt;br&gt;<code>docs/CLUSTERING.md:38</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLUSTER_REVALIDATE_JITTER_MS</code></td>
 <td>10000</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:232</code>&lt;br&gt;<code>docs/SCALING.md:161</code>&lt;br&gt;<code>docs/CLUSTERING.md:52</code></td>
+<td><code>.env.example:232</code>&lt;br&gt;<code>src/pw_ws.erl:340</code>&lt;br&gt;<code>docs/CLUSTERING.md:52</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DEFAULT_THEME</code></td>
 <td>system</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:14</code>&lt;br&gt;<code>.env.example:10</code>&lt;br&gt;<code>README.md:123</code></td>
+<td><code>README.md:123</code>&lt;br&gt;<code>.env.example:10</code>&lt;br&gt;<code>.env.development.example:14</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ENC_KEY</code></td>
@@ -103,7 +103,7 @@
 <td><code>PLAINWIRE_ENV</code></td>
 <td>production</td>
 <td>Public production deployment</td>
-<td><code>.env.development.example:2</code>&lt;br&gt;<code>.env.example:2</code>&lt;br&gt;<code>README.md:110</code></td>
+<td><code>README.md:110</code>&lt;br&gt;<code>.env.example:2</code>&lt;br&gt;<code>.env.development.example:2</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_IDLE_TIMEOUT_MS</code></td>
@@ -121,7 +121,7 @@
 <td><code>PLAINWIRE_KRISP_ENABLED</code></td>
 <td>false</td>
 <td>Optional, licensed Krisp bits live in priv/static/krisp (see its README)</td>
-<td><code>.env.example:126</code>&lt;br&gt;<code>src/pw_rtc_config.erl:39</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:56</code></td>
+<td><code>.env.example:126</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:40</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:52</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_LOAD_SELFTEST_PORT</code></td>
@@ -133,37 +133,37 @@
 <td><code>PLAINWIRE_MAX_SESSIONS_PER_USER</code></td>
 <td>32</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:17</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:156</code>&lt;br&gt;<code>src/pw_db.erl:5752</code></td>
+<td><code>.env.example:17</code>&lt;br&gt;<code>src/pw_db.erl:5884</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:156</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_PBKDF2_ITERS</code></td>
 <td>160000</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:53</code>&lt;br&gt;<code>src/pw_app.erl:161</code>&lt;br&gt;<code>src/pw_util.erl:105</code></td>
+<td><code>.env.example:53</code>&lt;br&gt;<code>test/pw_util_tests.erl:47</code>&lt;br&gt;<code>test/pw_util_tests.erl:54</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_PRESENCE_WATCH_MAX</code></td>
 <td>2000</td>
 <td>One client cannot create unbounded presence reverse-index cardinality.</td>
-<td><code>.env.example:101</code>&lt;br&gt;<code>docs/SCALING.md:36</code>&lt;br&gt;<code>scripts/verify-source.sh:173</code></td>
+<td><code>.env.example:101</code>&lt;br&gt;<code>src/pw_ws.erl:186</code>&lt;br&gt;<code>src/pw_realtime_registry.erl:410</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_PUBLIC_URL</code></td>
 <td>https://chat.example.com</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:3</code>&lt;br&gt;<code>.env.example:3</code>&lt;br&gt;<code>README.md:111</code></td>
+<td><code>README.md:111</code>&lt;br&gt;<code>.env.example:3</code>&lt;br&gt;<code>.env.development.example:3</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_RATE_MAX_ENTRIES</code></td>
 <td>500000</td>
 <td>Cap high-cardinality fixed-window rate state. New keys fail closed at this ceiling while expired buckets are garbage-collected.</td>
-<td><code>.env.example:99</code>&lt;br&gt;<code>docs/SCALING.md:36</code>&lt;br&gt;<code>docs/SECURITY.md:138</code></td>
+<td><code>.env.example:99</code>&lt;br&gt;<code>src/pw_rate.erl:57</code>&lt;br&gt;<code>docs/SCALING.md:36</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REGISTRATION_ENABLED</code></td>
 <td>true</td>
 <td>Public instance identity and sign-up policy</td>
-<td><code>.env.example:129</code>&lt;br&gt;<code>README.md:124</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:47</code></td>
+<td><code>README.md:124</code>&lt;br&gt;<code>.env.example:129</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:47</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SEARCH_BACKFILL_BATCH</code></td>
@@ -181,25 +181,25 @@
 <td><code>PLAINWIRE_SEARCH_KEY</code></td>
 <td>source-managed / unset</td>
 <td>Optional independent 32-byte base64 HMAC key for the message blind-search index. If empty, Plainwire derives a search key from PLAINWIRE_ENC_KEY. Changing it invalidates and rebuilds the blind index without storing plaintext search terms.</td>
-<td><code>.env.example:47</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:90</code>&lt;br&gt;<code>docs/SECURITY.md:46</code></td>
+<td><code>.env.example:47</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:90</code>&lt;br&gt;<code>src/pw_crypto.erl:17</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SESSION_DAYS</code></td>
 <td>30</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:16</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:155</code>&lt;br&gt;<code>src/pw_db.erl:5744</code></td>
+<td><code>.env.example:16</code>&lt;br&gt;<code>src/pw_db.erl:5876</code>&lt;br&gt;<code>src/pw_util.erl:316</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SOURCE_REPOSITORY</code></td>
 <td>https://github.com/Plainwire-development/Plainwire</td>
 <td>Repository shown by the first-run tour and Help surfaces. HTTPS only.</td>
-<td><code>.env.development.example:24</code>&lt;br&gt;<code>.env.example:132</code>&lt;br&gt;<code>README.md:134</code></td>
+<td><code>README.md:134</code>&lt;br&gt;<code>.env.example:132</code>&lt;br&gt;<code>.env.development.example:24</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_URL</code></td>
 <td>source-managed / unset</td>
 <td>Advanced core and public runtime setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>sdk/python/echo_bot.py:4</code>&lt;br&gt;<code>sdk/rust/examples/echo.rs:3</code></td>
+<td><code>sdk/python/echo_bot.py:4</code>&lt;br&gt;<code>sdk/rust/examples/echo.rs:4</code></td>
 </tr>
 </tbody>
 </table>
@@ -218,61 +218,61 @@
 <td><code>PLAINWIRE_ALLOW_INSECURE_DB</code></td>
 <td>false</td>
 <td><strong>Compatibility/security exception.</strong> Explicit production exception for PostgreSQL without TLS. Use only when the DB path is fully trusted, such as a private same-host/container network.</td>
-<td><code>.env.example:307</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:137</code>&lt;br&gt;<code>deploy/README.md:30</code></td>
+<td><code>.env.example:307</code>&lt;br&gt;<code>src/pw_app.erl:142</code>&lt;br&gt;<code>deploy/README.md:30</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_CALL_TIMEOUT_MS</code></td>
 <td>60000</td>
 <td>Maximum caller wait for a DB lane. PostgreSQL statement_timeout should normally be lower so work stops before the caller gives up.</td>
-<td><code>.env.example:31</code>&lt;br&gt;<code>docs/SCALING.md:46</code>&lt;br&gt;<code>scripts/verify-source.sh:165</code></td>
+<td><code>.env.example:31</code>&lt;br&gt;<code>src/pw_db.erl:159</code>&lt;br&gt;<code>scripts/verify-source.sh:165</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_HOST</code></td>
 <td>database.internal</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:6</code>&lt;br&gt;<code>.env.example:19</code>&lt;br&gt;<code>README.md:116</code></td>
+<td><code>README.md:116</code>&lt;br&gt;<code>.env.example:19</code>&lt;br&gt;<code>.env.development.example:6</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_IDLE_TX_TIMEOUT_MS</code></td>
 <td>15000</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:33</code>&lt;br&gt;<code>src/pw_db.erl:895</code></td>
+<td><code>.env.example:33</code>&lt;br&gt;<code>src/pw_db.erl:907</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_LOCK_TIMEOUT_MS</code></td>
 <td>5000</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:34</code>&lt;br&gt;<code>src/pw_db.erl:896</code></td>
+<td><code>.env.example:34</code>&lt;br&gt;<code>src/pw_db.erl:908</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_MAX_QUEUE</code></td>
 <td>250</td>
 <td>Per-lane bounded queue; overload fails fast instead of growing BEAM mailboxes.</td>
-<td><code>.env.example:28</code>&lt;br&gt;<code>docs/SCALING.md:44</code>&lt;br&gt;<code>src/pw_db.erl:98</code></td>
+<td><code>.env.example:28</code>&lt;br&gt;<code>src/pw_db.erl:98</code>&lt;br&gt;<code>src/pw_db.erl:195</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_NAME</code></td>
 <td>plainwire</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:10</code>&lt;br&gt;<code>.env.example:23</code>&lt;br&gt;<code>README.md:120</code></td>
+<td><code>README.md:120</code>&lt;br&gt;<code>.env.example:23</code>&lt;br&gt;<code>.env.development.example:10</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_PASS</code></td>
 <td>secret / unset</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:9</code>&lt;br&gt;<code>.env.example:22</code>&lt;br&gt;<code>README.md:119</code></td>
+<td><code>README.md:119</code>&lt;br&gt;<code>.env.example:22</code>&lt;br&gt;<code>.env.development.example:9</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_POOL_SIZE</code></td>
 <td>20</td>
 <td>Start near 2x CPU cores, then watch postgres and tune it</td>
-<td><code>.env.development.example:12</code>&lt;br&gt;<code>.env.example:26</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:138</code></td>
+<td><code>.env.example:26</code>&lt;br&gt;<code>.env.development.example:12</code>&lt;br&gt;<code>src/pw_db.erl:543</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_PORT</code></td>
 <td>5432</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:7</code>&lt;br&gt;<code>.env.example:20</code>&lt;br&gt;<code>README.md:117</code></td>
+<td><code>README.md:117</code>&lt;br&gt;<code>.env.example:20</code>&lt;br&gt;<code>.env.development.example:7</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_SLOW_MS</code></td>
@@ -284,19 +284,19 @@
 <td><code>PLAINWIRE_DB_SSL</code></td>
 <td>true</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:11</code>&lt;br&gt;<code>.env.example:24</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:136</code></td>
+<td><code>.env.example:24</code>&lt;br&gt;<code>.env.development.example:11</code>&lt;br&gt;<code>src/pw_db.erl:890</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_STATEMENT_TIMEOUT_MS</code></td>
 <td>15000</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:32</code>&lt;br&gt;<code>docs/SCALING.md:46</code>&lt;br&gt;<code>src/pw_db.erl:894</code></td>
+<td><code>.env.example:32</code>&lt;br&gt;<code>src/pw_db.erl:906</code>&lt;br&gt;<code>docs/SCALING.md:46</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DB_USER</code></td>
 <td>plainwire</td>
 <td>Advanced database setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:8</code>&lt;br&gt;<code>.env.example:21</code>&lt;br&gt;<code>README.md:118</code></td>
+<td><code>README.md:118</code>&lt;br&gt;<code>.env.example:21</code>&lt;br&gt;<code>.env.development.example:8</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_POSTGRES_SERVICE</code></td>
@@ -321,7 +321,7 @@
 <td><code>PLAINWIRE_ALLOW_ARBITRARY_MEDIA</code></td>
 <td>false</td>
 <td><strong>Compatibility/security exception.</strong> Compatibility override allowing remote media outside the normal production restrictions. Default false. Avoid in production unless the egress risk is understood.</td>
-<td><code>.env.example:308</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:152</code>&lt;br&gt;<code>src/pw_media.erl:396</code></td>
+<td><code>.env.example:308</code>&lt;br&gt;<code>src/pw_media.erl:396</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:152</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ALLOW_UNSIGNED_MEDIA_TOKENS</code></td>
@@ -333,7 +333,7 @@
 <td><code>PLAINWIRE_COMPRESS_OVERSIZE_UPLOADS</code></td>
 <td>true</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:13</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:143</code>&lt;br&gt;<code>src/pw_client_config.erl:24</code></td>
+<td><code>.env.example:13</code>&lt;br&gt;<code>src/pw_client_config.erl:24</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:143</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_FILE_REQUESTS_PER_MINUTE</code></td>
@@ -345,25 +345,25 @@
 <td><code>PLAINWIRE_MEDIA_ALLOWED_HOSTS</code></td>
 <td>cdn.example.com</td>
 <td>Trusted image/CDN hosts only. keep egress filtering too</td>
-<td><code>.env.example:56</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:151</code>&lt;br&gt;<code>src/pw_media.erl:394</code></td>
+<td><code>.env.example:56</code>&lt;br&gt;<code>src/pw_media.erl:394</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:151</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_MEDIA_FETCH_CONCURRENCY</code></td>
 <td>24</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:57</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:153</code>&lt;br&gt;<code>src/pw_media.erl:275</code></td>
+<td><code>.env.example:57</code>&lt;br&gt;<code>src/pw_media.erl:275</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:153</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_MEDIA_QUALITY</code></td>
 <td>auto</td>
 <td>Optional numeric diagnostics. Build with scripts/build-media-quality.sh. auto uses the worker if installed; off disables server analysis.</td>
-<td><code>.env.example:155</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:18</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:57</code></td>
+<td><code>.env.example:155</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:57</code>&lt;br&gt;<code>src/pw_client_config.erl:9</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_MEDIA_QUALITY_BIN</code></td>
 <td>source-managed / unset</td>
 <td>Absolute path override for the optional native media-quality executable.</td>
-<td><code>.env.example:329</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:18</code>&lt;br&gt;<code>src/pw_media_quality.erl:25</code></td>
+<td><code>.env.example:329</code>&lt;br&gt;<code>src/pw_media_quality.erl:25</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:18</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_MEDIA_REQUESTS_PER_MINUTE</code></td>
@@ -375,73 +375,73 @@
 <td><code>PLAINWIRE_MEDIA_SIGNING_KEY</code></td>
 <td>secret / unset</td>
 <td>Optional dedicated media-token signing key. Keep secret. Source install helpers generate/configure it when needed.</td>
-<td><code>.env.example:52</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:90</code>&lt;br&gt;<code>docs/SECURITY.md:100</code></td>
+<td><code>.env.example:52</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:90</code>&lt;br&gt;<code>src/pw_crypto.erl:40</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_PROFILE_IMAGE_MAX_BYTES</code></td>
 <td>16777216</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:12</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:142</code>&lt;br&gt;<code>src/pw_client_config.erl:108</code></td>
+<td><code>.env.example:12</code>&lt;br&gt;<code>src/pw_client_config.erl:108</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:142</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_CONCURRENCY</code></td>
 <td>64</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:64</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:147</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:50</code></td>
+<td><code>.env.example:64</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:50</code>&lt;br&gt;<code>src/pw_upload_gc.erl:100</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_DIR</code></td>
 <td>/var/lib/plainwire/uploads</td>
 <td>Streamed attachments need durable storage and a 250 MB proxy limit on /api/uploads</td>
-<td><code>.env.development.example:13</code>&lt;br&gt;<code>.env.example:60</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:139</code></td>
+<td><code>.env.example:60</code>&lt;br&gt;<code>.env.development.example:13</code>&lt;br&gt;<code>src/pw_app.erl:167</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_IMAGE_MAX_DIMENSION</code></td>
 <td>4096</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:14</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:144</code>&lt;br&gt;<code>src/pw_client_config.erl:25</code></td>
+<td><code>.env.example:14</code>&lt;br&gt;<code>src/pw_client_config.erl:25</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:144</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_INFLIGHT_BYTES</code></td>
 <td>1073741824</td>
 <td>Big uploads add up. put a ceiling on the pile.</td>
-<td><code>.env.example:67</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:149</code>&lt;br&gt;<code>src/pw_upload_gc.erl:102</code></td>
+<td><code>.env.example:67</code>&lt;br&gt;<code>src/pw_upload_gc.erl:102</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:149</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_MAX_BYTES</code></td>
 <td>262144000</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:61</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:140</code>&lt;br&gt;<code>deploy/README.md:34</code></td>
+<td><code>.env.example:61</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:48</code>&lt;br&gt;<code>src/pw_client_config.erl:105</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_MAX_FILES</code></td>
 <td>10</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:11</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:141</code>&lt;br&gt;<code>src/pw_client_config.erl:22</code></td>
+<td><code>.env.example:11</code>&lt;br&gt;<code>src/pw_client_config.erl:22</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:141</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_QUOTA_BYTES</code></td>
 <td>1073741824</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:62</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:145</code>&lt;br&gt;<code>src/pw_db.erl:5312</code></td>
+<td><code>.env.example:62</code>&lt;br&gt;<code>src/pw_db.erl:5444</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:145</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_RETENTION_DAYS</code></td>
 <td>90</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:63</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:146</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:49</code></td>
+<td><code>.env.example:63</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:49</code>&lt;br&gt;<code>src/pw_upload_gc.erl:138</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_USER_CONCURRENCY</code></td>
 <td>4</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:65</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:148</code>&lt;br&gt;<code>src/pw_upload_gc.erl:101</code></td>
+<td><code>.env.example:65</code>&lt;br&gt;<code>src/pw_upload_gc.erl:101</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:148</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_UPLOAD_USER_INFLIGHT_BYTES</code></td>
 <td>536870912</td>
 <td>Advanced uploads and media setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:68</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:150</code>&lt;br&gt;<code>src/pw_upload_gc.erl:103</code></td>
+<td><code>.env.example:68</code>&lt;br&gt;<code>src/pw_upload_gc.erl:103</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:150</code></td>
 </tr>
 </tbody>
 </table>
@@ -460,7 +460,7 @@
 <td><code>PLAINWIRE_ALLOWED_ORIGINS</code></td>
 <td>source-managed / unset</td>
 <td>Comma-separated WebSocket origin allowlist. If unset, Plainwire derives the normal production origin from the public URL. Set explicitly for unusual multi-origin deployments.</td>
-<td><code>.env.example:303</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:126</code>&lt;br&gt;<code>src/pw_ws.erl:566</code></td>
+<td><code>.env.example:303</code>&lt;br&gt;<code>src/pw_ws.erl:566</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:126</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_HTTP_ACCEPTORS</code></td>
@@ -472,7 +472,7 @@
 <td><code>PLAINWIRE_HTTP_CONNECTION_SUPERVISORS</code></td>
 <td>8</td>
 <td>Ranch connection supervisors reduce accept/connection-management contention. max_connections is exposed here as an approximate listener-wide cap; Plainwire divides it across these supervisors internally.</td>
-<td><code>.env.example:75</code>&lt;br&gt;<code>docs/SCALING.md:34</code>&lt;br&gt;<code>scripts/verify-source.sh:170</code></td>
+<td><code>.env.example:75</code>&lt;br&gt;<code>src/pw_sup.erl:99</code>&lt;br&gt;<code>scripts/verify-source.sh:170</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_HTTP_CONNECT_TIMEOUT_MS</code></td>
@@ -502,7 +502,7 @@
 <td><code>PLAINWIRE_HTTP_MAX_CONNECTIONS</code></td>
 <td>100000</td>
 <td>Advanced http and websocket setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:76</code>&lt;br&gt;<code>docs/SCALING.md:29</code>&lt;br&gt;<code>src/pw_sup.erl:97</code></td>
+<td><code>.env.example:76</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:51</code>&lt;br&gt;<code>src/pw_sup.erl:97</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_HTTP_MAX_KEEPALIVE</code></td>
@@ -520,7 +520,7 @@
 <td><code>PLAINWIRE_HTTP_SEND_TIMEOUT_MS</code></td>
 <td>15000</td>
 <td>Close TCP clients that cannot drain outbound data within this window.</td>
-<td><code>.env.example:79</code>&lt;br&gt;<code>scripts/verify-source.sh:170</code>&lt;br&gt;<code>src/pw_sup.erl:125</code></td>
+<td><code>.env.example:79</code>&lt;br&gt;<code>src/pw_sup.erl:125</code>&lt;br&gt;<code>scripts/verify-source.sh:170</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TRUSTED_PROXIES</code></td>
@@ -532,7 +532,7 @@
 <td><code>PLAINWIRE_TRUST_PROXY</code></td>
 <td>true</td>
 <td>Advanced http and websocket setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:5</code>&lt;br&gt;<code>.env.example:5</code>&lt;br&gt;<code>README.md:114</code></td>
+<td><code>README.md:114</code>&lt;br&gt;<code>.env.example:5</code>&lt;br&gt;<code>.env.development.example:5</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_COMPRESS</code></td>
@@ -544,37 +544,37 @@
 <td><code>PLAINWIRE_WS_HARD_QUEUE</code></td>
 <td>2000</td>
 <td>Advanced http and websocket setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:105</code>&lt;br&gt;<code>docs/SCALING.md:25</code>&lt;br&gt;<code>src/pw_realtime_delivery.erl:76</code></td>
+<td><code>.env.example:105</code>&lt;br&gt;<code>src/pw_realtime_delivery.erl:105</code>&lt;br&gt;<code>docs/SCALING.md:25</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_MAX_CONNECTIONS</code></td>
 <td>100000</td>
 <td>Realtime admission/backpressure. The WebSocket cap is intentionally separate from Ranch's listener-wide HTTP cap because keep-alive HTTP and WS have different cost profiles. Upgrade limits blunt reconnect storms.</td>
-<td><code>.env.example:94</code>&lt;br&gt;<code>docs/SCALING.md:30</code>&lt;br&gt;<code>scripts/verify-source.sh:171</code></td>
+<td><code>.env.example:94</code>&lt;br&gt;<code>src/pw_ws.erl:33</code>&lt;br&gt;<code>scripts/verify-source.sh:171</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_SOFT_QUEUE</code></td>
 <td>500</td>
 <td>Slow clients do not get to fill the BEAM mailbox forever. Ephemeral events are shed at the soft limit and persistently slow consumers are evicted at hard.</td>
-<td><code>.env.example:104</code>&lt;br&gt;<code>docs/SCALING.md:25</code>&lt;br&gt;<code>src/pw_realtime_delivery.erl:75</code></td>
+<td><code>.env.example:104</code>&lt;br&gt;<code>src/pw_realtime_delivery.erl:104</code>&lt;br&gt;<code>docs/SCALING.md:25</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_TRACE</code></td>
 <td>false</td>
 <td>Hot per-frame tracing is intentionally off in production.</td>
-<td><code>.env.example:107</code>&lt;br&gt;<code>src/pw_ws.erl:619</code>&lt;br&gt;<code>src/pw_hub.erl:309</code></td>
+<td><code>.env.example:107</code>&lt;br&gt;<code>src/pw_ws.erl:619</code>&lt;br&gt;<code>src/pw_hub.erl:313</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_UPGRADES_GLOBAL_MIN</code></td>
 <td>60000</td>
 <td>Advanced http and websocket setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:96</code>&lt;br&gt;<code>docs/SCALING.md:32</code>&lt;br&gt;<code>scripts/verify-source.sh:172</code></td>
+<td><code>.env.example:96</code>&lt;br&gt;<code>src/pw_ws.erl:35</code>&lt;br&gt;<code>scripts/verify-source.sh:172</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WS_UPGRADES_PER_IP_MIN</code></td>
 <td>1200</td>
 <td>Advanced http and websocket setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:95</code>&lt;br&gt;<code>docs/SCALING.md:31</code>&lt;br&gt;<code>scripts/verify-source.sh:172</code></td>
+<td><code>.env.example:95</code>&lt;br&gt;<code>src/pw_ws.erl:34</code>&lt;br&gt;<code>scripts/verify-source.sh:172</code></td>
 </tr>
 </tbody>
 </table>
@@ -593,103 +593,103 @@
 <td><code>PLAINWIRE_CALL_RING_MS</code></td>
 <td>45000</td>
 <td>Call ring timeout. Defaults to the server ring constant and is clamped between 10000 and 120000 ms.</td>
-<td><code>.env.example:323</code>&lt;br&gt;<code>src/pw_hub.erl:702</code></td>
+<td><code>.env.example:323</code>&lt;br&gt;<code>src/pw_hub.erl:742</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CF_ACCOUNT_ID</code></td>
 <td>source-managed / unset</td>
 <td>Optional monthly usage guard. When account ID is present, unknown/stale usage prevents new credentials. Analytics is delayed; this is NOT a billing cap.</td>
-<td><code>.env.example:148</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:23</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:59</code></td>
+<td><code>.env.example:148</code>&lt;br&gt;<code>test/pw_cf_turn_tests.erl:66</code>&lt;br&gt;<code>src/pw_cf_turn.erl:18</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CF_ANALYTICS_API_TOKEN</code></td>
 <td>secret / unset</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:149</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:24</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:60</code></td>
+<td><code>.env.example:149</code>&lt;br&gt;<code>src/pw_cf_turn.erl:154</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:60</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CF_TURN_API_TOKEN</code></td>
 <td>secret / unset</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:145</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:7</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:58</code></td>
+<td><code>.env.example:145</code>&lt;br&gt;<code>test/pw_cf_turn_tests.erl:66</code>&lt;br&gt;<code>src/pw_storage_sanitize.erl:66</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CF_TURN_KEY_ID</code></td>
 <td>secret / unset</td>
 <td>Cloudflare TURN takes priority when BOTH values are set. Keep tokens private. A Cloudflare Tunnel token is a different credential and will not work here.</td>
-<td><code>.env.example:144</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:6</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:57</code></td>
+<td><code>.env.example:144</code>&lt;br&gt;<code>test/pw_cf_turn_tests.erl:66</code>&lt;br&gt;<code>src/pw_cf_turn.erl:15</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CF_USAGE_CHECK_INTERVAL_MS</code></td>
 <td>300000</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:151</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:26</code>&lt;br&gt;<code>src/pw_cf_turn.erl:70</code></td>
+<td><code>.env.example:151</code>&lt;br&gt;<code>src/pw_cf_turn.erl:70</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:26</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ICE_TRANSPORT_POLICY</code></td>
 <td>all</td>
 <td>WebRTC ICE policy. <code>all</code> is normal. <code>relay</code> forces TURN and is useful for controlled relay tests.</td>
-<td><code>.env.example:318</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:35</code>&lt;br&gt;<code>src/pw_rtc_config.erl:14</code></td>
+<td><code>.env.example:318</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:51</code>&lt;br&gt;<code>src/pw_rtc_config.erl:14</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REQUIRE_TURN</code></td>
 <td>true</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:122</code>&lt;br&gt;<code>README.md:178</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:9</code></td>
+<td><code>README.md:178</code>&lt;br&gt;<code>.env.example:122</code>&lt;br&gt;<code>src/pw_admin_runtime.erl:55</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_RTC_CONFIG</code></td>
 <td>source-managed / unset</td>
 <td>Browser global holding fetched ICE configuration. Not a server environment variable.</td>
-<td><code>priv/static/elm-bridge.js:1432</code>&lt;br&gt;<code>priv/static/elm-bridge.js:1596</code></td>
+<td><code>priv/static/elm-bridge.js:1450</code>&lt;br&gt;<code>priv/static/elm-bridge.js:1614</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_RTC_RECONNECT_GRACE_MS</code></td>
 <td>15000</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:123</code>&lt;br&gt;<code>src/pw_hub.erl:999</code>&lt;br&gt;<code>test/pw_hub_tests.erl:296</code></td>
+<td><code>.env.example:123</code>&lt;br&gt;<code>test/pw_hub_tests.erl:293</code>&lt;br&gt;<code>test/pw_hub_tests.erl:294</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STUN_URLS</code></td>
 <td>source-managed / unset</td>
 <td>Comma-separated STUN URL override. Source default includes Google public STUN at <code>stun:stun.l.google.com:19302</code>.</td>
-<td><code>.env.example:317</code>&lt;br&gt;<code>src/pw_rtc_config.erl:10</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:27</code></td>
+<td><code>.env.example:317</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:27</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:49</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_CREDENTIAL</code></td>
 <td>secret / unset</td>
 <td>Static TURN credential compatibility setting. Production requires the explicit static-credential override. Prefer short-lived credentials.</td>
-<td><code>.env.example:327</code>&lt;br&gt;<code>src/pw_rtc_config.erl:92</code>&lt;br&gt;<code>src/pw_rtc_config.erl:113</code></td>
+<td><code>.env.example:327</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:30</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:50</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_MONTHLY_LIMIT_BYTES</code></td>
 <td>950000000000</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:150</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:25</code>&lt;br&gt;<code>src/pw_cf_turn.erl:121</code></td>
+<td><code>.env.example:150</code>&lt;br&gt;<code>src/pw_cf_turn.erl:121</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:25</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_SECRET</code></td>
 <td>secret / unset</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:119</code>&lt;br&gt;<code>README.md:177</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:56</code></td>
+<td><code>README.md:177</code>&lt;br&gt;<code>.env.example:119</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:15</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_TTL_SECONDS</code></td>
 <td>3600</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:121</code>&lt;br&gt;<code>docs/CLOUDFLARE_TURN.md:8</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:164</code></td>
+<td><code>.env.example:121</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:51</code>&lt;br&gt;<code>src/pw_cf_turn.erl:31</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_URLS</code></td>
 <td>turn:turn.example.com:3478?transport=udp,turn:turn.example.com:3478?transport=tcp,turns:turn.example.com:5349?transport=tcp</td>
 <td>Coturn: use-auth-secret, the same static-auth-secret, and a realm</td>
-<td><code>.env.example:118</code>&lt;br&gt;<code>README.md:176</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:55</code></td>
+<td><code>README.md:176</code>&lt;br&gt;<code>.env.example:118</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:14</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TURN_USERNAME</code></td>
 <td>plainwire</td>
 <td>Advanced realtime and turn setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:120</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:163</code>&lt;br&gt;<code>src/pw_rtc_config.erl:91</code></td>
+<td><code>.env.example:120</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:16</code>&lt;br&gt;<code>test/pw_rtc_config_tests.erl:29</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_VOICE_MAX_PARTICIPANTS</code></td>
@@ -726,18 +726,18 @@
 <td><code>PLAINWIRE_ADMIN_ALLOW_REMOTE</code></td>
 <td>false</td>
 <td>Remote production access is deliberately opt-in and requires HTTPS + secure cookies.</td>
-<td><code>.env.example:185</code>&lt;br&gt;<code>README.md:275</code>&lt;br&gt;<code>src/pw_app.erl:90</code></td>
+<td><code>README.md:275</code>&lt;br&gt;<code>.env.example:185</code>&lt;br&gt;<code>src/pw_app.erl:90</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_BIND</code></td>
 <td>127.0.0.1</td>
 <td>Loopback is the safe default. Put an HTTPS reverse proxy in front for remote use.</td>
-<td><code>.env.example:169</code>&lt;br&gt;<code>README.md:271</code>&lt;br&gt;<code>src/pw_app.erl:56</code></td>
+<td><code>README.md:271</code>&lt;br&gt;<code>.env.example:169</code>&lt;br&gt;<code>src/pw_app.erl:56</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN</code></td>
 <td>secret / unset</td>
-<td>Sensitive bootstrap token name recognized by storage/config sanitization. Treat as secret. Prefer the documented enrollment/recovery flow rather than inventing a permanent admin key.</td>
+<td>Sensitive compatibility token name recognized by storage/config sanitization. Plainwire 2.2 host-admin enrollment does not require it. Prefer the documented enrollment/recovery flow rather than inventing a permanent admin key.</td>
 <td><code>.env.example:357</code>&lt;br&gt;<code>src/pw_storage_sanitize.erl:65</code></td>
 </tr>
 <tr>
@@ -750,13 +750,13 @@
 <td><code>PLAINWIRE_ADMIN_COOKIE_SECURE</code></td>
 <td>true</td>
 <td>Advanced admin control plane setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:189</code>&lt;br&gt;<code>src/pw_app.erl:102</code>&lt;br&gt;<code>src/pw_admin_api.erl:345</code></td>
+<td><code>.env.example:189</code>&lt;br&gt;<code>src/pw_admin_api.erl:345</code>&lt;br&gt;<code>src/pw_app.erl:102</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_ENABLED</code></td>
 <td>false</td>
 <td>Optional service-operator control plane. This is for the configured Plainwire HOST, not for moderators inside individual Plainwire servers. It has a separate listener and separate operator sessions. Source code contains no admin key.</td>
-<td><code>.env.example:167</code>&lt;br&gt;<code>README.md:270</code>&lt;br&gt;<code>src/pw_admin_identity.erl:13</code></td>
+<td><code>README.md:270</code>&lt;br&gt;<code>.env.example:167</code>&lt;br&gt;<code>src/pw_app.erl:53</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_ENROLLMENT_MINUTES</code></td>
@@ -780,7 +780,7 @@
 <td><code>PLAINWIRE_ADMIN_LOCAL_RECOVERY</code></td>
 <td>false</td>
 <td>Emergency only: generate one host-local owner recovery token on startup. Requires loopback bind. Remove after recovery.</td>
-<td><code>.env.example:187</code>&lt;br&gt;<code>README.md:265</code>&lt;br&gt;<code>src/pw_admin_identity.erl:61</code></td>
+<td><code>README.md:265</code>&lt;br&gt;<code>.env.example:187</code>&lt;br&gt;<code>src/pw_app.erl:60</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_MAX_CONNECTIONS</code></td>
@@ -798,13 +798,13 @@
 <td><code>PLAINWIRE_ADMIN_PORT</code></td>
 <td>8090</td>
 <td>Advanced admin control plane setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:170</code>&lt;br&gt;<code>README.md:272</code>&lt;br&gt;<code>src/pw_sup.erl:50</code></td>
+<td><code>README.md:272</code>&lt;br&gt;<code>.env.example:170</code>&lt;br&gt;<code>src/pw_sup.erl:50</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_PUBLIC_URL</code></td>
 <td>https://control.example.com</td>
 <td>Advanced admin control plane setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:188</code>&lt;br&gt;<code>README.md:275</code>&lt;br&gt;<code>src/pw_app.erl:96</code></td>
+<td><code>README.md:275</code>&lt;br&gt;<code>.env.example:188</code>&lt;br&gt;<code>src/pw_admin_api.erl:344</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS</code></td>
@@ -816,13 +816,13 @@
 <td><code>PLAINWIRE_ADMIN_SECRET_FILE</code></td>
 <td>/var/lib/plainwire/admin-instance.key</td>
 <td>Production defaults to /var/lib/plainwire/admin-instance.key. Keep this file private and persistent; it binds operator verification keys to this instance.</td>
-<td><code>.env.example:183</code>&lt;br&gt;<code>src/pw_admin_identity.erl:142</code>&lt;br&gt;<code>src/pw_app.erl:76</code></td>
+<td><code>.env.example:183</code>&lt;br&gt;<code>src/pw_app.erl:76</code>&lt;br&gt;<code>src/pw_admin_identity.erl:142</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_SEND_TIMEOUT_MS</code></td>
 <td>10000</td>
 <td>Advanced admin control plane setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:175</code>&lt;br&gt;<code>scripts/verify-source.sh:171</code>&lt;br&gt;<code>src/pw_sup.erl:72</code></td>
+<td><code>.env.example:175</code>&lt;br&gt;<code>src/pw_sup.erl:72</code>&lt;br&gt;<code>scripts/verify-source.sh:171</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_ADMIN_SESSION_HOURS</code></td>
@@ -847,13 +847,13 @@
 <td><code>PLAINWIRE_NODE_ID</code></td>
 <td>source-managed / unset</td>
 <td>Stable and unique per running node when using Redis-backed presence across nodes.</td>
-<td><code>.env.example:206</code>&lt;br&gt;<code>docs/REDIS.md:26</code>&lt;br&gt;<code>docs/REDIS.md:42</code></td>
+<td><code>.env.example:206</code>&lt;br&gt;<code>src/pw_redis.erl:142</code>&lt;br&gt;<code>docs/REDIS.md:26</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_ASYNC_QUEUE</code></td>
 <td>4096</td>
 <td>Advanced redis setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:220</code>&lt;br&gt;<code>docs/REDIS.md:18</code>&lt;br&gt;<code>docs/REDIS.md:49</code></td>
+<td><code>.env.example:220</code>&lt;br&gt;<code>src/pw_redis.erl:321</code>&lt;br&gt;<code>scripts/verify-source.sh:166</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_DB</code></td>
@@ -865,7 +865,7 @@
 <td><code>PLAINWIRE_REDIS_ENABLED</code></td>
 <td>false</td>
 <td>Optional Redis real-time accelerator. Redis is never a durable authority. When Redis is disabled or unreachable, Plainwire falls back to its existing local ETS presence/rate-limit behavior and continues serving messages normally.</td>
-<td><code>.env.example:204</code>&lt;br&gt;<code>docs/REDIS.md:42</code>&lt;br&gt;<code>src/pw_redis.erl:799</code></td>
+<td><code>.env.example:204</code>&lt;br&gt;<code>src/pw_redis.erl:799</code>&lt;br&gt;<code>docs/REDIS.md:42</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_HOST</code></td>
@@ -883,7 +883,7 @@
 <td><code>PLAINWIRE_REDIS_POOL_SIZE</code></td>
 <td>8</td>
 <td>Dedicated I/O workers remove the single Redis-process bottleneck. Commands are key-affine so same-key mutations retain ordering. These queues are bounded; optional accelerator writes may be shed before they threaten the BEAM.</td>
-<td><code>.env.example:218</code>&lt;br&gt;<code>docs/REDIS.md:16</code>&lt;br&gt;<code>docs/REDIS.md:47</code></td>
+<td><code>.env.example:218</code>&lt;br&gt;<code>src/pw_redis.erl:225</code>&lt;br&gt;<code>scripts/verify-source.sh:165</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_PORT</code></td>
@@ -895,13 +895,13 @@
 <td><code>PLAINWIRE_REDIS_PREFIX</code></td>
 <td>plainwire</td>
 <td>Advanced redis setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:213</code>&lt;br&gt;<code>src/pw_redis.erl:768</code>&lt;br&gt;<code>test/pw_redis_tests.erl:26</code></td>
+<td><code>.env.example:213</code>&lt;br&gt;<code>test/pw_redis_tests.erl:26</code>&lt;br&gt;<code>test/pw_redis_tests.erl:27</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_SYNC_QUEUE</code></td>
 <td>2048</td>
 <td>Advanced redis setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:219</code>&lt;br&gt;<code>docs/REDIS.md:18</code>&lt;br&gt;<code>docs/REDIS.md:48</code></td>
+<td><code>.env.example:219</code>&lt;br&gt;<code>src/pw_redis.erl:362</code>&lt;br&gt;<code>scripts/verify-source.sh:166</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_REDIS_TIMEOUT_MS</code></td>
@@ -950,7 +950,7 @@
 <td><code>PLAINWIRE_MESSAGE_BACKEND</code></td>
 <td>postgres</td>
 <td>Optional ScyllaDB high-volume message/event storage. PostgreSQL remains the relational authority. Keep <code>postgres</code> for small/self-hosted installations. Use <code>dual</code> only while migrating; see docs/SCYLLA.md.</td>
-<td><code>.env.example:239</code>&lt;br&gt;<code>docs/SCYLLA.md:21</code>&lt;br&gt;<code>docs/SCYLLA.md:25</code></td>
+<td><code>.env.example:239</code>&lt;br&gt;<code>src/pw_scylla_config.erl:8</code>&lt;br&gt;<code>docs/SCYLLA.md:21</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_MESSAGE_ID_CLOCK_ROLLBACK_MS</code></td>
@@ -986,7 +986,7 @@
 <td><code>PLAINWIRE_SCYLLA_BUCKET_POLICY</code></td>
 <td>month</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:262</code>&lt;br&gt;<code>docs/SCYLLA.md:92</code>&lt;br&gt;<code>docs/SCYLLA.md:127</code></td>
+<td><code>.env.example:262</code>&lt;br&gt;<code>src/pw_scylla_config.erl:55</code>&lt;br&gt;<code>docs/SCYLLA.md:92</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_CACHE_TTL_MS</code></td>
@@ -998,13 +998,13 @@
 <td><code>PLAINWIRE_SCYLLA_CA_FILE</code></td>
 <td>source-managed / unset</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:247</code>&lt;br&gt;<code>docs/SCYLLA.md:101</code>&lt;br&gt;<code>scripts/scylla-migrate:44</code></td>
+<td><code>.env.example:247</code>&lt;br&gt;<code>src/pw_scylla_config.erl:24</code>&lt;br&gt;<code>scripts/scylla-migrate:44</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_CERT_FILE</code></td>
 <td>source-managed / unset</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:248</code>&lt;br&gt;<code>docs/SCYLLA.md:103</code>&lt;br&gt;<code>scripts/scylla-migrate:45</code></td>
+<td><code>.env.example:248</code>&lt;br&gt;<code>src/pw_scylla_config.erl:25</code>&lt;br&gt;<code>scripts/scylla-migrate:45</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_CONNECT_TIMEOUT_MS</code></td>
@@ -1016,19 +1016,19 @@
 <td><code>PLAINWIRE_SCYLLA_CONSISTENCY</code></td>
 <td>local_quorum</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:251</code>&lt;br&gt;<code>docs/SCYLLA.md:87</code>&lt;br&gt;<code>src/pw_scylla_config.erl:46</code></td>
+<td><code>.env.example:251</code>&lt;br&gt;<code>src/pw_scylla_config.erl:46</code>&lt;br&gt;<code>docs/SCYLLA.md:87</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_CONTACT_POINTS</code></td>
 <td>127.0.0.1</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:241</code>&lt;br&gt;<code>docs/SCYLLA.md:83</code>&lt;br&gt;<code>scripts/scylla-migrate:7</code></td>
+<td><code>.env.example:241</code>&lt;br&gt;<code>src/pw_scylla_config.erl:105</code>&lt;br&gt;<code>scripts/scylla-migrate:7</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_DELIVERY_RETENTION_DAYS</code></td>
 <td>90</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:265</code>&lt;br&gt;<code>docs/SCYLLA.md:130</code>&lt;br&gt;<code>src/pw_scylla_config.erl:41</code></td>
+<td><code>.env.example:265</code>&lt;br&gt;<code>src/pw_scylla_config.erl:41</code>&lt;br&gt;<code>docs/SCYLLA.md:130</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_DRIVER_QUEUE</code></td>
@@ -1040,49 +1040,49 @@
 <td><code>PLAINWIRE_SCYLLA_ENABLED</code></td>
 <td>false</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:240</code>&lt;br&gt;<code>docs/SCYLLA.md:82</code>&lt;br&gt;<code>docs/SCYLLA.md:149</code></td>
+<td><code>.env.example:240</code>&lt;br&gt;<code>src/pw_scylla_config.erl:5</code>&lt;br&gt;<code>docs/SCYLLA.md:82</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_EVENT_RETENTION_DAYS</code></td>
 <td>365</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:264</code>&lt;br&gt;<code>docs/SCYLLA.md:129</code>&lt;br&gt;<code>src/pw_scylla_config.erl:40</code></td>
+<td><code>.env.example:264</code>&lt;br&gt;<code>src/pw_scylla_config.erl:40</code>&lt;br&gt;<code>docs/SCYLLA.md:129</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_HISTORY_BUCKETS</code></td>
 <td>36</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:263</code>&lt;br&gt;<code>docs/SCYLLA.md:128</code>&lt;br&gt;<code>src/pw_message_store_scylla.erl:593</code></td>
+<td><code>.env.example:263</code>&lt;br&gt;<code>src/pw_message_store_scylla.erl:593</code>&lt;br&gt;<code>docs/SCYLLA.md:128</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_IO_THREADS</code></td>
 <td>2</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:253</code>&lt;br&gt;<code>docs/SCYLLA.md:89</code>&lt;br&gt;<code>src/pw_scylla_config.erl:30</code></td>
+<td><code>.env.example:253</code>&lt;br&gt;<code>src/pw_scylla_config.erl:30</code>&lt;br&gt;<code>docs/SCYLLA.md:89</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_KEYSPACE</code></td>
 <td>plainwire</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:243</code>&lt;br&gt;<code>docs/SCYLLA.md:85</code>&lt;br&gt;<code>scripts/scylla-migrate:9</code></td>
+<td><code>.env.example:243</code>&lt;br&gt;<code>src/pw_scylla_config.erl:20</code>&lt;br&gt;<code>scripts/scylla-migrate:9</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_KEY_FILE</code></td>
 <td>source-managed / unset</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:249</code>&lt;br&gt;<code>docs/SCYLLA.md:104</code>&lt;br&gt;<code>scripts/scylla-migrate:46</code></td>
+<td><code>.env.example:249</code>&lt;br&gt;<code>src/pw_scylla_config.erl:26</code>&lt;br&gt;<code>scripts/scylla-migrate:46</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_LOCAL_DC</code></td>
 <td>datacenter1</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:250</code>&lt;br&gt;<code>docs/SCYLLA.md:38</code>&lt;br&gt;<code>docs/SCYLLA.md:86</code></td>
+<td><code>.env.example:250</code>&lt;br&gt;<code>src/pw_scylla_config.erl:27</code>&lt;br&gt;<code>scripts/scylla-migrate:10</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_MAX_INFLIGHT</code></td>
 <td>256</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:258</code>&lt;br&gt;<code>docs/SCYLLA.md:114</code>&lt;br&gt;<code>src/pw_scylla_config.erl:35</code></td>
+<td><code>.env.example:258</code>&lt;br&gt;<code>src/pw_scylla_config.erl:35</code>&lt;br&gt;<code>docs/SCYLLA.md:114</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_MAX_PAGE_SCAN_ROWS</code></td>
@@ -1094,19 +1094,19 @@
 <td><code>PLAINWIRE_SCYLLA_MAX_PARTITION_INFLIGHT</code></td>
 <td>8</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:259</code>&lt;br&gt;<code>docs/SCYLLA.md:115</code>&lt;br&gt;<code>src/pw_scylla_config.erl:36</code></td>
+<td><code>.env.example:259</code>&lt;br&gt;<code>src/pw_scylla_config.erl:36</code>&lt;br&gt;<code>docs/SCYLLA.md:115</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_MAX_PARTITION_QUEUE</code></td>
 <td>128</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:261</code>&lt;br&gt;<code>docs/SCYLLA.md:117</code>&lt;br&gt;<code>src/pw_scylla_config.erl:38</code></td>
+<td><code>.env.example:261</code>&lt;br&gt;<code>src/pw_scylla_config.erl:38</code>&lt;br&gt;<code>docs/SCYLLA.md:117</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_MAX_QUEUE</code></td>
 <td>4096</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:260</code>&lt;br&gt;<code>docs/SCYLLA.md:116</code>&lt;br&gt;<code>src/pw_scylla_config.erl:37</code></td>
+<td><code>.env.example:260</code>&lt;br&gt;<code>src/pw_scylla_config.erl:37</code>&lt;br&gt;<code>docs/SCYLLA.md:116</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_MIGRATION_MODE</code></td>
@@ -1118,7 +1118,7 @@
 <td><code>PLAINWIRE_SCYLLA_OPERATION_TIMEOUT_MS</code></td>
 <td>8000</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:257</code>&lt;br&gt;<code>docs/SCYLLA.md:91</code>&lt;br&gt;<code>src/pw_scylla_config.erl:34</code></td>
+<td><code>.env.example:257</code>&lt;br&gt;<code>src/pw_scylla_config.erl:34</code>&lt;br&gt;<code>docs/SCYLLA.md:91</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_PARITY_SAMPLE_ROWS</code></td>
@@ -1130,61 +1130,61 @@
 <td><code>PLAINWIRE_SCYLLA_PASSWORD</code></td>
 <td>secret / unset</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:245</code>&lt;br&gt;<code>docs/SCYLLA.md:99</code>&lt;br&gt;<code>scripts/scylla-migrate:43</code></td>
+<td><code>.env.example:245</code>&lt;br&gt;<code>src/pw_storage_sanitize.erl:64</code>&lt;br&gt;<code>src/pw_scylla_config.erl:22</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_POOL_SIZE</code></td>
 <td>2</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:252</code>&lt;br&gt;<code>docs/SCYLLA.md:88</code>&lt;br&gt;<code>src/pw_scylla_config.erl:29</code></td>
+<td><code>.env.example:252</code>&lt;br&gt;<code>src/pw_scylla_config.erl:29</code>&lt;br&gt;<code>docs/SCYLLA.md:88</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_PORT</code></td>
 <td>9042</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:242</code>&lt;br&gt;<code>docs/SCYLLA.md:84</code>&lt;br&gt;<code>scripts/scylla-migrate:8</code></td>
+<td><code>.env.example:242</code>&lt;br&gt;<code>src/pw_scylla_config.erl:19</code>&lt;br&gt;<code>scripts/scylla-migrate:8</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_RECONCILE_INTERVAL_MS</code></td>
 <td>300000</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:266</code>&lt;br&gt;<code>docs/SCYLLA.md:248</code>&lt;br&gt;<code>src/pw_storage_reconciler.erl:12</code></td>
+<td><code>.env.example:266</code>&lt;br&gt;<code>src/pw_storage_reconciler.erl:12</code>&lt;br&gt;<code>docs/SCYLLA.md:248</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_RECONCILE_ROWS</code></td>
 <td>500</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:267</code>&lt;br&gt;<code>docs/SCYLLA.md:249</code>&lt;br&gt;<code>src/pw_storage_migration.erl:249</code></td>
+<td><code>.env.example:267</code>&lt;br&gt;<code>src/pw_storage_migration.erl:249</code>&lt;br&gt;<code>docs/SCYLLA.md:249</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_REPLICATION_FACTOR</code></td>
 <td>source-managed / unset</td>
 <td>Replication factor used by the explicit Scylla migration script when creating schema. Script default is 1 and is only suitable for a single-node/lab topology.</td>
-<td><code>docs/SCYLLA.md:39</code>&lt;br&gt;<code>scripts/scylla-migrate:11</code>&lt;br&gt;<code>scripts/scylla-migrate:17</code></td>
+<td><code>scripts/scylla-migrate:11</code>&lt;br&gt;<code>scripts/scylla-migrate:17</code>&lt;br&gt;<code>docs/SCYLLA.md:39</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_REQUEST_TIMEOUT_MS</code></td>
 <td>5000</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:256</code>&lt;br&gt;<code>docs/SCYLLA.md:90</code>&lt;br&gt;<code>src/pw_scylla_config.erl:33</code></td>
+<td><code>.env.example:256</code>&lt;br&gt;<code>src/pw_scylla_config.erl:33</code>&lt;br&gt;<code>docs/SCYLLA.md:90</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_SHADOW_SAMPLE_ROWS</code></td>
 <td>200</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:273</code>&lt;br&gt;<code>docs/SCYLLA.md:253</code>&lt;br&gt;<code>src/pw_storage_migration.erl:150</code></td>
+<td><code>.env.example:273</code>&lt;br&gt;<code>src/pw_storage_migration.erl:150</code>&lt;br&gt;<code>docs/SCYLLA.md:253</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_TLS</code></td>
 <td>false</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:246</code>&lt;br&gt;<code>docs/SCYLLA.md:100</code>&lt;br&gt;<code>scripts/scylla-migrate:55</code></td>
+<td><code>.env.example:246</code>&lt;br&gt;<code>src/pw_scylla_config.erl:23</code>&lt;br&gt;<code>scripts/scylla-migrate:55</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_USERNAME</code></td>
 <td>source-managed / unset</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:244</code>&lt;br&gt;<code>docs/SCYLLA.md:98</code>&lt;br&gt;<code>scripts/scylla-migrate:42</code></td>
+<td><code>.env.example:244</code>&lt;br&gt;<code>src/pw_scylla_config.erl:21</code>&lt;br&gt;<code>scripts/scylla-migrate:42</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_VERIFY_AFTER_ID</code></td>
@@ -1202,49 +1202,49 @@
 <td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_BUCKETS</code></td>
 <td>512</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:272</code>&lt;br&gt;<code>docs/SCYLLA.md:252</code>&lt;br&gt;<code>src/pw_message_store_scylla.erl:590</code></td>
+<td><code>.env.example:272</code>&lt;br&gt;<code>src/pw_message_store_scylla.erl:590</code>&lt;br&gt;<code>docs/SCYLLA.md:252</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_GRACE_MS</code></td>
 <td>300000</td>
 <td>Crash-recovery journal for Scylla-authoritative writes. Intents older than this grace are reconciled against PostgreSQL before cleanup.</td>
-<td><code>.env.example:270</code>&lt;br&gt;<code>docs/SCYLLA.md:250</code>&lt;br&gt;<code>src/pw_storage_migration.erl:197</code></td>
+<td><code>.env.example:270</code>&lt;br&gt;<code>src/pw_storage_migration.erl:197</code>&lt;br&gt;<code>docs/SCYLLA.md:250</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_SCYLLA_WRITE_INTENT_RECONCILE_ROWS</code></td>
 <td>500</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:271</code>&lt;br&gt;<code>docs/SCYLLA.md:251</code>&lt;br&gt;<code>src/pw_storage_migration.erl:190</code></td>
+<td><code>.env.example:271</code>&lt;br&gt;<code>src/pw_storage_migration.erl:190</code>&lt;br&gt;<code>docs/SCYLLA.md:251</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STORAGE_OUTBOX_BATCH</code></td>
 <td>25</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:278</code>&lt;br&gt;<code>docs/SCYLLA.md:255</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:26</code></td>
+<td><code>.env.example:278</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:26</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:229</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STORAGE_OUTBOX_CONCURRENCY</code></td>
 <td>8</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:279</code>&lt;br&gt;<code>docs/SCYLLA.md:256</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:27</code></td>
+<td><code>.env.example:279</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:27</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:230</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STORAGE_OUTBOX_FAILED_RETENTION_DAYS</code></td>
 <td>30</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:281</code>&lt;br&gt;<code>docs/SCYLLA.md:258</code>&lt;br&gt;<code>src/pw_db.erl:3615</code></td>
+<td><code>.env.example:281</code>&lt;br&gt;<code>src/pw_db.erl:3627</code>&lt;br&gt;<code>docs/SCYLLA.md:258</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STORAGE_OUTBOX_INTERVAL_MS</code></td>
 <td>250</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:277</code>&lt;br&gt;<code>docs/SCYLLA.md:254</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:25</code></td>
+<td><code>.env.example:277</code>&lt;br&gt;<code>src/pw_storage_outbox.erl:25</code>&lt;br&gt;<code>docs/SCYLLA.md:254</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_STORAGE_OUTBOX_RETENTION_DAYS</code></td>
 <td>7</td>
 <td>Advanced scylla and message storage setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:280</code>&lt;br&gt;<code>docs/SCYLLA.md:257</code>&lt;br&gt;<code>src/pw_db.erl:3614</code></td>
+<td><code>.env.example:280</code>&lt;br&gt;<code>src/pw_db.erl:3626</code>&lt;br&gt;<code>docs/SCYLLA.md:257</code></td>
 </tr>
 </tbody>
 </table>
@@ -1281,19 +1281,19 @@
 <td><code>PLAINWIRE_APP_ALLOW_LOOPBACK_HTTP</code></td>
 <td>false</td>
 <td>Developer app/webhook+AI outbound safety. Remote app endpoints are HTTPS-only. Enable this only for local development against exact localhost/127.0.0.1/::1.</td>
-<td><code>.env.example:295</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:43</code>&lt;br&gt;<code>docs/SECURITY.md:74</code></td>
+<td><code>.env.example:295</code>&lt;br&gt;<code>RELEASE_NOTES_2.1.0.md:43</code>&lt;br&gt;<code>src/pw_outbound_url.erl:47</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_APP_COMMAND_LEASE_MS</code></td>
 <td>45000</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:333</code>&lt;br&gt;<code>src/pw_db.erl:6502</code></td>
+<td><code>.env.example:333</code>&lt;br&gt;<code>src/pw_db.erl:6641</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_APP_COMMAND_MAX_ATTEMPTS</code></td>
 <td>6</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:334</code>&lt;br&gt;<code>src/pw_db.erl:6503</code>&lt;br&gt;<code>src/pw_db.erl:6578</code></td>
+<td><code>.env.example:334</code>&lt;br&gt;<code>src/pw_db.erl:6642</code>&lt;br&gt;<code>src/pw_db.erl:6717</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_APP_INTERACTION_CONCURRENCY</code></td>
@@ -1311,13 +1311,13 @@
 <td><code>PLAINWIRE_APP_NAME</code></td>
 <td>Plainwire</td>
 <td>Public client behavior. these values are served at runtime, so one build can be reused across deployments without rebuilding the Elm bundle.</td>
-<td><code>.env.example:9</code>&lt;br&gt;<code>README.md:122</code>&lt;br&gt;<code>src/pw_client_config.erl:13</code></td>
+<td><code>README.md:122</code>&lt;br&gt;<code>.env.example:9</code>&lt;br&gt;<code>src/pw_client_config.erl:13</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_APP_REQUEST_MAX_BYTES</code></td>
 <td>65536</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:296</code>&lt;br&gt;<code>docs/SECURITY_AUDIT_2.1.0.md:37</code>&lt;br&gt;<code>src/pw_app_http.erl:11</code></td>
+<td><code>.env.example:296</code>&lt;br&gt;<code>src/pw_app_http.erl:11</code>&lt;br&gt;<code>docs/SECURITY_AUDIT_2.1.0.md:37</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_APP_RESPONSE_MAX_BYTES</code></td>
@@ -1329,31 +1329,31 @@
 <td><code>PLAINWIRE_APP_USER</code></td>
 <td>source-managed / unset</td>
 <td>OpenRC install/update helper override for the Unix account that owns the Plainwire checkout. Not an application runtime setting.</td>
-<td><code>scripts/install-openrc-release.sh:13</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:14</code>&lt;br&gt;<code>scripts/update-openrc-release.sh:9</code></td>
+<td><code>scripts/update-openrc-release.sh:9</code>&lt;br&gt;<code>scripts/update-openrc-release.sh:10</code>&lt;br&gt;<code>scripts/install-openrc-release.sh:13</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_</code></td>
 <td>source-managed / unset</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>docs/BOTS.md:116</code></td>
+<td><code>docs/BOTS.md:148</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_COMMAND_CLAIM_PER_MINUTE</code></td>
 <td>2400</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:197</code>&lt;br&gt;<code>src/pw_api.erl:826</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
+<td><code>.env.example:197</code>&lt;br&gt;<code>src/pw_api.erl:854</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_COMMAND_LEASE_MS</code></td>
 <td>30000</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:198</code>&lt;br&gt;<code>src/pw_db.erl:4334</code>&lt;br&gt;<code>src/pw_api.erl:836</code></td>
+<td><code>.env.example:198</code>&lt;br&gt;<code>src/pw_db.erl:4436</code>&lt;br&gt;<code>src/pw_db.erl:4471</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_COMMAND_MAX_ATTEMPTS</code></td>
 <td>8</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:199</code>&lt;br&gt;<code>src/pw_db.erl:4335</code></td>
+<td><code>.env.example:199</code>&lt;br&gt;<code>src/pw_db.erl:4437</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_H</code></td>
@@ -1365,103 +1365,103 @@
 <td><code>PLAINWIRE_BOT_MESSAGE_PER_MINUTE</code></td>
 <td>300</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:195</code>&lt;br&gt;<code>src/pw_api.erl:824</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
+<td><code>.env.example:195</code>&lt;br&gt;<code>src/pw_api.erl:852</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_MUTATION_PER_MINUTE</code></td>
 <td>600</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:196</code>&lt;br&gt;<code>src/pw_api.erl:825</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
+<td><code>.env.example:196</code>&lt;br&gt;<code>src/pw_api.erl:853</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_READ_PER_MINUTE</code></td>
 <td>1200</td>
 <td>Bot API v1 rate and durable command-delivery controls. Limits are per bot per minute and are shared across nodes when Redis is available. Command leases are intentionally short and retried with a bounded attempt count after worker loss.</td>
-<td><code>.env.example:194</code>&lt;br&gt;<code>src/pw_api.erl:823</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
+<td><code>.env.example:194</code>&lt;br&gt;<code>src/pw_api.erl:851</code>&lt;br&gt;<code>test/browser/v21-contract.mjs:43</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BOT_TOKEN</code></td>
 <td>secret / unset</td>
 <td>Example environment variable used by the Erlang bot SDK documentation. It is not a core Plainwire server setting.</td>
-<td><code>docs/BOTS.md:155</code>&lt;br&gt;<code>docs/BOTS.md:165</code>&lt;br&gt;<code>docs/BOTS.md:187</code></td>
+<td><code>docs/BOTS.md:188</code>&lt;br&gt;<code>docs/BOTS.md:205</code>&lt;br&gt;<code>docs/BOTS.md:214</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DEVELOPER_APP_LIMIT</code></td>
 <td>25</td>
 <td>--- Developer Applications / interaction workers / AI commands ---</td>
-<td><code>.env.example:332</code>&lt;br&gt;<code>src/pw_db.erl:3762</code></td>
+<td><code>.env.example:332</code>&lt;br&gt;<code>src/pw_db.erl:3775</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_GITHUB_CACHE_TTL_MS</code></td>
 <td>source-managed / unset</td>
 <td>Cache public GitHub metadata for two minutes with a token (ten minutes without). Override only when you have a reason; values are clamped to 30s..1h.</td>
-<td><code>.env.example:140</code>&lt;br&gt;<code>README.md:145</code>&lt;br&gt;<code>src/pw_github.erl:512</code></td>
+<td><code>README.md:145</code>&lt;br&gt;<code>.env.example:140</code>&lt;br&gt;<code>src/pw_github.erl:512</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_GITHUB_TOKEN</code></td>
 <td>secret / unset</td>
 <td>Plainwire Source uses the public GitHub REST API through the server. A token is optional, but recommended on busy public instances because it raises GitHub's upstream rate limit. Prefer a token with no repository permissions; Plainwire still filters responses to public-safe metadata. It is never returned to the browser.</td>
-<td><code>.env.example:137</code>&lt;br&gt;<code>README.md:144</code>&lt;br&gt;<code>src/pw_github.erl:505</code></td>
+<td><code>README.md:144</code>&lt;br&gt;<code>.env.example:137</code>&lt;br&gt;<code>src/pw_github.erl:505</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_KLIPY_API_KEY</code></td>
 <td>source-managed / unset</td>
 <td>Optional KLIPY GIF search. The key stays on the server and is never sent to clients.</td>
-<td><code>.env.development.example:18</code>&lt;br&gt;<code>.env.example:159</code>&lt;br&gt;<code>README.md:155</code></td>
+<td><code>README.md:155</code>&lt;br&gt;<code>.env.example:159</code>&lt;br&gt;<code>.env.development.example:18</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_KLIPY_CONTENT_FILTER</code></td>
 <td>medium</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:19</code>&lt;br&gt;<code>.env.example:160</code>&lt;br&gt;<code>README.md:156</code></td>
+<td><code>README.md:156</code>&lt;br&gt;<code>.env.example:160</code>&lt;br&gt;<code>.env.development.example:19</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_KLIPY_COUNTRY</code></td>
 <td>US</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:20</code>&lt;br&gt;<code>.env.example:161</code>&lt;br&gt;<code>README.md:157</code></td>
+<td><code>README.md:157</code>&lt;br&gt;<code>.env.example:161</code>&lt;br&gt;<code>.env.development.example:20</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_KLIPY_LOCALE</code></td>
 <td>en_US</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.development.example:21</code>&lt;br&gt;<code>.env.example:162</code>&lt;br&gt;<code>README.md:158</code></td>
+<td><code>README.md:158</code>&lt;br&gt;<code>.env.example:162</code>&lt;br&gt;<code>.env.development.example:21</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_ALLOW_HTTP</code></td>
 <td>false</td>
 <td><strong>Compatibility/security exception.</strong> Allows plain HTTP webhook targets. Default false. Keep false for normal production internet egress.</td>
-<td><code>.env.example:344</code>&lt;br&gt;<code>docs/SECURITY_AUDIT_2.1.0.md:31</code>&lt;br&gt;<code>src/pw_outbound_url.erl:89</code></td>
+<td><code>.env.example:344</code>&lt;br&gt;<code>src/pw_outbound_url.erl:89</code>&lt;br&gt;<code>docs/SECURITY_AUDIT_2.1.0.md:31</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_CONCURRENCY</code></td>
 <td>8</td>
 <td>Webhook dispatcher concurrency. Default 8, clamped to 1 through 32.</td>
-<td><code>.env.example:341</code>&lt;br&gt;<code>docs/WEBHOOKS.md:110</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:24</code></td>
+<td><code>.env.example:341</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:24</code>&lt;br&gt;<code>docs/WEBHOOKS.md:110</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_DELIVERED_RETENTION_DAYS</code></td>
 <td>7</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:291</code>&lt;br&gt;<code>docs/WEBHOOKS.md:106</code>&lt;br&gt;<code>src/pw_db.erl:3713</code></td>
+<td><code>.env.example:291</code>&lt;br&gt;<code>src/pw_db.erl:3725</code>&lt;br&gt;<code>docs/WEBHOOKS.md:106</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_FAILED_RETENTION_DAYS</code></td>
 <td>30</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:292</code>&lt;br&gt;<code>docs/WEBHOOKS.md:107</code>&lt;br&gt;<code>src/pw_db.erl:3714</code></td>
+<td><code>.env.example:292</code>&lt;br&gt;<code>src/pw_db.erl:3726</code>&lt;br&gt;<code>docs/WEBHOOKS.md:107</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_TIMEOUT_MS</code></td>
 <td>8000</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:289</code>&lt;br&gt;<code>docs/WEBHOOKS.md:108</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:16</code></td>
+<td><code>.env.example:289</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:16</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:114</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_WEBHOOK_WORKER_TIMEOUT_MS</code></td>
 <td>13000</td>
 <td>Advanced developer apps, bots, webhooks, and ai setting present in the Plainwire source. Keep the source default unless the subsystem guide or a measured production need calls for an override.</td>
-<td><code>.env.example:290</code>&lt;br&gt;<code>docs/WEBHOOKS.md:109</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:17</code></td>
+<td><code>.env.example:290</code>&lt;br&gt;<code>src/pw_webhook_dispatcher.erl:17</code>&lt;br&gt;<code>docs/WEBHOOKS.md:109</code></td>
 </tr>
 </tbody>
 </table>
@@ -1480,19 +1480,19 @@
 <td><code>PLAINWIRE_ASSET_VERSION</code></td>
 <td>source-managed / unset</td>
 <td>Optional runtime asset fingerprint override. Normally let Plainwire derive its asset version from the build.</td>
-<td><code>.env.example:311</code>&lt;br&gt;<code>docs/UI_REFRESH.md:3</code>&lt;br&gt;<code>src/pw_client_config.erl:45</code></td>
+<td><code>.env.example:311</code>&lt;br&gt;<code>test/pw_client_config_tests.erl:35</code>&lt;br&gt;<code>src/pw_client_config.erl:45</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BUILD_MEDIA_QUALITY</code></td>
 <td>source-managed / unset</td>
 <td>Release helper switch controlling whether the optional native media-quality worker is built. Defaults to 0 in packaging scripts.</td>
-<td><code>scripts/release-check.sh:4</code>&lt;br&gt;<code>scripts/package-release.sh:4</code></td>
+<td><code>scripts/package-release.sh:4</code>&lt;br&gt;<code>scripts/release-check.sh:4</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_BUILD_PROFILE</code></td>
 <td>source-managed / unset</td>
 <td>Release helper rebar profile override. Packaging scripts default it to <code>default</code>.</td>
-<td><code>scripts/release-check.sh:4</code>&lt;br&gt;<code>scripts/package-release.sh:4</code></td>
+<td><code>scripts/package-release.sh:4</code>&lt;br&gt;<code>scripts/release-check.sh:4</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_CLIENT_CONFIG</code></td>
@@ -1504,7 +1504,7 @@
 <td><code>PLAINWIRE_DEBUG</code></td>
 <td>source-managed / unset</td>
 <td>Browser/test debug flag. Not a normal server environment variable.</td>
-<td><code>test/browser/rtc.mjs:40</code>&lt;br&gt;<code>priv/static/elm-bridge.js:1467</code></td>
+<td><code>priv/static/elm-bridge.js:1485</code>&lt;br&gt;<code>test/browser/rtc.mjs:40</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_DEV_DB_DIR</code></td>
@@ -1528,13 +1528,13 @@
 <td><code>PLAINWIRE_HOST</code></td>
 <td>source-managed / unset</td>
 <td>Hostname variable consumed by the upstream Caddy example. It is a proxy-template variable, not the Plainwire public URL setting.</td>
-<td><code>deploy/Caddyfile:1</code>&lt;br&gt;<code>deploy/Caddyfile:2</code>&lt;br&gt;<code>deploy/README.md:34</code></td>
+<td><code>deploy/README.md:34</code>&lt;br&gt;<code>deploy/Caddyfile:1</code>&lt;br&gt;<code>deploy/Caddyfile:2</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_RELEASE_BIN</code></td>
 <td>source-managed / unset</td>
 <td>Path to an installed relx <code>plainwire_relay</code> executable used by migration/benchmark helper scripts for RPC.</td>
-<td><code>docs/SCYLLA.md:212</code>&lt;br&gt;<code>scripts/storage-migrate:6</code>&lt;br&gt;<code>scripts/storage-migrate:9</code></td>
+<td><code>scripts/storage-bench:5</code>&lt;br&gt;<code>scripts/storage-migrate:6</code>&lt;br&gt;<code>scripts/storage-migrate:9</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_TEST_BOOL</code></td>
@@ -1552,13 +1552,13 @@
 <td><code>PLAINWIRE_TEST_NATIVE</code></td>
 <td>source-managed / unset</td>
 <td>Test switch enabling native media-quality integration tests. Do not configure in production.</td>
-<td><code>Makefile:145</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:12</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:28</code></td>
+<td><code>Makefile:149</code>&lt;br&gt;<code>test/pw_media_quality_tests.erl:53</code>&lt;br&gt;<code>docs/CALL_HEALTH.md:12</code></td>
 </tr>
 <tr>
 <td><code>PLAINWIRE_VERSION__</code></td>
 <td>source-managed / unset</td>
 <td>Build-time HTML placeholder token, not an environment variable.</td>
-<td><code>scripts/build-haml.sh:9</code>&lt;br&gt;<code>scripts/verify-source.sh:42</code>&lt;br&gt;<code>scripts/verify-source.sh:43</code></td>
+<td><code>scripts/verify-source.sh:42</code>&lt;br&gt;<code>scripts/verify-source.sh:43</code>&lt;br&gt;<code>scripts/verify-source.sh:44</code></td>
 </tr>
 </tbody>
 </table>
@@ -1567,4 +1567,4 @@
 python3 scripts/build-site.py
 </code></pre>
 <p>Review the diff. A new variable is not automatically a setting operators should change. Document its operational meaning before using it in production.</p>
-<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.1.0 · 2026-09-19</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#core-and-public-runtime">Core and public runtime</a><a class="d2" href="#database">Database</a><a class="d2" href="#uploads-and-media">Uploads and media</a><a class="d2" href="#http-and-websocket">HTTP and WebSocket</a><a class="d2" href="#realtime-and-turn">Realtime and TURN</a><a class="d2" href="#admin-control-plane">Admin control plane</a><a class="d2" href="#redis">Redis</a><a class="d2" href="#scylla-and-message-storage">Scylla and message storage</a><a class="d2" href="#developer-apps-bots-webhooks-and-ai">Developer apps, bots, webhooks, and AI</a><a class="d2" href="#build-development-and-internal">Build, development, and internal</a><a class="d2" href="#regenerate-after-an-upstream-upgrade">Regenerate after an upstream upgrade</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.2.0 · 2026-09-20</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#core-and-public-runtime">Core and public runtime</a><a class="d2" href="#database">Database</a><a class="d2" href="#uploads-and-media">Uploads and media</a><a class="d2" href="#http-and-websocket">HTTP and WebSocket</a><a class="d2" href="#realtime-and-turn">Realtime and TURN</a><a class="d2" href="#admin-control-plane">Admin control plane</a><a class="d2" href="#redis">Redis</a><a class="d2" href="#scylla-and-message-storage">Scylla and message storage</a><a class="d2" href="#developer-apps-bots-webhooks-and-ai">Developer apps, bots, webhooks, and AI</a><a class="d2" href="#build-development-and-internal">Build, development, and internal</a><a class="d2" href="#regenerate-after-an-upstream-upgrade">Regenerate after an upstream upgrade</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

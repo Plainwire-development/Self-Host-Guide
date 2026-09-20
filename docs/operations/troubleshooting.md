@@ -2,7 +2,7 @@
 
 ## Docker build fails with `cmake: command not found`
 
-Plainwire 2.1 builds `erlcass`. Add CMake and native dependencies to the builder stage:
+Plainwire 2.2 builds `erlcass`. Add CMake and native dependencies to the builder stage:
 
 ```sh
 build-essential cmake pkg-config git ca-certificates libssl-dev libuv1-dev zlib1g-dev

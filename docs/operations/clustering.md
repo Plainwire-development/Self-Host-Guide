@@ -1,6 +1,6 @@
 # Optional clustering
 
-Plainwire has an optional cluster profile. It is not required for normal self-hosting. Plainwire 2.1 still supports exactly one realtime/WebSocket owner in this topology. Additional API nodes may forward committed realtime events to that owner.
+Plainwire has an optional cluster profile. It is not required for normal self-hosting. Plainwire 2.2 still supports exactly one realtime/WebSocket owner in this topology. Additional API nodes may forward committed realtime events to that owner.
 
 ## Before adding app nodes
 
@@ -20,7 +20,7 @@ The upstream project uses a separate `cluster` rebar profile with Partisan. Defa
 
 ## WebSocket ownership
 
-Do not round-robin `/ws` across multiple realtime owners in 2.1.0. Connection/subscription/RTC ownership assumes one realtime owner. Sticky routing alone does not make an unsupported multi-owner topology correct.
+Do not round-robin `/ws` across multiple realtime owners in 2.2.0. Connection/subscription/RTC ownership assumes one realtime owner. Sticky routing alone does not make an unsupported multi-owner topology correct.
 
 ## Event outbox
 
@@ -38,7 +38,7 @@ This is not a durable message queue. Committed database state is the recovery pa
 
 ## Redis topology
 
-Plainwire's built-in Redis client does not implement native Redis Cluster `MOVED`/`ASK` shard discovery in 2.1. Point it at a normal single endpoint, managed HA endpoint, or compatible proxy that hides shard topology.
+Plainwire's built-in Redis client does not implement native Redis Cluster `MOVED`/`ASK` shard discovery in 2.2. Point it at a normal single endpoint, managed HA endpoint, or compatible proxy that hides shard topology.
 
 ## Why not start clustered
 

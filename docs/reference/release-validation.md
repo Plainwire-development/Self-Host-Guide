@@ -1,6 +1,6 @@
 # Release and deployment validation
 
-Use this as the promotion gate for a Plainwire 2.1 release. A source tree that merely compiles is not release validated.
+Use this as the promotion gate for a Plainwire 2.2 release. A source tree that merely compiles is not release validated.
 
 ## Source and correctness gate
 
@@ -15,6 +15,21 @@ make release
 `make check` must exit zero. It should cover source/contract verification, frontend compilation, browser regressions, real RTC/RTP tests, backend compilation, and the complete EUnit suite. Treat any skipped or failed test as an explicit release decision, not a green build.
 
 If native call-health analysis is part of your production artifact, also run the matching `NATIVE=1` build/check path.
+
+## Bot integration gate
+
+For deployments that use bots or Developer Applications, verify against a non-production server:
+
+- `GET /api/bot/v1` reports the expected features and effective limits;
+- bulk command synchronization creates, updates, and removes the intended command set atomically;
+- member pagination advances the `next_after` cursor without duplicates;
+- at least two workers can claim concurrently without receiving the same live invocation;
+- a long handler renews its claim before expiry, then responds successfully;
+- invalid, expired, completed, and wrong-token claim renewals are rejected;
+- removing a bot role or channel permission is enforced again at claim time;
+- SDK clients reject remote plaintext HTTP and do not log bot or claim tokens.
+
+Keep worker concurrency bounded and below the capacity of PostgreSQL and any downstream services the commands call.
 
 ## Container checks
 
@@ -75,7 +90,7 @@ From two unrelated networks:
 - test relay-only ICE;
 - leave a call open through TURN credential refresh.
 
-Remember that TURN is a relay, not an SFU. Plainwire 2.1 calls remain full mesh.
+Remember that TURN is a relay, not an SFU. Plainwire 2.2 calls remain full mesh.
 
 ## Staged load gate
 

@@ -1,6 +1,6 @@
 # PostgreSQL
 
-PostgreSQL is mandatory in Plainwire 2.1. It remains relational authority even when Scylla stores the canonical high-volume message timeline.
+PostgreSQL is mandatory in Plainwire 2.2. It remains relational authority even when Scylla stores the canonical high-volume message timeline.
 
 ## What PostgreSQL owns
 
