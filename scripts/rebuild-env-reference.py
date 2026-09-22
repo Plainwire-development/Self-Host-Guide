@@ -21,7 +21,7 @@ def category(v):
     return 'Core and public runtime'
 
 MANUAL = {
-'PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN':'Sensitive compatibility token name recognized by storage/config sanitization. Plainwire 2.2 host-admin enrollment does not require it. Prefer the documented enrollment/recovery flow rather than inventing a permanent admin key.',
+'PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN':'Sensitive compatibility token name recognized by storage/config sanitization. Plainwire 2.5 host-admin enrollment does not require it. Prefer the documented enrollment/recovery flow rather than inventing a permanent admin key.',
 'PLAINWIRE_ADMIN_IDLE_TIMEOUT_MS':'Admin HTTP listener idle timeout. Default 30000 ms, clamped to 5000 through 120000.',
 'PLAINWIRE_ADMIN_MAX_KEEPALIVE':'Maximum admin listener keepalive count. Default 200, clamped to 1 through 2000.',
 'PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS':'Admin listener request timeout. Default 15000 ms, clamped to 5000 through 60000.',

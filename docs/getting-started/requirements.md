@@ -2,7 +2,7 @@
 
 ## Runtime requirements
 
-Plainwire 2.2 expects a 64-bit Linux deployment for the normal production path.
+Plainwire 2.5 expects a 64-bit Linux deployment for the normal production path.
 
 Core services:
 
@@ -20,16 +20,16 @@ Optional services:
 
 ## Build requirements
 
-The upstream 2.0 build documentation requires:
+The 2.5 build requires:
 
 - GNU Make 4.3 or newer;
 - Node.js 20.19 or newer, with Node 22 or newer recommended;
 - npm;
 - Python 3.9 or newer;
-- Erlang/OTP 27 or newer;
+- Erlang/OTP 27, 28, or 29;
 - rebar3.
 
-`erlcass`, the Scylla/Cassandra driver, builds native code even if Scylla is disabled at runtime. A Linux builder therefore needs the native toolchain. On Debian-family systems install at least:
+`erlcass`, the Scylla/Cassandra driver, builds native code when the toolchain is present. A missing native driver does not fail a PostgreSQL-only build. On Debian-family systems install the toolchain when you want the driver available:
 
 ```sh
 apt-get install -y \

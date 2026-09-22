@@ -1,13 +1,91 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.2 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Host admin control plane | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.2</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link active" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-2.1-to-2.2.html">2.1 to 2.2</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content"><h1>Host admin control plane</h1>
-<p>Plainwire has an optional host-level operator console. It manages the Plainwire instance itself, not individual community/server moderation.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Plainwire 2.5 self-hosting documentation"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'"><title>Host admin control plane | Plainwire Self-Hosting</title><link rel="icon" href="../../assets/logo.svg"><link rel="stylesheet" href="../../assets/style.css"></head><body data-root="../../"><header class="topbar"><div class="top-inner"><a class="skip" href="#content">Skip to content</a><button class="iconbtn menubtn" data-menu aria-label="Open documentation navigation">☰</button><a class="brand" href="../../index.html"><img src="../../assets/logo.svg" alt=""><span>Plainwire Self-Hosting</span></a><span class="version">2.5</span><div class="top-actions"><button class="searchbtn" data-search>Search docs <span class="shortcut">Ctrl K</span></button><button class="iconbtn" data-theme-toggle aria-label="Toggle theme">◐</button></div></div></header><div class="layout"><aside class="rail" data-rail><div class="nav-group"><div class="nav-title">Start here</div><a class="nav-link" href="../../docs/getting-started/overview.html">Overview</a><a class="nav-link" href="../../docs/getting-started/quickstart.html">Quick start</a><a class="nav-link" href="../../docs/getting-started/topologies.html">Topologies</a><a class="nav-link" href="../../docs/getting-started/requirements.html">Requirements</a><a class="nav-link" href="../../docs/getting-started/hardware-sizing.html">Hardware sizing</a><a class="nav-link" href="../../docs/getting-started/networking.html">DNS and networking</a><a class="nav-link" href="../../docs/getting-started/home-server.html">Home server</a></div><div class="nav-group"><div class="nav-title">Install</div><a class="nav-link" href="../../docs/installation/docker.html">Docker</a><a class="nav-link" href="../../docs/installation/os-packages.html">OS packages</a><a class="nav-link" href="../../docs/installation/docker-networking.html">Docker networking</a><a class="nav-link" href="../../docs/installation/build-from-source.html">Build from source</a><a class="nav-link" href="../../docs/installation/systemd.html">systemd</a><a class="nav-link" href="../../docs/installation/caddy.html">Caddy</a><a class="nav-link" href="../../docs/installation/nginx.html">nginx</a></div><div class="nav-group"><div class="nav-title">Configure</div><a class="nav-link" href="../../docs/configuration/configuration.html">Production config</a><a class="nav-link" href="../../docs/configuration/secrets.html">Secrets</a><a class="nav-link" href="../../docs/configuration/postgresql.html">PostgreSQL</a><a class="nav-link" href="../../docs/configuration/redis.html">Redis</a><a class="nav-link" href="../../docs/configuration/scylla.html">ScyllaDB</a><a class="nav-link" href="../../docs/configuration/scylla-production.html">Production Scylla</a><a class="nav-link" href="../../docs/configuration/scylla-migration.html">Scylla migration</a><a class="nav-link" href="../../docs/configuration/uploads.html">Uploads</a><a class="nav-link active" href="../../docs/configuration/admin-control-plane.html">Admin plane</a><a class="nav-link" href="../../docs/configuration/mail.html">Mail</a><a class="nav-link" href="../../docs/configuration/integrations.html">Integrations</a><a class="nav-link" href="../../docs/configuration/media-integrations.html">Media integrations</a></div><div class="nav-group"><div class="nav-title">Calls</div><a class="nav-link" href="../../docs/realtime/webrtc.html">WebRTC</a><a class="nav-link" href="../../docs/realtime/coturn.html">coturn</a><a class="nav-link" href="../../docs/realtime/cloudflare-turn.html">Cloudflare TURN</a><a class="nav-link" href="../../docs/realtime/managed-turn.html">Managed TURN</a><a class="nav-link" href="../../docs/realtime/diagnostics.html">Diagnostics</a></div><div class="nav-group"><div class="nav-title">Operate</div><a class="nav-link" href="../../docs/operations/backups.html">Backups</a><a class="nav-link" href="../../docs/operations/restore.html">Restore</a><a class="nav-link" href="../../docs/operations/upgrades.html">Upgrades</a><a class="nav-link" href="../../docs/operations/upgrade-2.2-to-2.5.html">2.2 to 2.5</a><a class="nav-link" href="../../docs/operations/notifications.html">Notifications</a><a class="nav-link" href="../../docs/operations/upgrade-2.1-to-2.2.html">2.1 to 2.2</a><a class="nav-link" href="../../docs/operations/upgrade-2.0-to-2.1.html">2.0 to 2.1</a><a class="nav-link" href="../../docs/operations/upgrade-1.9-to-2.0.html">1.9 to 2.0</a><a class="nav-link" href="../../docs/operations/monitoring.html">Monitoring</a><a class="nav-link" href="../../docs/operations/logs-health.html">Logs and health</a><a class="nav-link" href="../../docs/operations/performance.html">Performance</a><a class="nav-link" href="../../docs/operations/security.html">Security</a><a class="nav-link" href="../../docs/operations/incident-response.html">Incident response</a><a class="nav-link" href="../../docs/operations/clustering.html">Clustering</a><a class="nav-link" href="../../docs/operations/troubleshooting.html">Troubleshooting</a><a class="nav-link" href="../../docs/operations/runbooks.html">Failure runbooks</a><a class="nav-link" href="../../docs/operations/disaster-recovery.html">Disaster recovery</a></div><div class="nav-group"><div class="nav-title">Reference</div><a class="nav-link" href="../../docs/reference/ports.html">Ports</a><a class="nav-link" href="../../docs/reference/environment.html">Environment</a><a class="nav-link" href="../../docs/reference/environment-source-catalog.html">Complete env catalog</a><a class="nav-link" href="../../docs/reference/release-validation.html">Release validation</a><a class="nav-link" href="../../docs/reference/commands.html">Commands</a><a class="nav-link" href="../../docs/reference/storage-matrix.html">Storage matrix</a><a class="nav-link" href="../../docs/reference/production-checklist.html">Launch checklist</a><a class="nav-link" href="../../docs/reference/faq.html">FAQ</a><a class="nav-link" href="../../docs/reference/glossary.html">Glossary</a><a class="nav-link" href="../../docs/reference/sources.html">Sources</a><a class="nav-link" href="../../docs/reference/upstream-compatibility.html">Compatibility</a><a class="nav-link" href="../../docs/reference/maintaining-handbook.html">Maintain handbook</a></div></aside><div class="rail-scrim" data-rail-scrim></div><main class="main"><article class="content" id="content"><h1>Host admin control plane</h1>
+<p>Plainwire has an optional host-level operator console. It manages the Plainwire instance itself, not individual community or server moderation. It does not read message bodies, direct-message text, attachment contents, or email addresses.</p>
+<p>There is one account-action route: <code>POST /api/users/:id/moderation</code>. There is no second admin API, no password tool, and no control that signs an operator in as another user.</p>
 <h2 id="safe-default">Safe default<a class="anchor" href="#safe-default">#</a></h2>
 <pre><code class="language-ini">PLAINWIRE_ADMIN_ENABLED=false
 PLAINWIRE_ADMIN_BIND=127.0.0.1
 PLAINWIRE_ADMIN_PORT=8090
 </code></pre>
-<p>Enable it only when you have an operator access plan.</p>
+<p>Enable it only when you have an operator access plan. The listener is separate from the public app listener (<code>PORT</code>, default 8080).</p>
+<h2 id="first-owner">First owner<a class="anchor" href="#first-owner">#</a></h2>
+<p>Create a normal Plainwire account first. Bootstrap does not invent a user. It promotes an existing active account.</p>
+<ol>
+<li>
+<p>Set <code>PLAINWIRE_ADMIN_ENABLED=true</code> and keep the bind on loopback.</p>
+</li>
+<li>
+<p>Restart Plainwire. When <code>admin_operators</code> is empty, the log contains one line:</p>
+<pre><code class="language-text">[plainwire:admin] FIRST-RUN bootstrap token (one-time): ...
+</code></pre>
+</li>
+<li>
+<p>Open <code>http://127.0.0.1:8090</code>. Submit that token with the account username and its normal Plainwire password. The panel posts them to <code>POST /api/bootstrap</code> as <code>bootstrap_code</code>, <code>username</code>, and <code>password</code>.</p>
+</li>
+<li>
+<p>The response includes a <code>verification_key</code>. Store it outside the log. Later sign-in needs the username, the Plainwire password, and that key. The key is shown once.</p>
+</li>
+</ol>
+<p><code>PLAINWIRE_ADMIN_BOOTSTRAP_TOKEN</code> is only a name that secret sanitization still recognizes. The first-owner flow does not read it.</p>
+<p>The bootstrap token works once, and only while no operator exists. After that, an owner enrolls other people with a separate one-time enrollment code. Roles are <code>viewer</code>, <code>operator</code>, and <code>owner</code>. A viewer can open overview and host health. Mutating requests need an operator or owner session, the operator cookie, and the <code>x-csrf-token</code> header.</p>
+<h2 id="account-actions">Account actions<a class="anchor" href="#account-actions">#</a></h2>
+<p>Open Users, search by username or display name, and select the row. The detail shows created, updated, last seen, disabled time, whether an email is on file, whether that email is verified, the active session count, and moderation history. It does not show the email address.</p>
+<p>These buttons all post <code>POST /api/users/:id/moderation</code>. Each one is written to the operator audit and to that account's action history.</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th><code>action</code></th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suspend</td>
+<td><code>suspend</code></td>
+<td>Sets <code>account_state</code> to <code>suspended</code>. Requires a user-facing reason. Ends Plainwire sessions and control-plane sessions. A correct password does not clear it. An optional expiry restores the account on the next login after that time.</td>
+</tr>
+<tr>
+<td>Ban</td>
+<td><code>ban</code></td>
+<td>Same shape as suspend, with <code>account_state</code> <code>banned</code>.</td>
+</tr>
+<tr>
+<td>Disable</td>
+<td><code>disable</code></td>
+<td>Operator lock. Requires a reason and sets <code>account_state</code> to <code>disabled</code>. A correct password does not turn it back on.</td>
+</tr>
+<tr>
+<td>Restore access</td>
+<td><code>restore</code></td>
+<td>Sets the account back to <code>active</code> and clears the operator reason. Current sessions end; the person signs in again.</td>
+</tr>
+<tr>
+<td>Sign out everywhere</td>
+<td><code>revoke_sessions</code></td>
+<td>Deletes that account's Plainwire sessions and control-plane sessions. <code>account_state</code> stays as it was. Connected clients are told <code>sessions_revoked</code>.</td>
+</tr>
+<tr>
+<td>Reset display name</td>
+<td><code>clear_display_name</code></td>
+<td>Sets <code>display_name</code> to the username. The username and password stay as they were.</td>
+</tr>
+<tr>
+<td>Remove email</td>
+<td><code>remove_email</code></td>
+<td>Clears the address and outstanding verification tokens. The panel still does not show the address.</td>
+</tr>
+<tr>
+<td>Resend verification</td>
+<td><code>resend_verification</code></td>
+<td>Queues a verification message only when mail is enabled on this host.</td>
+</tr>
+</tbody>
+</table>
+<p>Disable is separate from someone disabling their own account. A self-disable stores no operator reason, and the next correct password sets the account back to <code>active</code>. An operator disable stores a reason, and that password does not clear it. Restore does.</p>
+<p>Resend verification runs only when <code>pw_mail</code> is enabled (<code>PLAINWIRE_MAIL_ENABLED</code> and SMTP, or the official <code>plainwi.re</code> host with SMTP configured). It is limited to 4 attempts per account per 10 minutes. The one-time token is not returned to the browser. If the address is already verified, no message is sent. If no address is on file, the action is rejected.</p>
+<p>An operator cannot run these actions on their own account, on another operator, or on an owner. An owner cannot run them on another owner. A viewer cannot post the route.</p>
 <h2 id="capacity-and-listener-controls">Capacity and listener controls<a class="anchor" href="#capacity-and-listener-controls">#</a></h2>
-<p>Plainwire 2.2 exposes explicit listener controls so the admin plane cannot accidentally inherit public-app scale assumptions:</p>
+<p>The admin plane has its own listener limits so it does not inherit public-app scale assumptions:</p>
 <pre><code class="language-ini">PLAINWIRE_ADMIN_ACCEPTORS=10
 PLAINWIRE_ADMIN_CONNECTION_SUPERVISORS=4
 PLAINWIRE_ADMIN_MAX_CONNECTIONS=2000
@@ -17,7 +95,7 @@ PLAINWIRE_ADMIN_IDLE_TIMEOUT_MS=30000
 PLAINWIRE_ADMIN_REQUEST_TIMEOUT_MS=15000
 PLAINWIRE_ADMIN_MAX_KEEPALIVE=200
 </code></pre>
-<p>The admin plane should remain low-volume. Do not increase these limits just because the public listener is sized for more connections.</p>
+<p>Those are the source defaults. The admin plane should remain low-volume. Do not increase these limits just because the public listener is sized for more connections.</p>
 <h2 id="remote-access">Remote access<a class="anchor" href="#remote-access">#</a></h2>
 <p>The safest remote pattern is to keep the admin listener private and put a dedicated HTTPS origin in front of it:</p>
 <pre><code class="language-ini">PLAINWIRE_ADMIN_ENABLED=true
@@ -26,14 +104,14 @@ PLAINWIRE_ADMIN_ALLOW_REMOTE=true
 PLAINWIRE_ADMIN_PUBLIC_URL=https://control.example.com
 PLAINWIRE_ADMIN_COOKIE_SECURE=true
 </code></pre>
-<p>Protect the control hostname with network policy, identity-aware access, VPN, or another operator boundary. Do not expose 8090 directly to the internet.</p>
+<p>A production bind that is not loopback refuses to start unless <code>PLAINWIRE_ADMIN_ALLOW_REMOTE=true</code>, <code>PLAINWIRE_ADMIN_PUBLIC_URL</code> is an <code>https://</code> URL, and admin cookies are secure. Protect the control hostname with network policy, identity-aware access, VPN, or another operator boundary. Do not expose 8090 directly to the internet.</p>
 <h2 id="instance-secret">Instance secret<a class="anchor" href="#instance-secret">#</a></h2>
 <p>Production defaults to:</p>
 <pre><code class="language-text">/var/lib/plainwire/admin-instance.key
 </code></pre>
-<p>Persist, back up, and protect this file. It binds operator verification material to the instance.</p>
+<p>Override the path with <code>PLAINWIRE_ADMIN_SECRET_FILE</code>. In production the path must be absolute. The file is created on first start, mode <code>0600</code>, and it binds operator verification material to this instance. Cloning the source tree does not copy a working key. Persist, back up, and restore it with PostgreSQL. Losing the last owner key can only be recovered by someone who can restart that host.</p>
 <h2 id="recovery-mode">Recovery mode<a class="anchor" href="#recovery-mode">#</a></h2>
-<p><code>PLAINWIRE_ADMIN_LOCAL_RECOVERY=true</code> is an emergency-only option intended for loopback-bound recovery. Remove it after recovery.</p>
+<p><code>PLAINWIRE_ADMIN_LOCAL_RECOVERY=true</code> prints a one-time recovery token and is refused when the admin bind is not loopback. It revokes existing admin sessions. Remove the setting after recovery.</p>
 <h2 id="separation">Separation<a class="anchor" href="#separation">#</a></h2>
 <p>Do not give ordinary server moderators host-operator access. Instance moderation and host operation are different trust domains.</p>
-<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.2.0 · 2026-09-20</footer></article></main><aside class="toc"><h4>On this page</h4><a class="d2" href="#safe-default">Safe default</a><a class="d2" href="#capacity-and-listener-controls">Capacity and listener controls</a><a class="d2" href="#remote-access">Remote access</a><a class="d2" href="#instance-secret">Instance secret</a><a class="d2" href="#recovery-mode">Recovery mode</a><a class="d2" href="#separation">Separation</a></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>
+<footer class="footer">Plainwire Self-Hosting Handbook · verified against Plainwire 2.5.0 · 2026-09-22</footer></article></main><aside class="toc"><details open><summary>On this page</summary><a class="d2" href="#safe-default">Safe default</a><a class="d2" href="#first-owner">First owner</a><a class="d2" href="#account-actions">Account actions</a><a class="d2" href="#capacity-and-listener-controls">Capacity and listener controls</a><a class="d2" href="#remote-access">Remote access</a><a class="d2" href="#instance-secret">Instance secret</a><a class="d2" href="#recovery-mode">Recovery mode</a><a class="d2" href="#separation">Separation</a></details></aside></div><div class="search-modal"><div class="search-box" role="dialog" aria-modal="true" aria-label="Documentation search"><input class="search-input" placeholder="Search configuration, TURN, Redis, Scylla, backups..." aria-label="Search documentation"><div class="results"></div></div></div><script src="../../assets/search-index.js"></script><script src="../../assets/app.js"></script></body></html>

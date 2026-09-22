@@ -2,7 +2,8 @@
 
 ## Release gate
 
-- [ ] exact release source/artifact recorded
+- [ ] exact release source/artifact recorded (2.5.0 for this handbook)
+- [ ] builder is OTP 27, 28, or 29
 - [ ] `make check` exits zero
 - [ ] complete EUnit suite has zero failures
 - [ ] browser and real RTC/RTP tests pass
@@ -42,6 +43,8 @@
 - [ ] upload limits intentional
 - [ ] WebSocket, presence-watch, rate-state, and async queue limits reviewed
 - [ ] `/api/health` and `/api/version` work publicly
+- [ ] startup log shows pending migrations, including 53 on an older database, applied once
+- [ ] mail is either fully configured or explicitly left off
 
 ## PostgreSQL
 

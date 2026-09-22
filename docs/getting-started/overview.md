@@ -1,6 +1,6 @@
 # What you are running
 
-Plainwire 2.2 is a realtime chat server built around Erlang/OTP, Cowboy, PostgreSQL, WebSocket, and WebRTC. Redis can accelerate short-lived realtime state. ScyllaDB can become the high-volume message timeline after an explicit migration. TURN provides a relay path for calls when direct peer-to-peer connectivity fails.
+Plainwire 2.5 is a realtime chat server built around Erlang/OTP, Cowboy, PostgreSQL, WebSocket, and WebRTC. PostgreSQL is required. Redis can accelerate short-lived realtime state and stays off until you enable it. ScyllaDB can become the high-volume message timeline after an explicit migration. TURN provides a relay path for calls when direct peer-to-peer connectivity fails.
 
 A normal small installation does not need every optional component. Start with the smallest topology that meets your needs, then add services because measurements justify them.
 
@@ -47,6 +47,6 @@ If Redis is empty after a restart, Plainwire should recover. If PostgreSQL is lo
 
 ## Safe first deployment
 
-For a first public instance, use PostgreSQL, Redis, a reverse proxy, and a TURN service. Leave `PLAINWIRE_MESSAGE_BACKEND=postgres` and `PLAINWIRE_SCYLLA_ENABLED=false` until you have a reason to operate Scylla.
+For a first public instance, use PostgreSQL, a reverse proxy, and a TURN service. Leave Redis off until you want shared presence and distributed rate gates. Leave `PLAINWIRE_MESSAGE_BACKEND=postgres` and `PLAINWIRE_SCYLLA_ENABLED=false` until you have a reason to operate Scylla. Existing installs apply pending migrations, including migration 53, when the database process starts.
 
 Next: [Quick start](quickstart.md).

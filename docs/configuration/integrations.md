@@ -1,6 +1,6 @@
 # Webhooks, bots, Developer Applications, and outbound traffic
 
-Plainwire 2.2 includes outbound webhooks, Bot API v1, reusable Developer Applications, signed interaction endpoints, and optional AI command handlers. These features create network egress and secret-handling boundaries, so configuration matters.
+Plainwire 2.5 includes outbound webhooks, Bot API v1, reusable Developer Applications, signed interaction endpoints, and optional AI command handlers. These features create network egress and secret-handling boundaries, so configuration matters.
 
 ## Webhooks
 
@@ -20,7 +20,7 @@ Plainwire applies outbound URL checks intended to reduce SSRF risk. Network-leve
 
 ## Bots
 
-Bots use scoped credentials and normal server/channel authorization. Treat bot tokens like passwords. Plainwire 2.2 separates rate budgets for reads, message sends, mutations, and durable command claims. Command workers use bounded leases and retries so worker loss does not produce an unbounded delivery loop.
+Bots use scoped credentials and normal server/channel authorization. Treat bot tokens like passwords. Plainwire 2.5 separates rate budgets for reads, message sends, mutations, and durable command claims. Command workers use bounded leases and retries so worker loss does not produce an unbounded delivery loop.
 
 Relevant controls include:
 

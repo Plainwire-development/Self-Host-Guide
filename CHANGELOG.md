@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.5.0-1 - 2026-09-22
+
+Updated the handbook for Plainwire 2.5.0.
+
+- retargeted the operator pages, site metadata, and upgrade path from 2.2.0 to 2.5.0;
+- documented OTP 27 through 29, including the OTP 29 erlcass compile hook;
+- documented migration 53 and the operator account actions on the existing moderation route;
+- added mail, notification, and 2.2-to-2.5 upgrade pages;
+- recorded call seat registration, roster snapshots, outgoing-call names, and call cues;
+- tightened the documentation site layout, type, and mobile navigation.
+
 ## 2.2.0-1 - 2026-09-20
 
 Updated the handbook for Plainwire 2.2.0.

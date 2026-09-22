@@ -9,7 +9,7 @@ A Plainwire backup is not one file. A restore is only useful if it includes the 
 3. Private production environment/configuration.
 4. `PLAINWIRE_ENC_KEY` and any active `PLAINWIRE_ENC_PREVIOUS_KEYS`.
 5. Independent `PLAINWIRE_SEARCH_KEY` and `PLAINWIRE_MEDIA_SIGNING_KEY` values when configured.
-6. Admin instance secret file if the admin plane is enabled.
+6. Admin instance secret if the admin plane is enabled. Production uses `/var/lib/plainwire/admin-instance.key` unless `PLAINWIRE_ADMIN_SECRET_FILE` points somewhere else. Operator verification keys are bound to that file. Restore it with the PostgreSQL backup, or enrolled operators cannot sign in after the database is restored.
 7. Scylla snapshots/backups when Scylla is authoritative.
 8. Reverse proxy and TURN configuration.
 

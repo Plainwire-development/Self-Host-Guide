@@ -4,7 +4,7 @@ Changing operational facts should be verified against upstream documentation.
 
 ## Plainwire source snapshot
 
-This handbook was refreshed against the Plainwire 2.2.0 tag on 2026-09-20, at commit `f12c7bf459d444766a622922f5f5687b1c4dbaf6`. The deterministic `Plainwire-2.2.0.tar.gz` source archive produced by that tree has SHA-256 `509412f9f0429c373ae0b6837f5251165370afc2e43e74cc6d18a4df5647427f`.
+This handbook was refreshed against the Plainwire 2.5.0 tag on 2026-09-22, at commit `9d9a558aa335ac9db9df6190eee3477b329db9c4`. The previous 2.2.0 review used commit `f12c7bf459d444766a622922f5f5687b1c4dbaf6`.
 
 The review included `.env.example`, `deploy/`, build/release configuration, release notes, `docs/BUILDING.md`, `docs/REDIS.md`, `docs/SCYLLA.md`, `docs/CLOUDFLARE_TURN.md`, `docs/SCALING.md`, `docs/BOTS.md`, the Bot API OpenAPI document, security/audit notes, storage modules, realtime registry/delivery code, RTC configuration, SDKs, and load-test targets.
 

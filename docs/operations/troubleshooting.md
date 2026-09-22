@@ -2,13 +2,25 @@
 
 ## Docker build fails with `cmake: command not found`
 
-Plainwire 2.2 builds `erlcass`. Add CMake and native dependencies to the builder stage:
+Plainwire 2.5 builds `erlcass` when the native toolchain is present. Add CMake and native dependencies to the builder stage if you want the Scylla driver:
 
 ```sh
 build-essential cmake pkg-config git ca-certificates libssl-dev libuv1-dev zlib1g-dev
 ```
 
-Scylla itself does not need to be running for the driver to compile.
+Scylla itself does not need to be running for the driver to compile. If the native build fails, `scripts/compile-erlcass.sh` exits 0 and PostgreSQL messaging still builds. Scylla stays unavailable until the driver exists.
+
+## OTP 29 compile stops inside erlcass
+
+OTP 29 runs `erl -s init stop` before `-eval`. The stock erlcass Makefile used that order, so the VM stopped before it could write `env.mk`, and the whole release compile aborted. Plainwire 2.5 runs `scripts/compile-erlcass.sh` from the `rebar.config` pre-hook. The script removes `-s init stop`. The expression already ends in `halt()`, which also works on OTP 27 and 28.
+
+Confirm the runtime with:
+
+```sh
+erl -eval 'io:format("~s~n",[erlang:system_info(otp_release)]), halt().' -noshell
+```
+
+`27`, `28`, and `29` are supported. Do not treat a missing PostgreSQL connection at boot as an OTP failure. The listener can start and then the database process exits with `econnrefused` when Postgres is not running.
 
 ## Plainwire boots but Redis appears unused
 

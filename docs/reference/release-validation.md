@@ -1,6 +1,6 @@
 # Release and deployment validation
 
-Use this as the promotion gate for a Plainwire 2.2 release. A source tree that merely compiles is not release validated.
+Use this as the promotion gate for a Plainwire 2.5 release. A source tree that merely compiles is not release validated.
 
 ## Source and correctness gate
 
@@ -90,7 +90,7 @@ From two unrelated networks:
 - test relay-only ICE;
 - leave a call open through TURN credential refresh.
 
-Remember that TURN is a relay, not an SFU. Plainwire 2.2 calls remain full mesh.
+Remember that TURN is a relay, not an SFU. Plainwire 2.5 calls remain full mesh.
 
 ## Staged load gate
 

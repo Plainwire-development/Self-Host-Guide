@@ -20,7 +20,7 @@ Restart and test. Inspect browser WebRTC internals to confirm a relay candidate 
 
 ## 4. Separate microphone, screen video, and screen audio
 
-Screen capture depends on browser and operating-system permissions. Plainwire 2.2 requests window or system audio using the current display-capture constraints, but a browser may still return video without an audio track. A successful voice call or screen video track does not prove screen-audio capture is available.
+Screen capture depends on browser and operating-system permissions. Plainwire 2.5 requests window or system audio using the current display-capture constraints, but a browser may still return video without an audio track. A successful voice call or screen video track does not prove screen-audio capture is available.
 
 When screen video works but audio does not:
 

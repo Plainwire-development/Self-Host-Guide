@@ -1,6 +1,6 @@
 # PostgreSQL
 
-PostgreSQL is mandatory in Plainwire 2.2. It remains relational authority even when Scylla stores the canonical high-volume message timeline.
+PostgreSQL is mandatory in Plainwire 2.5. It remains relational authority even when Scylla stores the canonical high-volume message timeline. Redis and ScyllaDB stay optional. Existing installs apply pending migrations, including migration 53, when the database process starts.
 
 ## What PostgreSQL owns
 

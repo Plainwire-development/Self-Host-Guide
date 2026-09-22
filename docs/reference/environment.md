@@ -1,6 +1,6 @@
 # Environment variable reference
 
-This is the operator-facing environment reference refreshed against the Plainwire 2.2.0 source snapshot. It intentionally prioritizes variables present in the upstream production example plus a small number of compatibility/build names. The [complete source token catalog](environment-source-catalog.md) records every `PLAINWIRE_*` token found in the source tree.
+This is the operator-facing environment reference refreshed against the Plainwire 2.5.0 source. It intentionally prioritizes variables present in the upstream production example plus a small number of compatibility/build names. The [complete source token catalog](environment-source-catalog.md) records every `PLAINWIRE_*` token found in the source tree. Mail settings are listed under [Mail](#mail) because 2.2 did not have them.
 
 Do not set every variable. Start from upstream `.env.example`, then add advanced controls only for a measured or architecture-specific reason.
 
@@ -228,6 +228,22 @@ Do not set every variable. Start from upstream `.env.example`, then add advanced
 | `PLAINWIRE_WS_TRACE` | false | setting | operator |
 | `PLAINWIRE_WS_UPGRADES_GLOBAL_MIN` | 60000 | setting | operator |
 | `PLAINWIRE_WS_UPGRADES_PER_IP_MIN` | 1200 | setting | operator |
+
+## Mail
+
+Self-hosted mail stays off until `PLAINWIRE_MAIL_ENABLED=true` and SMTP is configured. See [Mail](../configuration/mail.md).
+
+| Variable | Default or note | Type | Audience |
+| --- | --- | --- | --- |
+| `PLAINWIRE_MAIL_ENABLED` | unset. `true` turns mail on. `false`, `0`, `no`, or `off` keep it off | setting | operator |
+| `PLAINWIRE_SMTP_HOST` | `smtp.protonmail.ch` in the example. Use your provider | setting | operator |
+| `PLAINWIRE_SMTP_PORT` | 587 | setting | operator |
+| `PLAINWIRE_SMTP_USER` | empty | setting | operator |
+| `PLAINWIRE_SMTP_PASS` | empty. Provider SMTP token, not a mailbox password for Proton | secret | operator |
+| `PLAINWIRE_SMTP_FROM` | empty. Falls back to `PLAINWIRE_SMTP_USER` | setting | operator |
+| `PLAINWIRE_SMTP_TLS` | true | setting | operator |
+
+`PLAINWIRE_PUBLIC_URL` is required for links inside those messages. On a host whose public URL is `plainwi.re`, mail can turn on when SMTP is configured and `PLAINWIRE_MAIL_ENABLED` is unset. Set it explicitly to keep mail off there.
 
 ## Non-`PLAINWIRE_` variables
 

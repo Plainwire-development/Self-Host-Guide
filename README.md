@@ -1,12 +1,12 @@
 # Plainwire Self-Hosting Handbook
 
-A deployment and operations handbook for running Plainwire 2.2 on infrastructure you control.
+A deployment and operations handbook for running Plainwire 2.5 on infrastructure you control.
 
 This repository is documentation first. The application source lives in the Plainwire repository. Use this handbook for architecture, deployment, storage, TURN, security, upgrades, backups, recovery, tuning, and day-to-day operations.
 
-> Version target: Plainwire 2.2.0
+> Version target: Plainwire 2.5.0
 >
-> Handbook verification date: 2026-09-20
+> Handbook verification date: 2026-09-22
 
 ## Table of contents
 
@@ -41,6 +41,7 @@ This repository is documentation first. The application source lives in the Plai
 - [PostgreSQL to Scylla migration](docs/configuration/scylla-migration.md)
 - [Uploads and storage](docs/configuration/uploads.md)
 - [Host admin control plane](docs/configuration/admin-control-plane.md)
+- [Mail](docs/configuration/mail.md)
 - [Webhooks, bots, and outbound traffic](docs/configuration/integrations.md)
 - [Optional media integrations](docs/configuration/media-integrations.md)
 
@@ -57,6 +58,8 @@ This repository is documentation first. The application source lives in the Plai
 - [Backups](docs/operations/backups.md)
 - [Restore drills](docs/operations/restore.md)
 - [Upgrades and rollback](docs/operations/upgrades.md)
+- [Plainwire 2.2 to 2.5](docs/operations/upgrade-2.2-to-2.5.md)
+- [Notifications and unread state](docs/operations/notifications.md)
 - [Plainwire 2.1 to 2.2](docs/operations/upgrade-2.1-to-2.2.md)
 - [Plainwire 2.0 to 2.1](docs/operations/upgrade-2.0-to-2.1.md)
 - [Plainwire 1.9 to 2.0](docs/operations/upgrade-1.9-to-2.0.md)

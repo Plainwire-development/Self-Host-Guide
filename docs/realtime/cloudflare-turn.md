@@ -1,6 +1,6 @@
 # Cloudflare Realtime TURN
 
-Plainwire 2.2 has direct Cloudflare Realtime TURN credential integration.
+Plainwire 2.5 has direct Cloudflare Realtime TURN credential integration.
 
 ## Configure
 

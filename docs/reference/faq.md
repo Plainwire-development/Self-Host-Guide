@@ -24,9 +24,21 @@ Yes for small installations and testing. A growing public service benefits from 
 
 No. It can help publish HTTP/WebSocket traffic, but TURN is a media relay protocol and uses separate credentials and network behavior.
 
-## Why does the 2.0 Docker build need CMake if Scylla is off?
+## Why does the Docker build mention CMake if Scylla is off?
 
-The Erlang release includes the `erlcass` driver, and that driver builds native C/C++ dependencies at image build time.
+The Erlang release can include the `erlcass` driver, and that driver builds native C/C++ dependencies at image build time. Plainwire 2.5 does not fail the PostgreSQL build when that native compile is skipped. Scylla stays unavailable until the driver is built.
+
+## Do I need mail?
+
+No. Self-hosted password reset and address verification stay off until `PLAINWIRE_MAIL_ENABLED=true` and SMTP is configured. See [Mail](../configuration/mail.md).
+
+## Why did channel notifications get quieter in 2.5?
+
+A normal channel message no longer inserts an inbox row for every member. Mentions still do. Opening a DM, channel, or thread deletes the matching notification. See [Notifications](../operations/notifications.md).
+
+## Which Erlang versions work?
+
+OTP 27, 28, and 29. OTP 29 needs the 2.5 erlcass compile hook. See [Build from source](../installation/build-from-source.md).
 
 ## Should I expose Redis or Scylla ports?
 

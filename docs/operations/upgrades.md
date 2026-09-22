@@ -2,6 +2,8 @@
 
 Treat upgrades as reversible until database, storage, and key compatibility says otherwise.
 
+For a 2.2 installation moving to 2.5, read [Plainwire 2.2 to 2.5](upgrade-2.2-to-2.5.md) first. That path applies migrations 51, 52, and 53.
+
 For a 2.1 installation moving to 2.2, read [Plainwire 2.1 to 2.2](upgrade-2.1-to-2.2.md) first.
 
 For a 2.0 installation moving to 2.1, read [Plainwire 2.0 to 2.1](upgrade-2.0-to-2.1.md) first.

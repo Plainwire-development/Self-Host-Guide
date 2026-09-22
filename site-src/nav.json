@@ -105,6 +105,10 @@
         "docs/configuration/admin-control-plane.md"
       ],
       [
+        "Mail",
+        "docs/configuration/mail.md"
+      ],
+      [
         "Integrations",
         "docs/configuration/integrations.md"
       ],
@@ -153,6 +157,14 @@
       [
         "Upgrades",
         "docs/operations/upgrades.md"
+      ],
+      [
+        "2.2 to 2.5",
+        "docs/operations/upgrade-2.2-to-2.5.md"
+      ],
+      [
+        "Notifications",
+        "docs/operations/notifications.md"
       ],
       [
         "2.1 to 2.2",

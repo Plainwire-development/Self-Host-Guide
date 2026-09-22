@@ -3,12 +3,21 @@
 ## Current target
 
 ```text
-Plainwire: 2.2.0
-Upstream tag commit: f12c7bf459d444766a622922f5f5687b1c4dbaf6
-Handbook verified: 2026-09-20
+Plainwire: 2.5.0
+Upstream tag commit: 9d9a558aa335ac9db9df6190eee3477b329db9c4
+Handbook verified: 2026-09-22
 ```
 
-The 2.2 source snapshot used to refresh this handbook includes:
+Plainwire 2.5.0 keeps the 2.2 platform and adds:
+
+- OTP 29 builds, with `scripts/compile-erlcass.sh` removing `-s init stop` before the erlcass eval;
+- database migration 53, applied on startup with the existing advisory lock;
+- operator disable, restore, session revocation, display-name reset, email removal, and verification resend on `POST /api/users/:id/moderation`;
+- optional self-hosted mail, off unless `PLAINWIRE_MAIL_ENABLED=true` and SMTP is set;
+- call seats registered before `peer_joined`, and `voice_state` / `call_state` kept when realtime delivery sheds load;
+- inbox rows for mentions, not for every ordinary channel message.
+
+The 2.2 source snapshot that this handbook still describes in the older upgrade pages includes:
 
 - PostgreSQL as mandatory relational authority and bounded DB lane admission;
 - optional Redis realtime acceleration with pooled I/O workers and bounded queues;
@@ -25,9 +34,9 @@ The 2.2 source snapshot used to refresh this handbook includes:
 - optional native call-health worker;
 - synthetic and live HTTP/WebSocket load harnesses.
 
-Plainwire 2.2.0 does not add a database migration, runtime dependency, or server environment variable. Existing Bot API v1 clients remain compatible; the new bot routes and SDK methods are additive.
+Plainwire 2.2.0 did not add a database migration. 2.4.0 adds migration 51, 2.4.1 adds migration 52, and 2.5.0 adds migration 53. Existing Bot API v1 clients remain compatible.
 
-The handbook intentionally does not claim unsupported multi-owner WebSocket clustering or SFU media. Plainwire 2.2 calls remain full mesh.
+The handbook intentionally does not claim unsupported multi-owner WebSocket clustering or SFU media. Plainwire 2.5 calls remain full mesh.
 
 ## After upgrading Plainwire
 

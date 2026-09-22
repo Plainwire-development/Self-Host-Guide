@@ -1,6 +1,6 @@
-# Handbook release 2.2.0-1
+# Handbook release 2.5.0-1
 
-This release targets Plainwire 2.2.0 and was refreshed on 2026-09-20.
+This release targets Plainwire 2.5.0 and was refreshed on 2026-09-22.
 
 ## Included
 
@@ -15,8 +15,9 @@ This release targets Plainwire 2.2.0 and was refreshed on 2026-09-20.
 - encryption-key rotation and blind-index search-key guidance;
 - backup, restore, upgrade, rollback, incident, failure, and disaster-recovery runbooks;
 - production environment validator and secret generator;
-- source-derived 2.2.0 environment and source-token catalog;
-- exact upstream 2.2.0 environment, Caddy, and systemd snapshots;
+- source-derived environment and source-token catalog, regenerated against 2.5.0 when the comparison script is run;
+- exact upstream 2.2.0 environment, Caddy, and systemd snapshots, kept as the last frozen example set;
+- mail, notification, and 2.2-to-2.5 upgrade guides;
 - staged release-load validation guidance;
 - GitHub Actions verification and Pages publishing workflows.
 
@@ -28,7 +29,7 @@ The documentation repository is checked with:
 make check
 python3 -m compileall -q scripts tests
 bash -n on shell scripts
-source environment comparison against Plainwire 2.2.0
+source environment comparison against Plainwire 2.5.0
 source-derived environment catalog regeneration
 local static-site link validation
 repository-wide em dash and en dash scan
